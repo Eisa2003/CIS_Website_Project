@@ -51,8 +51,19 @@ export default function Navbar(props) {
                     {props.links}
                 </a>
                 <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`} aria-labelledby="navbarDropdown"> {/* Apply 'show' class based on dropdown state */}
-                    <a className="dropdown-item" href="/">Action</a>
-                    <a className="dropdown-item" href="/">Another action</a>
+                    <a className="dropdown-item" href="/">Education</a>
+                    <a className="dropdown-item" href="/">Children/Youth Services</a>
+                    <a className="dropdown-item" href="/">Clothing Assistance</a>
+                    <a className="dropdown-item" href="/">Crisis Support</a>
+                    <a className="dropdown-item" href="/">Financial Assistance</a>
+                    <a className="dropdown-item" href="/">Food Assistance</a>
+                    <a className="dropdown-item" href="/">Law Enforcement</a>
+                    <a className="dropdown-item" href="/">Lowcountry Council of Governments</a>
+                    <a className="dropdown-item" href="/">Medication Assistance</a>
+                    <a className="dropdown-item" href="/">Recovery Resources</a>
+                    <a className="dropdown-item" href="/">Shelters</a>
+                    <a className="dropdown-item" href="/">Women Services</a>
+                    
                     <div className="dropdown-divider"></div>
                     <a className="dropdown-item" href="/">Something Special</a>
                 </div>
