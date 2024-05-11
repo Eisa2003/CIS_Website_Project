@@ -1,47 +1,70 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 export default function Navbar(props) {
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for managing dropdown visibility
+
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed)
+  const toggleDropdown = (event) => {
+    event.preventDefault(); // Prevent default anchor behavior
+    setIsDropdownOpen(!isDropdownOpen); // Toggle dropdown visibility
+  }
+
   return (
     <div>
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ padding: '5px 15px 5px 15px' }}> {/* Added inline style for padding */}
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ padding: '5px 15px 5px 15px' }}>
         <a className="navbar-brand" href="/">{props.title}</a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-        </button>
+        <button 
+          className="navbar-toggler" 
+          type="button" 
+          data-toggle="collapse" 
+          data-target="#navbarSupportedContent" 
+          aria-controls="navbarSupportedContent" 
+          aria-expanded={!isNavCollapsed ? true : false} // Change aria-expanded based on state
+          aria-label="Toggle navigation"
+          onClick={handleNavCollapse} // Add onClick handler to toggle state
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button> {/* Bootstrap's Navbar relies on JavaScript to toggle the visibility of the collapsed content when the Navbar toggler button is clicked. */}
 
-        <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-            <ul className="navbar-nav" style={{ marginRight: 'auto' }}>
-                <li className="nav-item active">
-                    <a className="nav-link" href="/">{props.home} <span className="sr-only">(current)</span></a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="/">{props.about}</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="/">{props.contactUs}</a>
-                </li>
-                <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {props.links}
+        {/* We toggle the collapse class from bootstrap to this div to hide and display the nav contents */}
+        <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse justify-content-end`} id="navbarSupportedContent">
+          <ul className="navbar-nav" style={{ marginRight: 'auto' }}>
+            <li className="nav-item active">
+              <a className="nav-link" href="/">{props.home} <span className="sr-only">(current)</span></a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/">{props.about}</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/">{props.contactUs}</a>
+            </li>
+            <li className="nav-item dropdown">
+                <a 
+                    className={`nav-link dropdown-toggle ${isDropdownOpen ? 'show' : ''}`} // Apply 'show' class based on dropdown state
+                    href="/" 
+                    id="navbarDropdown" 
+                    role="button" 
+                    onClick={toggleDropdown} // Toggle dropdown visibility on click
+                >
+                    {props.links}
                 </a>
-                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`} aria-labelledby="navbarDropdown"> {/* Apply 'show' class based on dropdown state */}
                     <a className="dropdown-item" href="/">Action</a>
                     <a className="dropdown-item" href="/">Another action</a>
                     <div className="dropdown-divider"></div>
-                    <a className="dropdown-item" href="/">Something else here</a>
+                    <a className="dropdown-item" href="/">Something Special</a>
                 </div>
-                </li>
-            </ul>
-        </div>
-        <form className="form-inline my-2 my-lg-0" style={{ display: 'flex', alignItems: 'center' }}> {/* Added inline style for flex layout and vertical center alignment */}
+            </li>
+          </ul>
+          <form className="form-inline my-2 my-lg-0" style={{ display: 'flex', alignItems: 'center' }}>
             <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-            <button className="btn btn-outline-success my-2 my-sm-0" type="submit" style={{ marginLeft: '5px' }}>Search</button> {/* Added inline style for margin */}
-        </form>
-
-    </nav>
+            <button className="btn btn-outline-success my-2 my-sm-0" type="submit" style={{ marginLeft: '5px' }}>Search</button>
+          </form>
+        </div>
+      </nav>
     </div>
-
   )
 } // end function Navbar
 
