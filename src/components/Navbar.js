@@ -13,7 +13,7 @@ export default function Navbar(props) {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ padding: '5px 15px 5px 15px' }}>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ padding: '25px 15px 25px 15px'}}>
         <a className="navbar-brand" href="/">{props.title}</a>
         <button 
           className="navbar-toggler" 
