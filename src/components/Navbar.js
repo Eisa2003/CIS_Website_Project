@@ -1,14 +1,19 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export default function Navbar(props) {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for managing dropdown visibility
 
-  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed)
-  const toggleDropdown = (event) => {
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+  
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  }
+
+  const handleDropdownClick = (event) => {
     event.preventDefault(); // Prevent default anchor behavior
-    setIsDropdownOpen(!isDropdownOpen); // Toggle dropdown visibility
+    toggleDropdown(); // Toggle dropdown visibility
   }
 
   return (
@@ -29,7 +34,7 @@ export default function Navbar(props) {
         </button> {/* Bootstrap's Navbar relies on JavaScript to toggle the visibility of the collapsed content when the Navbar toggler button is clicked. */}
 
         {/* We toggle the collapse class from bootstrap to this div to hide and display the nav contents */}
-        <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse justify-content-end`} id="navbarSupportedContent">
+        <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul className="navbar-nav" style={{ marginRight: 'auto' }}>
             <li className="nav-item active">
               <a className="nav-link" href="/">{props.home} <span className="sr-only">(current)</span></a>
@@ -46,7 +51,7 @@ export default function Navbar(props) {
                     href="/" 
                     id="navbarDropdown" 
                     role="button" 
-                    onClick={toggleDropdown} // Toggle dropdown visibility on click
+                    onClick={handleDropdownClick} // Toggle dropdown visibility on click
                 >
                     {props.links}
                 </a>
@@ -94,4 +99,3 @@ Navbar.defaultProps = {
     about: 'About Us',
     links: 'Resources'
 } // end setting default props
-

@@ -3,20 +3,15 @@ import './App.css';
 import Carousel from './components/Carousel';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Alerts from './components/Alerts';
 
 function App() { 
   return (
     <>
       <Navbar title="CISSC" /> {/* Dynamic component, I can change the title as 
       I wish; possible due to props */}
-      
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
 
+      <Alerts />
       <Carousel />
       <br/><br/><br/><br/><br/><br/>
 
