@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 export default function Navbar(props) {
@@ -16,10 +16,33 @@ export default function Navbar(props) {
     toggleDropdown(); // Toggle dropdown visibility
   }
 
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if the user has scrolled beyond a certain threshold
+      const threshold = 100; // You can adjust this value as needed
+      if (window.scrollY > threshold) {
+        // Add a class to the navbar to fix it at the top
+        document.querySelector('.navbar').classList.add('fixed-top');
+      } else {
+        // Remove the fixed-top class if the user scrolls back up
+        document.querySelector('.navbar').classList.remove('fixed-top');
+      }
+    };
+
+    // Attach the scroll event listener when the component mounts
+    window.addEventListener('scroll', handleScroll);
+
+    // Remove the scroll event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // Empty dependency array ensures the effect runs only once on mount
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ padding: '25px 15px 25px 15px'}}>
-        <a className="navbar-brand" href="/">{props.title}</a>
+        <div className='container'>
+        <a className="navbar-brand" href="/"><strong>{props.title}</strong></a>
         <button 
           className="navbar-toggler" 
           type="button" 
@@ -79,10 +102,11 @@ export default function Navbar(props) {
             <button className="btn btn-outline-success my-2 my-sm-0" type="submit" style={{ marginLeft: '5px' }}>Search</button>
           </form>
         </div>
+        </div>
       </nav>
     </div>
-  )
-} // end function Navbar
+  );
+}
 
 Navbar.propTypes = {
     title: PropTypes.string.isRequired,
@@ -90,7 +114,7 @@ Navbar.propTypes = {
     contactUs: PropTypes.string.isRequired,
     about: PropTypes.string.isRequired,
     links: PropTypes.string.isRequired
-} // end propType dec
+}; // end propType dec
 
 Navbar.defaultProps = {
     title: 'Set title here',
@@ -98,4 +122,4 @@ Navbar.defaultProps = {
     contactUs: 'Contact Us',
     about: 'About Us',
     links: 'Resources'
-} // end setting default props
+}; // end setting default props
