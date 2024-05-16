@@ -7,6 +7,7 @@ import Alerts from './components/Alerts';
 import Events from './components/Events';
 //import Cards from './components/Cards';
 import EventsCarousel from './components/EventsCarousel';
+import HeroBanner from './components/HeroBanner';
 
 function App() { 
   return (
@@ -15,6 +16,9 @@ function App() {
       I wish; possible due to props */}
 
       <Alerts />
+      <HeroBanner />
+
+      
       <Carousel /> <br/><br/>
 
       <div className="container">
