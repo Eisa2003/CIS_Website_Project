@@ -4,11 +4,11 @@ const EventCard = ({ title, date, desc, address, imageUrl }) => {
   return (
     <div className="card">
       <img src={imageUrl} className="card-img-top" alt="Event" />
-      <div className="card-body">
-        <h5 className="card-title">{title}</h5>
-        <p className="card-text">{date}</p>
-        <p className="card-text">{desc}</p>
-        <p className="card-text">{address}</p>
+      <div className="card-body bg-dark">
+        <strong><h5 className="card-title text-white" >{title}</h5></strong>
+        <p className="card-text text-light">{date}</p>
+        <p className="card-text text-light">{desc}</p>
+        <p className="card-text text-light">{address}</p>
       </div>
     </div>
   );
@@ -52,7 +52,16 @@ const EventsCarousel = ({ events }) => {
           style={{ color: 'black' }} // Adjust icon color as needed
         ></span>
       </button>
-
+      <ol className="carousel-indicators">
+        {events.map((_, index) => (
+          <li
+            key={index}
+            data-bs-target="#eventCarousel"
+            data-bs-slide-to={index}
+            className={index === 0 ? 'active' : ''}
+          ></li>
+        ))}
+      </ol>
     </div>
   );
 };
