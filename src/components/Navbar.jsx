@@ -61,13 +61,13 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul className="navbar-nav" style={{ marginRight: 'auto' }}>
             <li className="nav-item active">
-              <NavLink className="nav-link" to="/">{props.home} <span className="sr-only">(current)</span></NavLink>
+              <NavLink className="nav-link" to="/">{props.home}</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/About">{props.about}</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/">{props.contactUs}</NavLink>
+              <NavLink className="nav-link" to="/ContactUs">{props.contactUs}</NavLink>
             </li>
             <li className="nav-item dropdown">
                 <NavLink 
@@ -80,21 +80,21 @@ export default function Navbar(props) {
                     {props.links}
                 </NavLink>
                 <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`} aria-labelledby="navbarDropdown"> {/* Apply 'show' class based on dropdown state */}
-                    <NavLink className="dropdown-item" to="/">Education</NavLink>
-                    <NavLink className="dropdown-item" to="/">Children/Youth Services</NavLink>
-                    <NavLink className="dropdown-item" to="/">Clothing Assistance</NavLink>
-                    <NavLink className="dropdown-item" to="/">Crisis Support</NavLink>
-                    <NavLink className="dropdown-item" to="/">Financial Assistance</NavLink>
-                    <NavLink className="dropdown-item" to="/">Food Assistance</NavLink>
-                    <NavLink className="dropdown-item" to="/">Law Enforcement</NavLink>
-                    <NavLink className="dropdown-item" to="/">Lowcountry Council of Governments</NavLink>
-                    <NavLink className="dropdown-item" to="/">Medication Assistance</NavLink>
-                    <NavLink className="dropdown-item" to="/">Recovery Resources</NavLink>
-                    <NavLink className="dropdown-item" to="/">Shelters</NavLink>
-                    <NavLink className="dropdown-item" to="/">Women Services</NavLink>
+                    <NavLink className="dropdown-item" to="/Education">Education</NavLink>
+                    <NavLink className="dropdown-item" to="/CYServices">Children/Youth Services</NavLink>
+                    <NavLink className="dropdown-item" to="/ClothingAss">Clothing Assistance</NavLink>
+                    <NavLink className="dropdown-item" to="/CrisisSup">Crisis Support</NavLink>
+                    <NavLink className="dropdown-item" to="/FinancialAss">Financial Assistance</NavLink>
+                    <NavLink className="dropdown-item" to="/FoodAss">Food Assistance</NavLink>
+                    <NavLink className="dropdown-item" to="/LawEnf">Law Enforcement</NavLink>
+                    <NavLink className="dropdown-item" to="/LCoG">Lowcountry Council of Governments</NavLink>
+                    <NavLink className="dropdown-item" to="/MedAss">Medication Assistance</NavLink>
+                    <NavLink className="dropdown-item" to="/RecoveryRes">Recovery Resources</NavLink>
+                    <NavLink className="dropdown-item" to="/Shelters">Shelters</NavLink>
+                    <NavLink className="dropdown-item" to="/WomenServ">Women Services</NavLink>
                     
                     <div className="dropdown-divider"></div>
-                    <NavLink className="dropdown-item" to="/">Something Special</NavLink>
+                    <NavLink className="dropdown-item" to="/SomethingSpecial">Something Special</NavLink>
                 </div>
             </li>
           </ul>

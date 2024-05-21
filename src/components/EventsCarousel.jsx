@@ -16,6 +16,7 @@ const EventCard = ({ title, date, desc, address, imageUrl }) => {
 
 const EventsCarousel = ({ events }) => {
   return (
+    <div className='container'>
     <div id="eventCarousel" className="carousel slide" data-bs-ride="carousel">
       <div className="carousel-inner">
         {events.map((event, index) => (
@@ -62,6 +63,7 @@ const EventsCarousel = ({ events }) => {
           ></li>
         ))}
       </ol>
+    </div>
     </div>
   );
 };

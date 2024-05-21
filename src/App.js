@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer';
 import Events from './components/Events';
 import EventsCarousel from './components/EventsCarousel';
+import Alerts from './components/Alerts.jsx';
+import Carousel from './components/Carousel.jsx';
 import Home from './components/Home';
 
 function App() {
@@ -14,6 +16,18 @@ function App() {
       element: (
         <>
           <Navbar title="HamptonCounty" />
+          <Alerts />
+          <Carousel /> <br/><br/>
+
+          <div className="container">
+          <div className="row">
+            <div className="col">
+              <h1 className='text-center'>Upcoming Events</h1> <br/>
+              <EventsCarousel events={Events}/>
+            </div>
+          </div>
+          </div>
+
           <Home />
           <Footer />
         </>
