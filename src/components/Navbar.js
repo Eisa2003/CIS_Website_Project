@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom'
 
 export default function Navbar(props) {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
@@ -42,7 +43,7 @@ export default function Navbar(props) {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ padding: '25px 15px 25px 15px'}}>
         <div className='container'>
-        <a className="navbar-brand" href="/"><strong>{props.title}</strong></a>
+        <NavLink className="navbar-brand" to="/"><strong>{props.title}</strong></NavLink>
         <button 
           className="navbar-toggler" 
           type="button" 
@@ -60,40 +61,40 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul className="navbar-nav" style={{ marginRight: 'auto' }}>
             <li className="nav-item active">
-              <a className="nav-link" href="/">{props.home} <span className="sr-only">(current)</span></a>
+              <NavLink className="nav-link" to="/">{props.home} <span className="sr-only">(current)</span></NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">{props.about}</a>
+              <NavLink className="nav-link" to="/About">{props.about}</NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">{props.contactUs}</a>
+              <NavLink className="nav-link" to="/">{props.contactUs}</NavLink>
             </li>
             <li className="nav-item dropdown">
-                <a 
+                <NavLink 
                     className={`nav-link dropdown-toggle ${isDropdownOpen ? 'show' : ''}`} // Apply 'show' class based on dropdown state
-                    href="/" 
+                    to="/" 
                     id="navbarDropdown" 
                     role="button" 
                     onClick={handleDropdownClick} // Toggle dropdown visibility on click
                 >
                     {props.links}
-                </a>
+                </NavLink>
                 <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`} aria-labelledby="navbarDropdown"> {/* Apply 'show' class based on dropdown state */}
-                    <a className="dropdown-item" href="/">Education</a>
-                    <a className="dropdown-item" href="/">Children/Youth Services</a>
-                    <a className="dropdown-item" href="/">Clothing Assistance</a>
-                    <a className="dropdown-item" href="/">Crisis Support</a>
-                    <a className="dropdown-item" href="/">Financial Assistance</a>
-                    <a className="dropdown-item" href="/">Food Assistance</a>
-                    <a className="dropdown-item" href="/">Law Enforcement</a>
-                    <a className="dropdown-item" href="/">Lowcountry Council of Governments</a>
-                    <a className="dropdown-item" href="/">Medication Assistance</a>
-                    <a className="dropdown-item" href="/">Recovery Resources</a>
-                    <a className="dropdown-item" href="/">Shelters</a>
-                    <a className="dropdown-item" href="/">Women Services</a>
+                    <NavLink className="dropdown-item" to="/">Education</NavLink>
+                    <NavLink className="dropdown-item" to="/">Children/Youth Services</NavLink>
+                    <NavLink className="dropdown-item" to="/">Clothing Assistance</NavLink>
+                    <NavLink className="dropdown-item" to="/">Crisis Support</NavLink>
+                    <NavLink className="dropdown-item" to="/">Financial Assistance</NavLink>
+                    <NavLink className="dropdown-item" to="/">Food Assistance</NavLink>
+                    <NavLink className="dropdown-item" to="/">Law Enforcement</NavLink>
+                    <NavLink className="dropdown-item" to="/">Lowcountry Council of Governments</NavLink>
+                    <NavLink className="dropdown-item" to="/">Medication Assistance</NavLink>
+                    <NavLink className="dropdown-item" to="/">Recovery Resources</NavLink>
+                    <NavLink className="dropdown-item" to="/">Shelters</NavLink>
+                    <NavLink className="dropdown-item" to="/">Women Services</NavLink>
                     
                     <div className="dropdown-divider"></div>
-                    <a className="dropdown-item" href="/">Something Special</a>
+                    <NavLink className="dropdown-item" to="/">Something Special</NavLink>
                 </div>
             </li>
           </ul>

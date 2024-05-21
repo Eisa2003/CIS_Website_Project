@@ -1,0 +1,43 @@
+@keyframes typing {
+    0% { margin-left: 1.2em; width: 60%; }
+    10% { border-left: 2px solid chartreuse; }
+    98% { border-left: 2px solid chartreuse; }
+    100% { margin-left: 11em; width: 0%; }
+}
+
+.heroBanner {
+    position: relative;
+    height: 70vh;
+    width: 100%;
+}
+
+.semicircle {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40%; /* Adjust based on desired coverage */
+    height: 100%;
+    background-color: black;
+    border-top-left-radius: 15% 50%; /* Adjusting for slight curve */
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 15% 50%;
+    border-bottom-right-radius: 0;
+    opacity: 0.7;
+}
+
+.typer {
+    color: white;
+}
+
+.typer::before {
+    position: absolute;
+    content: "";
+    display: block;
+    height: 8%; /* Adjust height if necessary */
+    background-color: rgb(21, 25, 43);
+    animation: typing 3s steps(45) forwards;
+}

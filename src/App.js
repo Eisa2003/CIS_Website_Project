@@ -1,19 +1,50 @@
-//import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import Carousel from './components/Carousel';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Alerts from './components/Alerts';
 import Events from './components/Events';
-//import Cards from './components/Cards';
 import EventsCarousel from './components/EventsCarousel';
-import HeroBanner from './components/HeroBanner';
+import Home from './components/Home';
 
-function App() { 
+function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <>
+          <Navbar title="HamptonCounty" />
+          <Home />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/About",
+      element: (
+        <>
+          <Navbar title="HamptonCounty" />
+          <EventsCarousel events={Events}/>
+          <Footer />
+        </>
+      ),
+    },
+  ]);
+
   return (
-    <>
-      <Navbar title="HamptonCounty" /> {/* Dynamic component, I can change the title as 
-      I wish; possible due to props */}
+    <RouterProvider router={router} />
+  );
+}
+
+export default App;
+
+
+
+/* -- Old home page
+<Navbar title="HamptonCounty" /> Dynamic component, I can change the title as 
+      I wish; possible due to props 
+
+      <RouterProvider router={router} />
 
       <Alerts />
       <HeroBanner />
@@ -38,9 +69,5 @@ function App() {
         companyEmail="info@example.com"
         companyPhone="+ 01 234 567 88"
       />
-    </>
-  );
-} // end function App
 
-
-export default App;
+*/

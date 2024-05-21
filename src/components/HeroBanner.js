@@ -1,13 +1,29 @@
-import background from './images/background.jpg';
+import '../../src/style.css'
 
-import React from 'react'
+import React from 'react';
+import background from './images/background.jpg';
 
 export default function HeroBanner() {
     return (
         <div>
-            <div style={{ height: '70vh', width: '100%' }}>
-                <img src={background} className="img-fluid" alt="..." style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <div
+                className="heroBanner"
+                style={{
+                    height: '70vh',
+                    width: '100%',
+                    backgroundImage: `url(${background})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    position: 'relative'
+                }}
+            >
+                <div className="semicircle">
+                    <h1 className="typer">Let's try putting a lot of stuff into this div and see how much can it hold</h1>
+                </div>
             </div>
         </div>
-    )
-} // end function HeroBanner
+    );
+}
