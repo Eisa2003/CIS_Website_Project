@@ -79,7 +79,7 @@ export default function Navbar(props) {
                   {props.links}
                 </NavLink>
                 <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`} aria-labelledby="navbarDropdown"> {/* Apply 'show' class based on dropdown state */}
-                  <NavLink className="dropdown-item" to="/Education" onClick={() => setActiveLink('/Education')}>Education</NavLink>
+                  <NavLink className="dropdown-item" to="/Education" onClick={() => setActiveLink('/Education')}>Employment & Education</NavLink>
                   <NavLink className="dropdown-item" to="/CYServices" onClick={() => setActiveLink('/CYServices')}>Children/Youth Services</NavLink>
                   <NavLink className="dropdown-item" to="/ClothingAss" onClick={() => setActiveLink('/ClothingAss')}>Clothing Assistance</NavLink>
                   <NavLink className="dropdown-item" to="/CrisisSup" onClick={() => setActiveLink('/CrisisSup')}>Crisis Support</NavLink>
