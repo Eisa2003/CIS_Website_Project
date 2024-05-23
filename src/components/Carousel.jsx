@@ -1,7 +1,7 @@
 import React from 'react';
-import HamptonLakeImage from './images/HamptonLake.jpeg';
-import HamptonWildImage from './images/HamptonWild.jpeg';
-import HamptonMainImage from './images/HamptonMain.jpeg';
+import GentleBreeze from './images/GentleBreeze.gif';
+import PaperFamily from './images/PaperFamily.jpg';
+import HelpingHand from './images/HelpingHand.jpg';
 
 export default function Carousel(props) {
   return (
@@ -9,7 +9,7 @@ export default function Carousel(props) {
       <h1 style={{ 
         textAlign: 'center', 
         color: 'white', 
-        fontSize: '50px', 
+        fontSize: '60px', 
         position: 'absolute', 
         top: '50%', 
         left: '50%', 
@@ -27,13 +27,13 @@ export default function Carousel(props) {
         </ol>
         <div className="carousel-inner" style={{ height: '60vh'}}>
           <div className="carousel-item active">
-            <img className="d-block w-100" src={HamptonLakeImage} alt="First slide" style={{ objectFit: 'cover', height: '60vh', width: '100%' }} />
+            <img className="d-block w-100" src={GentleBreeze} alt="First slide" style={{ objectFit: 'cover', height: '60vh', width: '100%' }} />
           </div>
           <div className="carousel-item">
-            <img className="d-block w-100" src={HamptonWildImage} style={{ objectFit: 'cover', height: '60vh', width: '100%' }} alt="Second slide" />
+            <img className="d-block w-100" src={HelpingHand} style={{ objectFit: 'cover', height: '60vh', width: '100%' }} alt="Second slide" />
           </div>
           <div className="carousel-item">
-            <img className="d-block w-100" src={HamptonMainImage} style={{ objectFit: 'cover', height: '60vh', width: '100%' }} alt="Third slide" />
+            <img className="d-block w-100" src={PaperFamily} style={{ objectFit: 'cover', height: '60vh', width: '100%' }} alt="Third slide" />
           </div>
         </div>
         <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

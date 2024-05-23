@@ -5,6 +5,7 @@
     100% { margin-left: 35px; width: 0px; }
 }
 
+
 .navbar-brand {
     margin-right: 35px;
     font-size: 25px;
@@ -15,14 +16,14 @@
     content: "";
     display: block;
     height: 35px; /* Adjust height if necessary */
-    background-color: #343a40;
+    background-color: #9AA581;
     animation: typing 0.6s steps(4) forwards; /* Adding delay after each iteration */
 }
 
 hr {
     padding: 1px;
     border-radius: 5px;
-    background-color: grey;
+    background-color: rgba(128, 128, 128, 0.488);
 }
 
 .heroBanner {
@@ -58,7 +59,7 @@ hr {
     content: "";
     display: block;
     height: 8%; /* Adjust height if necessary */
-    background-color: rgb(21, 25, 43);
+    background-color: rgb(164, 164, 164);
     animation: typing 3s steps(45) forwards;
 }
 
@@ -70,7 +71,7 @@ hr {
 .searchBox {
     padding: 10px 15px 10px 15px;
     border: none;
-    background-color: #b5b0d2;
+    background-color: #F6F6DB;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     color: black;
@@ -79,7 +80,7 @@ hr {
 
 .searchBtn {
     color: white;
-    background-color: #6351ce;
+    background-color: #9AA581;
     border: none;
     text-align: center;
     padding: 10px 15px 10px 15px;
@@ -93,7 +94,7 @@ hr {
 .searchBtn:hover{
     border-radius: 1px;
     background-color: #7862f4;
-    color: rgb(32, 255, 32);
+    color: rgb(34, 184, 56);
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
@@ -107,7 +108,7 @@ li{
 }
 
 li:hover, .isActive {
-    color: white;
-    background-color: #6351ce;
+    color: #CCD5C0;
+    background-color:#6E7753;
     border-radius: 5px;
 }

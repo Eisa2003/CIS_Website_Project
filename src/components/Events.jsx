@@ -1,17 +1,17 @@
 const events = [
     {
       title: 'Event 1',
-      date: 'May 20, 2024',
+      date: 'Insert Date',
       desc: 'Description of Event 1',
-      address: '123 Main St, City, Country',
-      imageUrl: 'https://p325k7wa.twic.pics/high/jujutsu-kaisen/jujutsu-kaisen-cursed-clash/00-page-setup/JJK-header-mobile2.jpg?twic=v1/resize=760/step=10/quality=80',
+      address: 'Insert Address',
+      imageUrl: 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXR5cjMwamZsbnNpNmthMDhpajA1ajM5dnhnNTRobzFxM2FrbXlmbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUA7b4arnbo3THfzi0/giphy.gif',
     },
     {
       title: 'Event 2',
-      date: 'May 25, 2024',
+      date: 'Insert Date',
       desc: 'Description of Event 2',
-      address: '456 Elm St, City, Country',
-      imageUrl: 'https://wallpapers.com/images/hd/one-piece-pictures-bjm9tdff9yzguoup.jpg',
+      address: 'Insert Address',
+      imageUrl: 'https://foodfinders.org/wp-content/uploads/2022/07/Gold-White-Simple-Food-Drive-Promotion-Flyer-Instagram-Post.png',
     },
     // Add more events as needed
   ];
