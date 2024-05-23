@@ -1,8 +1,28 @@
 @keyframes typing {
-    0% { margin-left: 1.2em; width: 60%; }
+    0% { margin-left: 0; width: 70px; }
     10% { border-left: 2px solid chartreuse; }
     98% { border-left: 2px solid chartreuse; }
-    100% { margin-left: 11em; width: 0%; }
+    100% { margin-left: 35px; width: 0px; }
+}
+
+.navbar-brand {
+    margin-right: 35px;
+    font-size: 25px;
+}
+
+.navbar-brand::before {
+    position: absolute;
+    content: "";
+    display: block;
+    height: 35%; /* Adjust height if necessary */
+    background-color: #343a40;
+    animation: typing 1s steps(3) forwards; /* Adding delay after each iteration */
+}
+
+hr {
+    padding: 1px;
+    border-radius: 5px;
+    background-color: grey;
 }
 
 .heroBanner {
@@ -40,4 +60,55 @@
     height: 8%; /* Adjust height if necessary */
     background-color: rgb(21, 25, 43);
     animation: typing 3s steps(45) forwards;
+}
+
+/* btn btn-outline-success my-2 my-sm-0 <- old btn */
+.searchComponent {
+    padding: 0;
+}
+
+.searchBox {
+    padding: 10px 15px 10px 15px;
+    border: none;
+    background-color: #b5b0d2;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: black;
+    font-weight: 500;
+}
+
+.searchBtn {
+    color: white;
+    background-color: #6351ce;
+    border: none;
+    text-align: center;
+    padding: 10px 15px 10px 15px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.searchBtn:hover{
+    border-radius: 1px;
+    background-color: #7862f4;
+    color: rgb(32, 255, 32);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* These are the nav-links */
+li{
+    padding: 4px 15px 4px 15px;
+    transition: 0.5s;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+li:hover, .isActive {
+    color: white;
+    background-color: #6351ce;
+    border-radius: 5px;
 }

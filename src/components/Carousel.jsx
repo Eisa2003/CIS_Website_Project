@@ -3,7 +3,7 @@ import HamptonLakeImage from './images/HamptonLake.jpeg';
 import HamptonWildImage from './images/HamptonWild.jpeg';
 import HamptonMainImage from './images/HamptonMain.jpeg';
 
-export default function Carousel() {
+export default function Carousel(props) {
   return (
     <div style={{ position: 'relative'}}>
       <h1 style={{ 
@@ -17,7 +17,7 @@ export default function Carousel() {
         textShadow: '12px 8px 15px black',
         zIndex: '1' 
       }}>
-        Hampton County Resources
+        {props.title}
       </h1>
       <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
         <ol className="carousel-indicators">

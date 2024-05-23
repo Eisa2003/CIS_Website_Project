@@ -7,7 +7,6 @@ import Events from './components/Events';
 import EventsCarousel from './components/EventsCarousel';
 import Alerts from './components/Alerts.jsx';
 import Carousel from './components/Carousel.jsx';
-import Home from './components/Home';
 
 function App() {
   const router = createBrowserRouter([
@@ -15,20 +14,21 @@ function App() {
       path: "/",
       element: (
         <>
-          <Navbar title="HamptonCounty" />
+          <Navbar title="HC" />
           <Alerts />
-          <Carousel /> <br/><br/>
+          <Carousel title="Hampton County Resources"/> 
 
           <div className="container">
           <div className="row">
             <div className="col">
               <h1 className='text-center'>Upcoming Events</h1> <br/>
+              <hr/>
               <EventsCarousel events={Events}/>
             </div>
           </div>
+          <hr/>
           </div>
 
-          <Home />
           <Footer />
         </>
       ),
@@ -37,7 +37,8 @@ function App() {
       path: "/About",
       element: (
         <>
-          <Navbar title="HamptonCounty" />
+          <Navbar title="HC" />
+          <Carousel title="About Page"/> 
           <EventsCarousel events={Events}/>
           <Footer />
         </>
