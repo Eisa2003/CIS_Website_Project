@@ -104,7 +104,7 @@ export default function Footer({ companyName, companyDescription, companyAddress
         {/* Copyright */}
         <div className="text-center p-3" style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
           © 2024 Copyright: 
-          <a className="text-white" href="/">CISSC.com</a>
+          <a className="text-white" href="/">hamptoncountyresourcecenter.com</a>
         </div>
         {/* Copyright */}
       </footer>
@@ -114,10 +114,10 @@ export default function Footer({ companyName, companyDescription, companyAddress
 }
 
 Footer.defaultProps = {
-    companyName: 'CISSC',
-    companyDescription: "I'll write something over here afterwards.",
+    companyName: 'HC Resource Center',
+    companyDescription: "A website for the beterment of the comunity.",
     companyAddress: 'North Charleston, SC 29405, US',
-    companyEmail: 'info@example.com',
+    companyEmail: 'helpinhamptoncounty@cisofsc.org',
     companyPhone: '+ 01 234 567 88'
 } // end setting of default props
 

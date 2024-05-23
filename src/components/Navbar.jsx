@@ -7,6 +7,7 @@ export default function Navbar(props) {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for managing dropdown visibility
   const [activeLink, setActiveLink] = useState('/'); // State for tracking active link
+  const [animationKey, setAnimationKey] = useState(0); // State to control re-triggering animation
 
   const location = useLocation();
 
@@ -14,6 +15,15 @@ export default function Navbar(props) {
     // Update active link based on current URL path
     setActiveLink(location.pathname);
   }, [location.pathname]);
+
+  useEffect(() => {
+    // Re-add the animation class after a delay
+    const timeout = setTimeout(() => {
+      setAnimationKey((prev) => prev + 1); // Increment key to re-trigger animation
+    }, 7000); // 1s animation duration + 3s delay
+
+    return () => clearTimeout(timeout); // Clear timeout on component unmount
+  }, [animationKey]);
 
   const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
   
@@ -30,7 +40,9 @@ export default function Navbar(props) {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ padding: '25px 15px 25px 15px'}}>
         <div className='container'>
-          <NavLink className="navbar-brand" to="/"><strong>{props.title}</strong></NavLink>
+          <NavLink className={`navbar-brand ${animationKey}`} to="/" key={animationKey}>
+            <strong>{props.title}</strong>
+          </NavLink>
           <button 
             className="navbar-toggler" 
             type="button" 
