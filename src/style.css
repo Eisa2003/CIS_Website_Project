@@ -112,3 +112,27 @@ li:hover, .isActive {
     background-color:#6E7753;
     border-radius: 5px;
 }
+
+.indented-paragraph {
+    text-indent: 20px; 
+    font-family: 'Georgia, serif';
+  }
+  
+
+  @keyframes titletyping {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  .titletyping-animation {
+        overflow: hidden; 
+        border-right: 2px transparent; 
+        white-space: nowrap; 
+        animation: titletyping 4s steps(20, end); 
+  }
+  
+  

@@ -1,20 +1,23 @@
+import '../../src/style.css';
 import React from 'react';
 import GentleBreeze from './images/GentleBreeze.gif';
 import PaperFamily from './images/PaperFamily.jpg';
 import HelpingHand from './images/HelpingHand.jpg';
 
+
 export default function Carousel(props) {
   return (
-    <div style={{ position: 'relative'}}>
-      <h1 style={{ 
+    <div  style={{ position: 'relative'}}>
+      <h1 className="titletyping-animation"style={{ 
         textAlign: 'center', 
-        color: 'white', 
-        fontSize: '60px', 
+        color: 'ghostwhite', 
+        fontSize: '60px',
+        fontFamily: 'Sacramento, cursive',
         position: 'absolute', 
         top: '50%', 
         left: '50%', 
         transform: 'translate(-50%, -50%)', 
-        textShadow: '12px 8px 15px black',
+  
         zIndex: '1' 
       }}>
         {props.title}

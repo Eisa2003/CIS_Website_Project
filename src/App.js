@@ -8,6 +8,7 @@ import EventsCarousel from './components/EventsCarousel';
 import Alerts from './components/Alerts.jsx';
 import Carousel from './components/Carousel.jsx';
 import AboutUs from './components/AboutUs.jsx';
+import ContactUs from './components/ContactUs.jsx';
 
 
 function App() {
@@ -43,9 +44,23 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="About Us"/>
+          <Carousel title="Our Story"/>
           <br/>
           <AboutUs />
+          <br/>
+          <Footer />
+        </>
+      ),
+    },
+
+    {
+      path: "/ContactUs",
+      element: (
+        <>
+          <Navbar title="HC" />
+          <Carousel title="Contact Us"/>
+          <br/>
+          <ContactUs />
           <br/>
           <Footer />
         </>
