@@ -16,7 +16,7 @@
     content: "";
     display: block;
     height: 35px; /* Adjust height if necessary */
-    background-color: #343a40;
+    background-color: #38422B;
     animation: typing 0.6s steps(4) forwards; /* Adding delay after each iteration */
 }
 
@@ -93,13 +93,13 @@ hr {
 
 .searchBtn:hover{
     border-radius: 1px;
-    background-color: #7862f4;
+    background-color: #697157;
     color: rgb(34, 184, 56);
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
-/* These are the nav-links */
+/* These are the nav-link's style */
 li{
     padding: 4px 15px 4px 15px;
     transition: 0.5s;

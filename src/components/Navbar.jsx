@@ -39,7 +39,7 @@ export default function Navbar(props) {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ padding: '25px 15px 25px 15px'}}>
+      <nav className="navbar navbar-expand-lg navbar-dark" style={{ padding: '25px 15px 25px 15px', backgroundColor: '#38422B'}}>
         <div className='container'>
           <NavLink className={`navbar-brand ${animationKey}`} to="/" key={animationKey}>
             <strong>{props.title}</strong>

@@ -3,7 +3,7 @@ import React from 'react';
 export default function Footer({ companyName, companyDescription, companyAddress, companyEmail, companyPhone }) {
   return (
     <div>
-      <footer className="text-center text-lg-start text-white bg-dark">
+      <footer className="text-center text-lg-start text-white" style={{backgroundColor: '#38422B'}}>
         {/* Section: Social media */}
         <section className="d-flex justify-content-between p-4" style={{ backgroundColor: '#9AA581' }}>
           {/* Left */}
@@ -38,7 +38,7 @@ export default function Footer({ companyName, companyDescription, companyAddress
         {/* Section: Social media */}
 
         {/* Section: Links  */}
-        <section className="">
+        <section className="" style={{backgroundColor: '#38422B'}}>
           <div className="container text-center text-md-start mt-5">
             {/* Grid row */}
             <div className="row mt-3">
@@ -102,7 +102,7 @@ export default function Footer({ companyName, companyDescription, companyAddress
         {/* Section: Links  */}
 
         {/* Copyright */}
-        <div className="text-center p-3" style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
+        <div className="text-center p-3" style={{ backgroundColor: '#9AA581' }}>
           © 2024 Copyright: 
           <a className="text-white" href="/">hamptoncountyresourcecenter.com</a>
         </div>
