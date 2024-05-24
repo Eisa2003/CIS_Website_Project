@@ -51,6 +51,9 @@ export default function ContactUs() {
                     <label htmlFor="lname">Last Name</label>
                     <input type="text" id="lname" name="lastname" placeholder="Your last name.." style={styles.input} />
 
+                    <label htmlFor="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your email.." style={styles.input} />
+
                     <label htmlFor="country">Country</label>
                     <select id="country" name="country" style={styles.input}>
                         <option value="australia">Australia</option>
