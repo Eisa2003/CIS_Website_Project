@@ -16,7 +16,7 @@
     content: "";
     display: block;
     height: 35px; /* Adjust height if necessary */
-    background-color: #9AA581;
+    background-color: #343a40;
     animation: typing 0.6s steps(4) forwards; /* Adding delay after each iteration */
 }
 
