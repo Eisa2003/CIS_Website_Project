@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../src/style.css';
 
 export default function ContactUs() {
     let styles = {
@@ -8,63 +9,41 @@ export default function ContactUs() {
         '*': {
             boxSizing: 'border-box',
         },
-        input: {
-            width: '100%',
-            padding: '8px', // Reduced padding
-            border: '1px solid #ccc',
-            borderRadius: '4px',
-            boxSizing: 'border-box',
-            marginTop: '4px', // Reduced margin
-            marginBottom: '8px', // Reduced margin
-            resize: 'vertical',
-            fontSize: '14px', // Reduced font size
-        },
-        submitButton: {
-            backgroundColor: '#04AA6D',
-            color: 'white',
-            padding: '8px 16px', // Reduced padding
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer',
-            fontSize: '14px', // Reduced font size
-        },
-        submitButtonHover: {
-            backgroundColor: '#45a049',
-        },
         container: {
             borderRadius: '5px',
             backgroundColor: '#f2f2f2',
             padding: '16px', // Reduced padding
             maxWidth: '400px', // Set a maximum width for the form
             margin: '0 auto', // Center the form horizontally
-        },
+        }
     };
 
     return (
-        <div style={styles.body}>
-            <h3>Contact Form</h3>
+        <div style={styles.body} className='container'>
+          <h3 className='text-center'>Feel Free To Reach Out To Us</h3>
+          <hr/>
             <div style={styles.container}>
                 <form action="/action_page.php">
                     <label htmlFor="fname">First Name</label>
-                    <input type="text" id="fname" name="firstname" placeholder="Your name.." style={styles.input} />
+                    <input type="text" id="fname" name="firstname" placeholder="Your name.." className="contactInput"/>
 
                     <label htmlFor="lname">Last Name</label>
-                    <input type="text" id="lname" name="lastname" placeholder="Your last name.." style={styles.input} />
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name.." className="contactInput"/>
 
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Your email.." style={styles.input} />
+                    <input type="email" id="email" name="email" placeholder="Your email.." className="contactInput"/>
 
                     <label htmlFor="country">Country</label>
-                    <select id="country" name="country" style={styles.input}>
+                    <select id="country" name="country" className="contactInput">
                         <option value="australia">Australia</option>
                         <option value="canada">Canada</option>
                         <option value="usa">USA</option>
                     </select>
 
                     <label htmlFor="subject">Subject</label>
-                    <textarea id="subject" name="subject" placeholder="Write something.." style={{ ...styles.input, height: '120px' }}></textarea>
+                    <textarea id="subject" name="subject" placeholder="Write something.." className="contactInput" style={{ height: '120px' }}></textarea>
 
-                    <input type="submit" value="Submit" style={styles.submitButton} />
+                    <input type="submit" value="Submit" className= "submitButton"/>
                 </form>
             </div>
         </div>

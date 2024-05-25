@@ -24,10 +24,24 @@
 
 /* Fancy Horizontal Bar */
 hr {
+    width: 50%;
     padding: 1px;
     border-radius: 5px;
-    background-color: rgba(128, 128, 128, 0.488);
+    background-color: #697157;
+    /*background-color: rgba(128, 128, 128, 0.488); <- old*/
 }
+
+/* Some future work
+h1::after{
+    content: "";
+    justify-content: center;
+    display: block;
+    width: 100%;
+    height: 3px;
+    padding: 1px;
+    border-radius: 5px;
+    background-color: #697157;
+}*/
 
 /* Search Bar Styling */
 .searchComponent {
@@ -64,7 +78,6 @@ hr {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
-
 /* -- END SEARCH BAR STYLING -- */
 
 /* These are the nav-link's style */
@@ -82,11 +95,39 @@ li:hover, .isActive {
 }
 /* -- END NAV-LINKS STYLING */
 
-/* CONTACT PAGE */
+/* CONTACT & ABOUT PAGE */
 .indented-paragraph {
     text-indent: 20px; 
     font-family: 'Georgia, serif';
+}
+
+.contactInput {
+    width: 100%;
+    padding: 8px; /* Reduced padding */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 4px; /* Reduced margin */
+    margin-bottom: 8px; /* Reduced margin */
+    resize: vertical;
+    font-size: 14px; /* Reduced font size */
   }
+  
+
+.submitButton {
+    background-color: #9AA581;
+    color: white;
+    padding: 8px 16px; /* Correct syntax for padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px; /* Correct syntax for font size */
+}
+
+.submitButton:hover {
+    background-color: #697157; /* Correct syntax for hover background color */
+}
+/* -- END CONTACT PAGE STYLING -- */
   
 /* Carousel Title Animation */
 @keyframes titletyping {
