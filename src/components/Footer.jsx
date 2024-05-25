@@ -1,9 +1,10 @@
 import React from 'react';
+import '../../node_modules/bootstrap-icons/font/bootstrap-icons.css';
 
 export default function Footer({ companyName, companyDescription, companyAddress, companyEmail, companyPhone }) {
   return (
     <div>
-      <footer className="text-center text-lg-start text-white" style={{backgroundColor: '#38422B'}}>
+      <footer className="text-center text-lg-start text-white" style={{ backgroundColor: '#38422B' }}>
         {/* Section: Social media */}
         <section className="d-flex justify-content-between p-4" style={{ backgroundColor: '#9AA581' }}>
           {/* Left */}
@@ -13,32 +14,33 @@ export default function Footer({ companyName, companyDescription, companyAddress
           {/* Left */}
 
           {/* Right */}
-          <div>
-            <a href="/" className="text-white me-4">
-              <i className="fab fa-facebook-f"></i>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
+            <a href="/" className="text-white">
+              <i className="bi bi-facebook"></i>
             </a>
-            <a href="/" className="text-white me-4">
-              <i className="fab fa-twitter"></i>
+            <a href="/" className="text-white">
+              <i className="bi bi-twitter"></i>
             </a>
-            <a href="/" className="text-white me-4">
-              <i className="fab fa-google"></i>
+            <a href="/" className="text-white">
+              <i className="bi bi-google"></i>
             </a>
-            <a href="/" className="text-white me-4">
-              <i className="fab fa-instagram"></i>
+            <a href="/" className="text-white">
+              <i className="bi bi-instagram"></i>
             </a>
-            <a href="/" className="text-white me-4">
-              <i className="fab fa-linkedin"></i>
+            <a href="/" className="text-white">
+              <i className="bi bi-linkedin"></i>
             </a>
-            <a href="/" className="text-white me-4">
-              <i className="fab fa-github"></i>
+            <a href="/" className="text-white">
+              <i className="bi bi-github"></i>
             </a>
           </div>
+
           {/* Right */}
         </section>
         {/* Section: Social media */}
 
         {/* Section: Links  */}
-        <section className="" style={{backgroundColor: '#38422B'}}>
+        <section className="" style={{ backgroundColor: '#38422B' }}>
           <div className="container text-center text-md-start mt-5">
             {/* Grid row */}
             <div className="row mt-3">
@@ -90,9 +92,9 @@ export default function Footer({ companyName, companyDescription, companyAddress
                 {/* Links */}
                 <h6 className="text-uppercase fw-bold">Contact</h6>
                 <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{ width: '60px', backgroundColor: '#CAAD7E', height: '2px' }} />
-                <p><i className="fas fa-home mr-3"></i> {companyAddress}</p>
-                <p><i className="fas fa-envelope mr-3"></i> {companyEmail}</p>
-                <p><i className="fas fa-phone mr-3"></i> {companyPhone}</p>
+                <p><i className="bi bi-house-door-fill"></i> {companyAddress}</p>
+                <p><i className="bi bi-envelope-fill"></i> {companyEmail}</p>
+                <p><i className="bi bi-telephone-fill"></i> {companyPhone}</p>
               </div>
               {/* Grid column */}
             </div>
@@ -103,7 +105,7 @@ export default function Footer({ companyName, companyDescription, companyAddress
 
         {/* Copyright */}
         <div className="text-center p-3" style={{ backgroundColor: '#9AA581' }}>
-          © 2024 Copyright: 
+          © 2024 Copyright:
           <a className="text-white" href="/">hamptoncountyresourcecenter.com</a>
         </div>
         {/* Copyright */}
@@ -114,10 +116,9 @@ export default function Footer({ companyName, companyDescription, companyAddress
 }
 
 Footer.defaultProps = {
-    companyName: 'HC Resource Center',
-    companyDescription: "A website for the beterment of the comunity.",
-    companyAddress: 'North Charleston, SC 29405, US',
-    companyEmail: 'helpinhamptoncounty@cisofsc.org',
-    companyPhone: '+ 01 234 567 88'
+  companyName: 'HC Resource Center',
+  companyDescription: "A website for the betterment of the community.",
+  companyAddress: 'North Charleston, SC 29405, US',
+  companyEmail: 'helpinhamptoncounty@cisofsc.org',
+  companyPhone: '+ 01 234 567 88'
 } // end setting of default props
-
