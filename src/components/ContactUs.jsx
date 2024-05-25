@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function ContactUs() {
-    const styles = {
+    let styles = {
         body: {
             fontFamily: 'Arial, Helvetica, sans-serif',
         },

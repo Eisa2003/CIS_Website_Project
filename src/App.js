@@ -74,37 +74,3 @@ function App() {
 }
 
 export default App;
-
-
-
-/* -- Old home page
-<Navbar title="HamptonCounty" /> Dynamic component, I can change the title as 
-      I wish; possible due to props 
-
-      <RouterProvider router={router} />
-
-      <Alerts />
-      <HeroBanner />
-
-      
-      <Carousel /> <br/><br/>
-
-      <div className="container">
-      <div className="row">
-        <div className="col">
-          <h1 className='text-center'>Upcoming Events</h1> <br/>
-          <EventsCarousel events={Events}/>
-        </div>
-      </div>
-      </div>
-
-      <br />
-      <Footer 
-        companyName="CISSC"
-        companyDescription="I'll write something over here afterwards."
-        companyAddress="North Charleston, SC 29405, US"
-        companyEmail="info@example.com"
-        companyPhone="+ 01 234 567 88"
-      />
-
-*/

@@ -1,10 +1,10 @@
+/* Navbar Logo Animations */
 @keyframes typing {
     0% { margin-left: 0; width: 70px; }
     10% { border-left: 2px solid chartreuse; }
     98% { border-left: 2px solid chartreuse; }
     100% { margin-left: 35px; width: 0px; }
 }
-
 
 .navbar-brand {
     margin-right: 35px;
@@ -20,50 +20,16 @@
     animation: typing 0.6s steps(4) forwards; /* Adding delay after each iteration */
 }
 
+/* -- ANIMATION END -- */
+
+/* Fancy Horizontal Bar */
 hr {
     padding: 1px;
     border-radius: 5px;
     background-color: rgba(128, 128, 128, 0.488);
 }
 
-.heroBanner {
-    position: relative;
-    height: 70vh;
-    width: 100%;
-}
-
-.semicircle {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 40%; /* Adjust based on desired coverage */
-    height: 100%;
-    background-color: black;
-    border-top-left-radius: 15% 50%; /* Adjusting for slight curve */
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 15% 50%;
-    border-bottom-right-radius: 0;
-    opacity: 0.7;
-}
-
-.typer {
-    color: white;
-}
-
-.typer::before {
-    position: absolute;
-    content: "";
-    display: block;
-    height: 8%; /* Adjust height if necessary */
-    background-color: rgb(164, 164, 164);
-    animation: typing 3s steps(45) forwards;
-}
-
-/* btn btn-outline-success my-2 my-sm-0 <- old btn */
+/* Search Bar Styling */
 .searchComponent {
     padding: 0;
 }
@@ -99,6 +65,8 @@ hr {
     border-bottom-right-radius: 5px;
 }
 
+/* -- END SEARCH BAR STYLING -- */
+
 /* These are the nav-link's style */
 li{
     padding: 4px 15px 4px 15px;
@@ -112,27 +80,29 @@ li:hover, .isActive {
     background-color:#6E7753;
     border-radius: 5px;
 }
+/* -- END NAV-LINKS STYLING */
 
+/* CONTACT PAGE */
 .indented-paragraph {
     text-indent: 20px; 
     font-family: 'Georgia, serif';
   }
   
-
-  @keyframes titletyping {
+/* Carousel Title Animation */
+@keyframes titletyping {
     from {
-      width: 0;
+        width: 0;
     }
     to {
-      width: 100%;
+        width: 100%;
     }
-  }
-  
-  .titletyping-animation {
-        overflow: hidden; 
-        border-right: 2px transparent; 
-        white-space: nowrap; 
-        animation: titletyping 4s steps(20, end); 
-  }
-  
+}
+
+.titletyping-animation {
+    overflow: hidden; 
+    border-right: 2px transparent; 
+    white-space: nowrap; 
+    animation: titletyping 4s steps(20, end); 
+}
+/* -- END ANIMATION -- */
   

@@ -16,8 +16,7 @@ export default function Carousel(props) {
         position: 'absolute', 
         top: '50%', 
         left: '50%', 
-        transform: 'translate(-50%, -50%)', 
-  
+        transform: 'translate(-50%, -50%)',
         zIndex: '1' 
       }}>
         {props.title}
