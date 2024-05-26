@@ -6,7 +6,8 @@ export default function AboutUs() {
     <div className='container'
          style={{
            backgroundColor: 'beige',
-           color: 'black'
+           color: 'black',
+           padding: '20px'
          }}
     >
       <h2 style={{ fontFamily: 'Lucida Handwriting, cursive' }}>About Us</h2>

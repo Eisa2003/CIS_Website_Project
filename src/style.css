@@ -140,10 +140,10 @@ li:hover, .isActive {
 }
 
 .titletyping-animation {
-    overflow: hidden; 
+    overflow: hidden;
     border-right: 2px transparent; 
     white-space: nowrap; 
-    animation: titletyping 4s steps(20, end); 
+    animation: titletyping 4s steps(60, end); 
 }
 /* -- END ANIMATION -- */
   
