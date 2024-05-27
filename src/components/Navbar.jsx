@@ -80,17 +80,17 @@ export default function Navbar(props) {
                   {props.links}
                 </NavLink>
                 <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`} aria-labelledby="navbarDropdown"> {/* Apply 'show' class based on dropdown state */}
-                  <NavLink className="dropdown-item" to="/Education" onClick={() => setActiveLink('/Education')}>Employment & Education</NavLink>
-                  <NavLink className="dropdown-item" to="/CYServices" onClick={() => setActiveLink('/CYServices')}>Mental Health & Substance Abuse</NavLink>
-                  <NavLink className="dropdown-item" to="/ClothingAss" onClick={() => setActiveLink('/ClothingAss')}>Housing</NavLink>
-                  <NavLink className="dropdown-item" to="/CrisisSup" onClick={() => setActiveLink('/CrisisSup')}>Food Assisstance</NavLink>
-                  <NavLink className="dropdown-item" to="/FinancialAss" onClick={() => setActiveLink('/FinancialAss')}>Utilities & Basic Needs</NavLink>
-                  <NavLink className="dropdown-item" to="/FoodAss" onClick={() => setActiveLink('/FoodAss')}>Health</NavLink>
-                  <NavLink className="dropdown-item" to="/LawEnf" onClick={() => setActiveLink('/LawEnf')}>Legal Aid</NavLink>
-                  <NavLink className="dropdown-item" to="/LCoG" onClick={() => setActiveLink('/LCoG')}>Crisis Hotlines</NavLink>
-                  <NavLink className="dropdown-item" to="/MedAss" onClick={() => setActiveLink('/MedAss')}>Trafficking, Abuse, & Violence Services</NavLink>
-                  <NavLink className="dropdown-item" to="/RecoveryRes" onClick={() => setActiveLink('/RecoveryRes')}>Senior & Disability Services</NavLink>
-                  <NavLink className="dropdown-item" to="/Shelters" onClick={() => setActiveLink('/Shelters')}>Other</NavLink>
+                  <NavLink className="dropdown-item" to="/Emp&Edu" onClick={() => setActiveLink('/Emp&Edu')}>Employment & Education</NavLink>
+                  <NavLink className="dropdown-item" to="/MHealth&Abuse" onClick={() => setActiveLink('/MHealth&Abuse')}>Mental Health & Substance Abuse</NavLink>
+                  <NavLink className="dropdown-item" to="/Housing" onClick={() => setActiveLink('/Housing')}>Housing</NavLink>
+                  <NavLink className="dropdown-item" to="/FoodAsst" onClick={() => setActiveLink('/FoodAsst')}>Food Assisstance</NavLink>
+                  <NavLink className="dropdown-item" to="/Util&BasicNeeds" onClick={() => setActiveLink('/Util&BasicNeeds')}>Utilities & Basic Needs</NavLink>
+                  <NavLink className="dropdown-item" to="/Health" onClick={() => setActiveLink('/Health')}>Health</NavLink>
+                  <NavLink className="dropdown-item" to="/LegalAid" onClick={() => setActiveLink('/LegalAid')}>Legal Aid</NavLink>
+                  <NavLink className="dropdown-item" to="/CrisisHotlines" onClick={() => setActiveLink('/CrisisHotlines')}>Crisis Hotlines</NavLink>
+                  <NavLink className="dropdown-item" to="/Trafficking" onClick={() => setActiveLink('/Trafficking')}>Trafficking, Abuse, & Violence Services</NavLink>
+                  <NavLink className="dropdown-item" to="/Senior&Disab" onClick={() => setActiveLink('/Senior&Disab')}>Senior & Disability Services</NavLink>
+                  <NavLink className="dropdown-item" to="/Other" onClick={() => setActiveLink('/Other')}>Other</NavLink>62 
                   <div className="dropdown-divider"></div>
                 </div>
               </li>

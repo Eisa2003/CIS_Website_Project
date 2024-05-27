@@ -66,6 +66,160 @@ function App() {
         </>
       ),
     },
+
+    {
+      path: "/Emp&Edu",
+      element: (
+        <>
+          <Navbar title="HC" />
+          <Carousel title="Employment and Education" />
+          <br/>
+          
+          <br/>
+          <Footer />
+        </>
+      )
+    },
+
+    {
+      path: "/MHealth&Abuse",
+      element: (
+        <>
+          <Navbar title="HC" />
+          <Carousel title="Mental Health And Abuse" />
+          <br/>
+          
+          <br/>
+          <Footer />
+        </>
+      )
+    },
+
+    {
+      path: "/Housing",
+      element: (
+        <>
+          <Navbar title="HC" />
+          <Carousel title="Housing" />
+          <br/>
+          
+          <br/>
+          <Footer />
+        </>
+      )
+    },
+
+    {
+      path: "/FoodAsst",
+      element: (
+        <>
+          <Navbar title="HC" />
+          <Carousel title="Food Assistance" />
+          <br/>
+          
+          <br/>
+          <Footer />
+        </>
+      )
+    },
+
+    {
+      path: "/Util&BasicNeeds",
+      element: (
+        <>
+          <Navbar title="HC" />
+          <Carousel title="Utilities and Basic Needs" />
+          <br/>
+          
+          <br/>
+          <Footer />
+        </>
+      )
+    },
+
+    {
+      path: "/Health",
+      element: (
+        <>
+          <Navbar title="HC" />
+          <Carousel title="Health" />
+          <br/>
+          
+          <br/>
+          <Footer />
+        </>
+      )
+    },
+
+    {
+      path: "/LegalAid",
+      element: (
+        <>
+          <Navbar title="HC" />
+          <Carousel title="Legal Aid" />
+          <br/>
+          
+          <br/>
+          <Footer />
+        </>
+      )
+    },
+
+    {
+      path: "/CrisisHotlines",
+      element: (
+        <>
+          <Navbar title="HC" />
+          <Carousel title="Crisis Hotlines" />
+          <br/>
+          
+          <br/>
+          <Footer />
+        </>
+      )
+    },
+
+    {
+      path: "/Trafficking",
+      element: (
+        <>
+          <Navbar title="HC" />
+          <Carousel title="Trafficking , Abuse, & Violence Services" />
+          <br/>
+          
+          <br/>
+          <Footer />
+        </>
+      )
+    },
+
+    {
+      path: "/Senior&Disab",
+      element: (
+        <>
+          <Navbar title="HC" />
+          <Carousel title="Senior And Disabilities" />
+          <br/>
+          
+          <br/>
+          <Footer />
+        </>
+      )
+    },
+
+    {
+      path: "/Other",
+      element: (
+        <>
+          <Navbar title="HC" />
+          <Carousel title="Other" />
+          <br/>
+          
+          <br/>
+          <Footer />
+        </>
+      )
+    }
   ]);
 
   return (
