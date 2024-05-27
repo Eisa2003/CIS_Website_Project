@@ -146,4 +146,19 @@ li:hover, .isActive {
     animation: titletyping 4s steps(60, end); 
 }
 /* -- END ANIMATION -- */
+
+/* Card Stylings */
+
+.card{
+    display: flex;
+    justify-content: center;
+    height: 30vh;
+    background-color: rgb(249, 249, 247);
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    box-shadow: 5px 5px 3px rgb(163, 159, 159);
+}
+
+/* -- END CARD STYLINGS -- */
   

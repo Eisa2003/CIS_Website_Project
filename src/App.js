@@ -9,6 +9,7 @@ import Alerts from './components/Alerts.jsx';
 import Carousel from './components/Carousel.jsx';
 import AboutUs from './components/AboutUs.jsx';
 import ContactUs from './components/ContactUs.jsx';
+import EmpAndEdu from './components/ResourceCards/EmpAndEdu.jsx';
 
 
 function App() {
@@ -74,7 +75,7 @@ function App() {
           <Navbar title="HC" />
           <Carousel title="Employment and Education" />
           <br/>
-          
+          <EmpAndEdu />
           <br/>
           <Footer />
         </>

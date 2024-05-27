@@ -90,8 +90,8 @@ export default function Navbar(props) {
                   <NavLink className="dropdown-item" to="/CrisisHotlines" onClick={() => setActiveLink('/CrisisHotlines')}>Crisis Hotlines</NavLink>
                   <NavLink className="dropdown-item" to="/Trafficking" onClick={() => setActiveLink('/Trafficking')}>Trafficking, Abuse, & Violence Services</NavLink>
                   <NavLink className="dropdown-item" to="/Senior&Disab" onClick={() => setActiveLink('/Senior&Disab')}>Senior & Disability Services</NavLink>
-                  <NavLink className="dropdown-item" to="/Other" onClick={() => setActiveLink('/Other')}>Other</NavLink>62 
                   <div className="dropdown-divider"></div>
+                  <NavLink className="dropdown-item" to="/Other" onClick={() => setActiveLink('/Other')}>Other</NavLink>
                 </div>
               </li>
             </ul>

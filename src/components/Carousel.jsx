@@ -8,7 +8,7 @@ import HelpingHand from './images/HelpingHand.jpg';
 export default function Carousel(props) {
   return (
     <div  style={{ position: 'relative'}}>
-      <h1 className="titletyping-animation"style={{ 
+      <h1 className="text-center" style={{ 
         textAlign: 'center', 
         color: 'ghostwhite', 
         fontSize: '60px',
