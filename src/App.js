@@ -10,7 +10,16 @@ import Carousel from './components/Carousel.jsx';
 import AboutUs from './components/AboutUs.jsx';
 import ContactUs from './components/ContactUs.jsx';
 import EmpAndEdu from './components/ResourceCards/EmpAndEdu.jsx';
-
+import MentalHAndSubAbuse from './components/ResourceCards/MentalHAndSubAbuse.jsx';
+import Housing from './components/ResourceCards/Housing.jsx';
+import FoodAsst from './components/ResourceCards/FoodAsst.jsx';
+import UtilAndBasicNeeds from './components/ResourceCards/UtilAndBasicNeeds.jsx';
+import Health from './components/ResourceCards/Health.jsx';
+import LegalAid from './components/ResourceCards/LegalAid.jsx';
+import CrisisHotlines from './components/ResourceCards/CrisisHotlines.jsx';
+import Trafficking from './components/ResourceCards/Trafficking.jsx';
+import SeniorAndDiasb from './components/ResourceCards/SeniorAndDisab.jsx';
+import Other from './components/ResourceCards/Other.jsx';
 
 function App() {
   const router = createBrowserRouter([
@@ -69,7 +78,7 @@ function App() {
     },
 
     {
-      path: "/Emp&Edu",
+      path: "/Resources/Emp&Edu",
       element: (
         <>
           <Navbar title="HC" />
@@ -83,13 +92,13 @@ function App() {
     },
 
     {
-      path: "/MHealth&Abuse",
+      path: "/Resources/MHealth&Abuse",
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="Mental Health And Abuse" />
+          <Carousel title="Mental Health And Substance Abuse" />
           <br/>
-          
+          <MentalHAndSubAbuse />
           <br/>
           <Footer />
         </>
@@ -97,13 +106,13 @@ function App() {
     },
 
     {
-      path: "/Housing",
+      path: "/Resources/Housing",
       element: (
         <>
           <Navbar title="HC" />
           <Carousel title="Housing" />
           <br/>
-          
+          <Housing />
           <br/>
           <Footer />
         </>
@@ -111,13 +120,13 @@ function App() {
     },
 
     {
-      path: "/FoodAsst",
+      path: "/Resources/FoodAsst",
       element: (
         <>
           <Navbar title="HC" />
           <Carousel title="Food Assistance" />
           <br/>
-          
+          <FoodAsst />
           <br/>
           <Footer />
         </>
@@ -125,13 +134,13 @@ function App() {
     },
 
     {
-      path: "/Util&BasicNeeds",
+      path: "/Resources/Util&BasicNeeds",
       element: (
         <>
           <Navbar title="HC" />
           <Carousel title="Utilities and Basic Needs" />
           <br/>
-          
+          <UtilAndBasicNeeds />
           <br/>
           <Footer />
         </>
@@ -139,13 +148,13 @@ function App() {
     },
 
     {
-      path: "/Health",
+      path: "/Resources/Health",
       element: (
         <>
           <Navbar title="HC" />
           <Carousel title="Health" />
           <br/>
-          
+          <Health />
           <br/>
           <Footer />
         </>
@@ -153,13 +162,13 @@ function App() {
     },
 
     {
-      path: "/LegalAid",
+      path: "/Resources/LegalAid",
       element: (
         <>
           <Navbar title="HC" />
           <Carousel title="Legal Aid" />
           <br/>
-          
+          <LegalAid />
           <br/>
           <Footer />
         </>
@@ -167,13 +176,13 @@ function App() {
     },
 
     {
-      path: "/CrisisHotlines",
+      path: "/Resources/CrisisHotlines",
       element: (
         <>
           <Navbar title="HC" />
           <Carousel title="Crisis Hotlines" />
           <br/>
-          
+          <CrisisHotlines />
           <br/>
           <Footer />
         </>
@@ -181,13 +190,13 @@ function App() {
     },
 
     {
-      path: "/Trafficking",
+      path: "/Resources/Trafficking",
       element: (
         <>
           <Navbar title="HC" />
           <Carousel title="Trafficking , Abuse, & Violence Services" />
           <br/>
-          
+          <Trafficking />
           <br/>
           <Footer />
         </>
@@ -195,13 +204,13 @@ function App() {
     },
 
     {
-      path: "/Senior&Disab",
+      path: "/Resources/Senior&Disab",
       element: (
         <>
           <Navbar title="HC" />
           <Carousel title="Senior And Disabilities" />
           <br/>
-          
+          <SeniorAndDiasb />
           <br/>
           <Footer />
         </>
@@ -209,13 +218,13 @@ function App() {
     },
 
     {
-      path: "/Other",
+      path: "/Resources/Other",
       element: (
         <>
           <Navbar title="HC" />
           <Carousel title="Other" />
           <br/>
-          
+          <Other />
           <br/>
           <Footer />
         </>

@@ -6,14 +6,16 @@ import '../../src/style.css';
 export default function Navbar(props) {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for managing dropdown visibility
-  const [activeLink, setActiveLink] = useState('/'); // State for tracking active link
+  //const [activeLink, setActiveLink] = useState('/'); // State for tracking active link
   const [animationKey, setAnimationKey] = useState(0); // State to control re-triggering animation
 
+  const activeLink = '/';
   const location = useLocation();
 
   useEffect(() => {
     // Update active link based on current URL path
-    setActiveLink(location.pathname);
+    activeLink = location.pathname;
+    //setActiveLink(location.pathname);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -61,13 +63,13 @@ export default function Navbar(props) {
           <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul className="navbar-nav" style={{ marginRight: 'auto' }}>
               <li className={`nav-item ${activeLink === '/' ? 'isActive' : ''}`}>
-                <NavLink className="nav-link" to="/" onClick={() => setActiveLink('/')}>{props.home}</NavLink>
+                <NavLink className="nav-link" to="/">{props.home}</NavLink>
               </li>
               <li className={`nav-item ${activeLink === '/About' ? 'isActive' : ''}`}>
-                <NavLink className="nav-link" to="/About" onClick={() => setActiveLink('/About')}>{props.about}</NavLink>
+                <NavLink className="nav-link" to="/About" >{props.about}</NavLink>
               </li>
               <li className={`nav-item ${activeLink === '/ContactUs' ? 'isActive' : ''}`}>
-                <NavLink className="nav-link" to="/ContactUs" onClick={() => setActiveLink('/ContactUs')}>{props.contactUs}</NavLink>
+                <NavLink className="nav-link" to="/ContactUs">{props.contactUs}</NavLink>
               </li>
               <li className="nav-item dropdown">
                 <NavLink 
@@ -80,18 +82,18 @@ export default function Navbar(props) {
                   {props.links}
                 </NavLink>
                 <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`} aria-labelledby="navbarDropdown"> {/* Apply 'show' class based on dropdown state */}
-                  <NavLink className="dropdown-item" to="/Emp&Edu" onClick={() => setActiveLink('/Emp&Edu')}>Employment & Education</NavLink>
-                  <NavLink className="dropdown-item" to="/MHealth&Abuse" onClick={() => setActiveLink('/MHealth&Abuse')}>Mental Health & Substance Abuse</NavLink>
-                  <NavLink className="dropdown-item" to="/Housing" onClick={() => setActiveLink('/Housing')}>Housing</NavLink>
-                  <NavLink className="dropdown-item" to="/FoodAsst" onClick={() => setActiveLink('/FoodAsst')}>Food Assisstance</NavLink>
-                  <NavLink className="dropdown-item" to="/Util&BasicNeeds" onClick={() => setActiveLink('/Util&BasicNeeds')}>Utilities & Basic Needs</NavLink>
-                  <NavLink className="dropdown-item" to="/Health" onClick={() => setActiveLink('/Health')}>Health</NavLink>
-                  <NavLink className="dropdown-item" to="/LegalAid" onClick={() => setActiveLink('/LegalAid')}>Legal Aid</NavLink>
-                  <NavLink className="dropdown-item" to="/CrisisHotlines" onClick={() => setActiveLink('/CrisisHotlines')}>Crisis Hotlines</NavLink>
-                  <NavLink className="dropdown-item" to="/Trafficking" onClick={() => setActiveLink('/Trafficking')}>Trafficking, Abuse, & Violence Services</NavLink>
-                  <NavLink className="dropdown-item" to="/Senior&Disab" onClick={() => setActiveLink('/Senior&Disab')}>Senior & Disability Services</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/Emp&Edu">Employment & Education</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/MHealth&Abuse">Mental Health & Substance Abuse</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/Housing">Housing</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/FoodAsst">Food Assisstance</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/Util&BasicNeeds">Utilities & Basic Needs</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/Health">Health</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/LegalAid">Legal Aid</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/CrisisHotlines">Crisis Hotlines</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/Trafficking">Trafficking, Abuse, & Violence Services</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/Senior&Disab">Senior & Disability Services</NavLink>
                   <div className="dropdown-divider"></div>
-                  <NavLink className="dropdown-item" to="/Other" onClick={() => setActiveLink('/Other')}>Other</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/Other">Other</NavLink>
                 </div>
               </li>
             </ul>
