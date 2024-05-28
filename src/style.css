@@ -149,14 +149,15 @@ li:hover, .isActive {
 
 /* Card Stylings */
 
-.card{
+.card-resources{
     display: flex;
     justify-content: center;
-    height: 30vh;
+    height: 35vh;
     background-color: rgb(249, 249, 247);
     align-items: center;
     margin-top: 10px;
     margin-bottom: 50px;
+    border-radius: 5px;
     box-shadow: 5px 5px 3px rgb(163, 159, 159);
 }
 
