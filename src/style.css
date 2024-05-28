@@ -147,19 +147,100 @@ li:hover, .isActive {
 }
 /* -- END ANIMATION -- */
 
+
+
+
 /* Card Stylings */
 
 .card-resources{
     display: flex;
-    justify-content: center;
-    height: 35vh;
-    background-color: rgb(249, 249, 247);
-    align-items: center;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    justify-content: space-around;
     margin-top: 10px;
     margin-bottom: 50px;
-    border-radius: 5px;
-    box-shadow: 5px 5px 3px rgb(163, 159, 159);
+    background-color: rgba(106, 145, 46, 0.519);
 }
 
+.card-container {
+    perspective: 1000px;
+    position: relative;
+    width: calc(33% - 20px); /* Adjust the width as needed */
+    height: 360px; /* Adjust the height as needed */
+    cursor: pointer;
+    margin: 10px; /* Add margin to space out the cards */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  }
+  
+  .card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.8s;
+    border-radius: 10px;
+  }
+  
+  .card-front {
+    background-color: #f0f0f0;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-size: 0.6rem; /* Reduce font size for smaller screens */
+    line-height: 1.3; /* Adjust line height for smaller screens */
+    padding: 8px; /* Reduce padding for smaller screens */
+  }
+  
+  .card-back {
+    background-color: #d7e0d0;
+    transform: rotateY(180deg);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-size: 0.6rem; /* Reduce font size for smaller screens */
+    line-height: 1.5; /* Adjust line height for smaller screens */
+    padding: 8px; /* Reduce padding for smaller screens */
+    }
+
+ @media only screen and (max-width: 768px) {
+    .card-container {
+      width: calc(50% - 20px); /* Adjust width for smaller screens */
+    }
+  
+    .card-front,
+    .card-back {
+      display: flex; 
+      justify-content: center;
+      align-items: center;
+      font-size: 0.6rem; /* Reduce font size for smaller screens */
+      line-height: 1.3; /* Adjust line height for smaller screens */
+      padding: 8px; /* Reduce padding for smaller screens */
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .card-container {
+      width: calc(100% - 20px); /* Adjust width for even smaller screens */
+    }
+  
+    .card-front,
+    .card-back {
+      display: flex; 
+      justify-content: center;
+      align-items: center;
+      font-size: 0.57rem; /* Further reduce font size for very small screens */
+      line-height: 1.2; /* Further adjust line height for very small screens */
+      padding: 6px; /* Further reduce padding for very small screens */
+    }
+  }
+  .card-container.flip .card-front {
+    transform: rotateY(180deg);
+  }
+  
+  .card-container.flip .card-back {
+    transform: rotateY(0deg);
+  }
+
+  
 /* -- END CARD STYLINGS -- */
   

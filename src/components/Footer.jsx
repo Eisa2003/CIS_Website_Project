@@ -1,6 +1,10 @@
 import React from 'react';
 import '../../node_modules/bootstrap-icons/font/bootstrap-icons.css';
 
+
+
+
+
 export default function Footer({ companyName, companyDescription, companyAddress, companyEmail, companyPhone }) {
   return (
     <div>
