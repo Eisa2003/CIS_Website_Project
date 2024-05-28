@@ -6,17 +6,22 @@ import '../../src/style.css';
 export default function Navbar(props) {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for managing dropdown visibility
-  //const [activeLink, setActiveLink] = useState('/'); // State for tracking active link
   const [animationKey, setAnimationKey] = useState(0); // State to control re-triggering animation
-
-  const activeLink = '/';
   const location = useLocation();
 
-  useEffect(() => {
-    // Update active link based on current URL path
-    activeLink = location.pathname;
-    //setActiveLink(location.pathname);
-  }, [location.pathname]);
+  const activeDropdownPaths = [
+    '/Resources/Emp&Edu',
+    '/Resources/MHealth&Abuse',
+    '/Resources/Housing',
+    '/Resources/FoodAsst',
+    '/Resources/Util&BasicNeeds',
+    '/Resources/Health',
+    '/Resources/LegalAid',
+    '/Resources/CrisisHotlines',
+    '/Resources/Trafficking',
+    '/Resources/Senior&Disab',
+    '/Resources/Other'
+  ];
 
   useEffect(() => {
     // Re-add the animation class after a delay
@@ -38,8 +43,7 @@ export default function Navbar(props) {
     toggleDropdown(); // Toggle dropdown visibility
   };
 
-
-  return (
+return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark" style={{ padding: '25px 15px 25px 15px', backgroundColor: '#38422B'}}>
         <div className='container'>
@@ -62,19 +66,18 @@ export default function Navbar(props) {
           {/* We toggle the collapse class from bootstrap to this div to hide and display the nav contents */}
           <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul className="navbar-nav" style={{ marginRight: 'auto' }}>
-              <li className={`nav-item ${activeLink === '/' ? 'isActive' : ''}`}>
+              <li className={`nav-item ${location.pathname === '/' ? 'isActive' : ''}`}>
                 <NavLink className="nav-link" to="/">{props.home}</NavLink>
               </li>
-              <li className={`nav-item ${activeLink === '/About' ? 'isActive' : ''}`}>
+              <li className={`nav-item ${location.pathname === '/About' ? 'isActive' : ''}`}>
                 <NavLink className="nav-link" to="/About" >{props.about}</NavLink>
               </li>
-              <li className={`nav-item ${activeLink === '/ContactUs' ? 'isActive' : ''}`}>
+              <li className={`nav-item ${location.pathname === '/ContactUs' ? 'isActive' : ''}`}>
                 <NavLink className="nav-link" to="/ContactUs">{props.contactUs}</NavLink>
               </li>
-              <li className="nav-item dropdown">
+              <li className={`nav-item dropdown ${activeDropdownPaths.includes(location.pathname) ? 'isActive' : ''}`}>
                 <NavLink 
                   className={`nav-link dropdown-toggle ${isDropdownOpen ? 'show' : ''}`} // Apply 'show' class based on dropdown state
-                  to="/" 
                   id="navbarDropdown" 
                   role="button" 
                   onClick={handleDropdownClick} // Toggle dropdown visibility on click
