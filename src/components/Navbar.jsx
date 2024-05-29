@@ -5,8 +5,7 @@ import '../../src/style.css';
 
 export default function Navbar(props) {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for managing dropdown visibility
-  const [animationKey, setAnimationKey] = useState(0); // State to control re-triggering animation
+  const [animationKey, setAnimationKey] = useState(0);
   const location = useLocation();
 
   const activeDropdownPaths = [
@@ -24,26 +23,16 @@ export default function Navbar(props) {
   ];
 
   useEffect(() => {
-    // Re-add the animation class after a delay
     const timeout = setTimeout(() => {
-      setAnimationKey((prev) => prev + 1); // Increment key to re-trigger animation
-    }, 7000); // 1s animation duration + 3s delay
+      setAnimationKey((prev) => prev + 1);
+    }, 7000);
 
-    return () => clearTimeout(timeout); // Clear timeout on component unmount
+    return () => clearTimeout(timeout);
   }, [animationKey]);
 
   const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
-  
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
 
-  const handleDropdownClick = (event) => {
-    event.preventDefault(); // Prevent default anchor behavior
-    toggleDropdown(); // Toggle dropdown visibility
-  };
-
-return (
+  return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark" style={{ padding: '25px 15px 25px 15px', backgroundColor: '#38422B'}}>
         <div className='container'>
@@ -56,39 +45,39 @@ return (
             data-toggle="collapse" 
             data-target="#navbarSupportedContent" 
             aria-controls="navbarSupportedContent" 
-            aria-expanded={!isNavCollapsed ? true : false} // Change aria-expanded based on state
+            aria-expanded={!isNavCollapsed} 
             aria-label="Toggle navigation"
-            onClick={handleNavCollapse} // Add onClick handler to toggle state
+            onClick={handleNavCollapse}
           >
             <span className="navbar-toggler-icon"></span>
-          </button> {/* Bootstrap's Navbar relies on JavaScript to toggle the visibility of the collapsed content when the Navbar toggler button is clicked. */}
-
-          {/* We toggle the collapse class from bootstrap to this div to hide and display the nav contents */}
+          </button>
           <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul className="navbar-nav" style={{ marginRight: 'auto' }}>
               <li className={`nav-item ${location.pathname === '/' ? 'isActive' : ''}`}>
                 <NavLink className="nav-link" to="/">{props.home}</NavLink>
               </li>
               <li className={`nav-item ${location.pathname === '/About' ? 'isActive' : ''}`}>
-                <NavLink className="nav-link" to="/About" >{props.about}</NavLink>
+                <NavLink className="nav-link" to="/About">{props.about}</NavLink>
               </li>
               <li className={`nav-item ${location.pathname === '/ContactUs' ? 'isActive' : ''}`}>
                 <NavLink className="nav-link" to="/ContactUs">{props.contactUs}</NavLink>
               </li>
               <li className={`nav-item dropdown ${activeDropdownPaths.includes(location.pathname) ? 'isActive' : ''}`}>
                 <NavLink 
-                  className={`nav-link dropdown-toggle ${isDropdownOpen ? 'show' : ''}`} // Apply 'show' class based on dropdown state
+                  className="nav-link dropdown-toggle" 
                   id="navbarDropdown" 
                   role="button" 
-                  onClick={handleDropdownClick} // Toggle dropdown visibility on click
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
                 >
                   {props.links}
                 </NavLink>
-                <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`} aria-labelledby="navbarDropdown"> {/* Apply 'show' class based on dropdown state */}
+                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <NavLink className="dropdown-item" to="/Resources/Emp&Edu">Employment & Education</NavLink>
                   <NavLink className="dropdown-item" to="/Resources/MHealth&Abuse">Mental Health & Substance Abuse</NavLink>
                   <NavLink className="dropdown-item" to="/Resources/Housing">Housing</NavLink>
-                  <NavLink className="dropdown-item" to="/Resources/FoodAsst">Food Assisstance</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/FoodAsst">Food Assistance</NavLink>
                   <NavLink className="dropdown-item" to="/Resources/Util&BasicNeeds">Utilities & Basic Needs</NavLink>
                   <NavLink className="dropdown-item" to="/Resources/Health">Health</NavLink>
                   <NavLink className="dropdown-item" to="/Resources/LegalAid">Legal Aid</NavLink>
@@ -103,7 +92,7 @@ return (
             <div className='searchComponent'>
               <form className="form-inline my-2 my-lg-0" style={{ display: 'flex', alignItems: 'center' }}>
                 <input className="searchBox" type="search" placeholder="Search" aria-label="Search" />
-                <button className="searchBtn" type="submit" >Search</button>
+                <button className="searchBtn" type="submit">Search</button>
               </form>
             </div>
           </div>
