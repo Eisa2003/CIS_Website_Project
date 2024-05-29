@@ -72,7 +72,7 @@ export default function EmpAndEdu() {
             <strong>Address:</strong> 63 East Palmetto Ave, 
                                       Post Office Box 601  
                                       Varnville, SC 29944  <br />
-            <strong>Phone:</strong> 803-842-6316 <br />
+            <strong>Phone:</strong> (803) 842-6316 <br />
             <strong>Contact:</strong> Verta Thompson, Executive Director <br />
             <strong>Email:</strong> <a href="mailto:actcc92@gmail.com">actcc92@gmail.com</a> <br />
             <strong>Mission Statement:</strong> Improving the quality of life for at-risk children, youth, 
@@ -116,7 +116,7 @@ export default function EmpAndEdu() {
         <div className="cardR card-back">
           <p>
             <strong>Address:</strong> 301 First Street East, Hampton, SC 29924<br />
-            <strong>Phone:</strong> 803-943-7127<br />
+            <strong>Phone:</strong> (803) 943-7127<br />
             <strong>Contact:</strong> Dwanda Doctor, Executive Director<br />
             <strong>Website:</strong> <a href="https://hamptonfirststeps.org/" target="_blank" rel="noopener noreferrer">hamptonfirststeps.org</a><br />
             <strong>Email:</strong> <a href="mailto:ddoctor@hamptonfirststeps.org">ddoctor@hamptonfirststeps.org</a><br />
@@ -184,8 +184,7 @@ export default function EmpAndEdu() {
     {/* Card 7 - SC Works */}
     <div className={`card-container ${isFlipped7 ? 'flip' : ''}`} onClick={toggleCardFlip7}>
         <div className="cardR card-front">
-          <h5>SC Works</h5>
-          <h7>WIOA Program</h7>
+          <h5>SC Works: WIOA Program</h5> <br />
         </div>
           <div className="cardR card-back">
             <p>
