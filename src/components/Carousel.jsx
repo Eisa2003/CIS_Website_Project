@@ -12,7 +12,7 @@ export default function Carousel(props) {
         textAlign: 'center', 
         color: 'ghostwhite', 
         fontSize: '60px',
-        fontFamily: 'Sacramento, cursive',
+        fontFamily: 'Times',
         position: 'absolute', 
         top: '50%', 
         left: '50%', 

@@ -9,7 +9,7 @@
 .navbar-brand {
     margin-right: 35px;
     font-size: 25px;
-    font-family: 'Precious'; /* Apply the cursive font */
+    font-family: 'Script'; /* Apply the cursive font */
 }
 
 .navbar-brand::before {
@@ -189,9 +189,9 @@ li:hover, .isActive {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* Added style */
+    flex-direction: column; 
     font-size: 1.5rem;
-    font-family: Georgia, cursive;
+    font-family: Times, cursive;
     line-height: 1.3;
     padding: 8px;
     text-align: center;
@@ -200,15 +200,19 @@ li:hover, .isActive {
 }
   
   .card-back {
+    background-image: url('https://marketplace.canva.com/EAFJBHqvlTo/1/0/1131w/canva-cream-floral-page-border-EXzZHJEaCys.jpg'); /* URL of the background image */
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: #ECFADC;
     transform: rotateY(180deg);
     display: flex; 
     justify-content: center;
     align-items: center;
     font-size: 0.6rem; /* Reduce font size for smaller screens */
-    font-family: 'Georgia, serif';
+    font-family: 'Times';
     line-height: 1.3; /* Adjust line height for smaller screens */
-    padding: 8px; /* Reduce padding for smaller screens */
+    padding-left: 40px; /* Reduce padding for smaller screens */
+    padding-right: 30px;
     text-align: left;
     }
   
@@ -232,7 +236,7 @@ li:hover, .isActive {
       align-items: center;
       font-size: 0.6rem; /* Reduce font size for smaller screens */
       line-height: 1.3; /* Adjust line height for smaller screens */
-      padding: 8px; /* Reduce padding for smaller screens */
+      padding-left: 30px; /* Reduce padding for smaller screens */
     }
   }
   
@@ -248,7 +252,7 @@ li:hover, .isActive {
       align-items: center;
       font-size: 0.57rem; /* Further reduce font size for very small screens */
       line-height: 1.2; /* Further adjust line height for very small screens */
-      padding: 6px; /* Further reduce padding for very small screens */
+      padding-left: 30px; /* Further reduce padding for very small screens */
     }
   }
 

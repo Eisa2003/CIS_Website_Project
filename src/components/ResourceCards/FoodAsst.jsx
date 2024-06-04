@@ -96,6 +96,7 @@ export default function EmpAndEdu() {
       <div className={`card-container ${isFlipped1 ? 'flip' : ''}`} onClick={toggleCardFlip1}>
         <div className="cardR card-front">
           <h5>Food Stamp (SNAP Program)</h5>
+          <img src="https://dss.sc.gov/img/logo.png" alt="Card 1 Image" style={{ width: '285px', height: '95px' }} />
         </div>
         <div className="cardR card-back">
           <p>
@@ -113,6 +114,7 @@ export default function EmpAndEdu() {
       <div className={`card-container ${isFlipped2 ? 'flip' : ''}`} onClick={toggleCardFlip2}>
         <div className="cardR card-front">
           <h5>Greater Cherry Grove Church</h5>
+          <img src="https://img1.wsimg.com/isteam/ip/af6c148b-3a10-42e2-89b2-f70bc042dba0/Cherry%20Grove%20church%20logo.jpg/:/cr=t:0.08%25,l:0%25,w:100%25,h:99.84%25/rs=w:365,h:365,cg:true" alt="Card 1 Image" style={{ width: '150px', height: '150px' }} />
         </div>
         <div className="cardR card-back">
           <p>
