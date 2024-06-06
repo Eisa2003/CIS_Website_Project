@@ -156,8 +156,6 @@ li:hover, .isActive {
     display: flex;
     flex-wrap: wrap; /* Allow cards to wrap to the next line */
     justify-content: space-around;
-    margin-top: 10px;
-    margin-bottom: 50px;
     background-color: rgba(106, 145, 46, 0.519);
 }
 

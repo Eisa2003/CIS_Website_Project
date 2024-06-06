@@ -83,9 +83,7 @@ function App() {
         <>
           <Navbar title="HC" />
           <Carousel title="Employment and Education" />
-          <br/>
           <EmpAndEdu />
-          <br/>
           <Footer />
         </>
       )
@@ -97,9 +95,7 @@ function App() {
         <>
           <Navbar title="HC" />
           <Carousel title="Mental Health And Substance Abuse" />
-          <br/>
           <MentalHAndSubAbuse />
-          <br/>
           <Footer />
         </>
       )
@@ -111,9 +107,7 @@ function App() {
         <>
           <Navbar title="HC" />
           <Carousel title="Housing" />
-          <br/>
           <Housing />
-          <br/>
           <Footer />
         </>
       )
@@ -125,9 +119,7 @@ function App() {
         <>
           <Navbar title="HC" />
           <Carousel title="Food Assistance" />
-          <br/>
           <FoodAsst />
-          <br/>
           <Footer />
         </>
       )
@@ -139,9 +131,7 @@ function App() {
         <>
           <Navbar title="HC" />
           <Carousel title="Utilities and Basic Needs" />
-          <br/>
           <UtilAndBasicNeeds />
-          <br/>
           <Footer />
         </>
       )
@@ -153,9 +143,7 @@ function App() {
         <>
           <Navbar title="HC" />
           <Carousel title="Health" />
-          <br/>
           <Health />
-          <br/>
           <Footer />
         </>
       )
@@ -167,9 +155,7 @@ function App() {
         <>
           <Navbar title="HC" />
           <Carousel title="Legal Aid" />
-          <br/>
           <LegalAid />
-          <br/>
           <Footer />
         </>
       )
@@ -181,9 +167,7 @@ function App() {
         <>
           <Navbar title="HC" />
           <Carousel title="Crisis Hotlines" />
-          <br/>
           <CrisisHotlines />
-          <br/>
           <Footer />
         </>
       )
@@ -195,9 +179,7 @@ function App() {
         <>
           <Navbar title="HC" />
           <Carousel title="Trafficking , Abuse, & Violence Services" />
-          <br/>
           <Trafficking />
-          <br/>
           <Footer />
         </>
       )
@@ -209,9 +191,7 @@ function App() {
         <>
           <Navbar title="HC" />
           <Carousel title="Senior And Disabilities" />
-          <br/>
           <SeniorAndDiasb />
-          <br/>
           <Footer />
         </>
       )
@@ -223,9 +203,7 @@ function App() {
         <>
           <Navbar title="HC" />
           <Carousel title="Other" />
-          <br/>
           <Other />
-          <br/>
           <Footer />
         </>
       )
