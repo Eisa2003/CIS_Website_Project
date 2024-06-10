@@ -70,10 +70,10 @@ export default function MentalHAndSubAbuse() {
         </div>
         <div className="cardR card-back">
           <p>
-            <strong>Address:</strong> 102 Ginn Altman Ave #3, Hampton, SC  29924 <br />
+            <strong>Address:</strong> <a class="link" href="https://www.google.com/maps/place/102+Ginn+Altman+Ave+%233,+Hampton,+SC+29924/@32.8575706,-81.1161193,17z/data=!3m1!4b1!4m5!3m4!1s0x88f95c2b97f6c363:0xdd8285e1ca8f821a!8m2!3d32.8575706!4d-81.1161193?entry=ttu">102 Ginn Altman Ave #3, Hampton, SC 29924</a><br />
             <strong>Phone:</strong> (803) 943-2800 <br />
             <strong>Contact:</strong> Estelle Rivers, Executive Director <br />
-            <strong>Website:</strong> <a href="http://newlifecenteradc.org" target="_blank" rel="noopener noreferrer">http://newlifecenteradc.org</a><br />
+            <strong>Website:</strong> <a class="linkweb" href="http://newlifecenteradc.org" target="_blank" rel="noopener noreferrer">www.newlifecenteradc.org</a><br />
             <strong>Services: </strong>
             <ul>
               <li><strong>ADSAP Program:</strong> Deals with the issue of substance use and driving.  It is mandatory in South Carolina to attend if you are convicted of DUI. 
@@ -99,8 +99,7 @@ export default function MentalHAndSubAbuse() {
         <div className="cardR card-back">
           <p>
             <strong>All Saints Episcopal Church- </strong>Parish Hall<br />
-            <strong>Address:</strong> 511 Jackson Ave. E.
-                                      Hampton, SC 29924<br />
+            <strong>Address:</strong> <a class="link" href="https://www.google.com/maps/place/511+Jackson+Ave+E,+Hampton,+SC+29924/@32.8627541,-81.1039086,17z/data=!3m1!4b1!4m6!3m5!1s0x88f95c24b0550ceb:0xd23c155657612405!8m2!3d32.8627541!4d-81.1039086!16s%2Fg%2F11c21hpj9g?entry=ttu">511 Jackson Ave. E. Hampton, SC 29924</a><br />
             <strong>Hours of Operation: </strong>
             <ul>
               <li>Tuesdays and Thursdays</li>
@@ -119,7 +118,7 @@ export default function MentalHAndSubAbuse() {
         </div>
         <div className="cardR card-back">
         <p>
-            <strong>Address:</strong> 61 Hickory Hill Rd Varnville, SC 29944 <br />
+            <strong>Address:</strong> <a class="link" href="https://www.google.com/maps/place/61+Hickory+Hill+Rd,+Varnville,+SC+29944/@32.8494458,-81.0804889,17z/data=!3m1!4b1!4m6!3m5!1s0x88f95eaa1bcfc001:0x20ca2940ce87e06e!8m2!3d32.8494458!4d-81.0804889!16s%2Fg%2F11c4l2sgsj?entry=ttu">61 Hickory Hill Rd Varnville, SC 29944</a><br />
             <strong>Phone:</strong> (803) 730-2783 <br />
             <strong>Contact:</strong> Amber Allen, LPC Supervisor<br />
             <strong>Email:</strong> <a href="mailto:amber.allen@innerpeacecounselingsc.com">amber.allen@innerpeacecounselingsc.com</a><br />
@@ -160,10 +159,10 @@ export default function MentalHAndSubAbuse() {
         </div>
         <div className="cardR card-back">
           <p>
-            <strong>Address:</strong> 304 Lee Avenue Hampton, SC 29924 <br />
+            <strong>Address:</strong> <a class="link" href="https://www.google.com/maps/place/304+Lee+Ave,+Hampton,+SC+29924/@32.8671827,-81.1086445,17z/data=!3m1!4b1!4m5!3m4!1s0x88f95c3a782ec937:0x3d0d1237875001fb!8m2!3d32.8671827!4d-81.1086445?entry=ttu">304 Lee Avenue Hampton, SC 29924</a><br />
             <strong>Phone:</strong> (803)943-9431 <br />
             <strong>Contact:</strong> Matthew Lurey, Hampton Branch Manager<br />
-            <strong>Website:</strong> <a href="https://wrightdfs.com" target="_blank" rel="noopener noreferrer">https://wrightdfs.com</a><br />
+            <strong>Website:</strong> <a class="linkweb" href="https://wrightdfs.com" target="_blank" rel="noopener noreferrer">www.wrightdfs.com</a><br />
             <strong>Email:</strong> <a href="mailto:ddoctor@hamptonfirststeps.org">ddoctor@hamptonfirststeps.org</a><br />
             <strong>Services: </strong>
             <ul>
@@ -211,10 +210,10 @@ export default function MentalHAndSubAbuse() {
           <p >No matter how challenging the times are, you are not alone in South Carolina. The South Carolina Department of Mental Health (SCDMH) and the South Carolina Department 
               of Alcohol and Other Drug Abuse Services (DAODAS) have teamed up to offer this safe and easy service that allows you to anonymously take a Self-Check Questionnaire and 
               connect with a professional counselor who can offer guidance, support, and resources to help connect you with mental health and addiction services. If you are a parent 
-              or guardian looking to take a Questionnaire to connect with a counselor on behalf of your child, please visit <a href="https://hope.connectsSCkids.org">hope.connectsSCkids.org</a>.</p>
+              or guardian looking to take a Questionnaire to connect with a counselor on behalf of your child, please visit <a class="linkweb" href="https://hope.connectsSCkids.org">hope.connectsSCkids.org</a>.</p>
 
           <p>Using this service is completely voluntary and confidential. This is not an emergency response system or crisis intervention service. 
-             If you are in crisis or contemplating suicide, please call or text 988 or chat <a href="https://988lifeline.org">988lifeline.org</a>. 
+             If you are in crisis or contemplating suicide, please call or text 988 or chat <a class="linkweb" href="https://988lifeline.org">988lifeline.org</a>. 
              You can also reach SCDMH's mobile crisis line at 1-833-364-2274.</p>
 
           <p>SC Hopes support line at 1-844-724-6737 to connect with an experienced mental health and addiction counselor 24/7.</p>
@@ -231,7 +230,7 @@ export default function MentalHAndSubAbuse() {
         </div>
           <div className="cardR card-back">
           <p>
-                <strong>Address:</strong> 65 Forest Drive Varnville, SC 29944  <br />
+                <strong>Address:</strong> <a class="link" href="https://www.google.com/maps/place/Edwina+Wilson/@32.8540792,-81.0910256,17z/data=!3m1!4b1!4m6!3m5!1s0x88f95c1c3366368b:0x423a80c8f45922a3!8m2!3d32.8540792!4d-81.0910256!16s%2Fg%2F11sh2b1py0?entry=ttu">65 Forest Drive Varnville, SC 29944</a><br />
                 <strong>Contact:</strong> Yokina Williams, Hampton and Allendale Clinic Director<br /> 
                 <strong>Phone:</strong> (803) 943-2828 <br /> 
                 <strong>Email:</strong> <a href="mailto:yokina.williams@scdmh.org"> yokina.williams@scdmh.org</a><br />
@@ -263,7 +262,7 @@ export default function MentalHAndSubAbuse() {
             </div>
             <div className="cardR card-back">
             <p>
-                <strong>Address:</strong> 168 14th Street Fairfax, SC 29827 <br />
+                <strong>Address:</strong> <a class="link" href="https://www.google.com/maps/place/168+14th+St,+Fairfax,+SC+29827/@32.9523221,-81.2365038,17z/data=!3m1!4b1!4m6!3m5!1s0x88f968a7409a07b5:0xdc1682cecb4fc2a2!8m2!3d32.9523221!4d-81.2365038!16s%2Fg%2F11r6jyzhvg?entry=ttu">168 14th Street Fairfax, SC 29827</a><br />
                 <strong>Contact:</strong> Sandra Washington-Bennett, MA, LPC-A, Owner<br /> 
                 <strong>Phone:</strong> (843) 301-3470<br /> 
                 <strong>Email:</strong> <a href="mailto:swb.onestep23@gmail.com"> swb.onestep23@gmail.com</a><br />
@@ -293,9 +292,9 @@ export default function MentalHAndSubAbuse() {
         </div>
         <div className="cardR card-back">
         <p>
-            <strong>Address:</strong> 2435 Augusta Hwy Hampton, SC 29924 <br />
+            <strong>Address:</strong> <a class="link" href="https://www.google.com/maps/place/2435+Augusta+Hwy,+Hampton,+SC+29924/@32.8904786,-81.1397163,17z/data=!3m1!4b1!4m6!3m5!1s0x88f95db08d4ab987:0x7f4723b0e866b06e!8m2!3d32.8904786!4d-81.1397163!16s%2Fg%2F11h5l347t0?entry=ttu">2435 Augusta Hwy Hampton, SC 29924</a><br />
             <strong>Phone:</strong> (843) 301-3470<br /> 
-            <strong>Website:</strong> <a href="https://lhchampton.com/celebrate-recovery-hampton/" target="_blank" rel="noopener noreferrer">https://lhchampton.com/celebrate-recovery-hampton/</a><br />
+            <strong>Website:</strong> <a class="linkweb" href="https://lhchampton.com/celebrate-recovery-hampton/" target="_blank" rel="noopener noreferrer">www.lhchampton.com/celebrate-recovery-hampton/</a><br />
             <strong>Mission: </strong> Celebrate Recovery is a Christ centered recovery program based on eight spiritual principles from the Beatitudes and the 12 Steps. Anyone and everyone who struggles 
                                      with a hurt, habit, or hang-up of any kind is welcome to attend. <br /> 
             <ul>
@@ -316,7 +315,7 @@ export default function MentalHAndSubAbuse() {
         </div>
         <div className="cardR card-back">
         <p>
-            <strong>Address:</strong> 165 E. Palmetto Ave. Varnville, SC 29924 <br />
+            <strong>Address:</strong> <a class="link" href="https://www.google.com/maps/place/165+E+Palmetto+Ave,+Varnville,+SC+29944/@32.849161,-81.0777294,17z/data=!3m1!4b1!4m6!3m5!1s0x88f95eaa8c28c4b9:0x2627619b968afc2d!8m2!3d32.849161!4d-81.0777294!16s%2Fg%2F11c0vwynzq?entry=ttu">165 E. Palmetto Ave. Varnville, SC 29924</a><br />
             <strong>Mission: </strong> The Twelve Steps of Life Recovery are a set of biblical principles that outline a course of action for tackling problems such as anxiety, 
                                        depression, grief, people pleasing, drug and alcohol addiction, overeating, sex addiction, and More. Life Recovery is for EVERYONE no matter their struggle.
                                        Anyone who struggles with emotional issues, life issues, and other dependencies are welcome to attend.<br /> 
@@ -337,8 +336,8 @@ export default function MentalHAndSubAbuse() {
         </div>
         <div className="cardR card-back">
         <p>
-            <strong>PO Box Address:</strong> PO Box 4449 Beaufort, S.C 29903  <br />
-            <strong>Website:</strong> <a href="https://www.lowcountryhh.com/" target="_blank" rel="noopener noreferrer">https://www.lowcountryhh.com/</a><br />
+            <strong>Address:</strong> PO Box 4449 Beaufort, S.C 29903  <br />
+            <strong>Website:</strong> <a class="linkweb" href="https://www.lowcountryhh.com/" target="_blank" rel="noopener noreferrer">www.lowcountryhh.com</a><br />
             <strong>Mission: </strong> LCHH provides residences for men and women over the age of 18 who are recovering from alcohol and/or drug addiction. 
                                        For more information or to schedule an "intake interview" please contact us between the hours of 8 a.m. - 8 p.m., at the numbers below. <br /> 
             <ul>

@@ -36,7 +36,7 @@ export default function Health() {
         </div>
         <div className="cardR card-back">
           <p>
-            <strong>Address:</strong> 531 Carolina Avenue West Varnville, SC 29944<br />
+            <strong>Address:</strong> <a class="link" href="https://www.google.com/maps/place/531+W+Carolina+Ave,+Varnville,+SC+29944/@32.854687,-81.0878,17z/data=!3m1!4b1!4m6!3m5!1s0x88f95c1cc269fa01:0x79881b9e39b77396!8m2!3d32.854687!4d-81.0878!16s%2Fg%2F11dzpkdgrb?entry=ttu">531 Carolina Avenue West Varnville, SC 29944</a><br />
             <strong>Phone:</strong> (803) 943-3878<br />
             <strong>Contact:</strong> Shandell Smalls, Health Educator II<br />
             <strong>Email:</strong> <a href="mailto:smallssa@dhec.sc.gov">smallssa@dhec.sc.gov</a> <br />
@@ -61,7 +61,7 @@ export default function Health() {
         </div>
         <div className="cardR card-back">
           <p>
-            <strong>Website:</strong> <a href="https://www.needymeds.org/" target="_blank" rel="noopener noreferrer">https://www.needymeds.org/</a><br />
+            <strong>Website:</strong> <a class="linkweb" href="https://www.needymeds.org/" target="_blank" rel="noopener noreferrer">www.needymeds.org</a><br />
             <strong>Services: </strong>   
             <ul>
               <li>Patient assistance programs for free or reduced medications </li>
@@ -80,7 +80,7 @@ export default function Health() {
         </div>
         <div className="cardR card-back">
           <p>
-            <strong>Website:</strong> <a href="https://www.welvista.org/about/" target="_blank" rel="noopener noreferrer">https://www.welvista.org/about/</a><br />
+            <strong>Website:</strong> <a class="linkweb" href="https://www.welvista.org/about/" target="_blank" rel="noopener noreferrer">www.welvista.org/about</a><br />
             <strong>Mission Statement: </strong> <br />Welvista is a 501(c)3 nonprofit organization that helps uninsured and underserved South Carolinians gain access 
                                                  to essential health services while reducing the long-term costs of health care that result from untreated conditions. 
                                                  Prescription assistance for free medications for uninsured.
@@ -93,6 +93,8 @@ export default function Health() {
       <div className={`card-container ${isFlipped4 ? 'flip' : ''}`} onClick={toggleCardFlip4}>
         <div className="cardR card-front">
           <h5>TT&T Services</h5>
+          <img src="https://media.istockphoto.com/id/519749080/photo/help-support-advice-guidance-signpost.jpg?s=612x612&w=0&k=20&c=hXetfeUaFCs0vet3Jxl3iTwtUGv-mtsN-9KiFzfxlMI=" 
+          style={{ width: '150px', height: '150px' }} />
         </div>
         <div className="cardR card-back">
           <p>

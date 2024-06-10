@@ -150,13 +150,26 @@ li:hover, .isActive {
 }
 /* -- END ANIMATION -- */
 
+/* Links hover colors */
+.link { color: #13703dcc; } /* address colors class */
+.link:hover { color: #aee745; } /* address colors hover class */
+
+.linkweb { color: #be8417ea; } /* websites colors class */
+.linkweb:hover { color: #7a641a; } /* websites colors hover class */
+
+a[href^="tel:"] {
+  color: rgb(75, 142, 180);
+  text-decoration: underline;
+}
+
+
 /* Card Layout Styles */
 
 .card-resources{
     display: flex;
     flex-wrap: wrap; /* Allow cards to wrap to the next line */
     justify-content: space-around;
-    background-color: rgba(106, 145, 46, 0.519);
+    background-color: rgba(47, 77, 6, 0.938);
 }
 
 .card-container {
@@ -165,12 +178,18 @@ li:hover, .isActive {
     background-size: cover;
     perspective: 1000px;
     position: relative;
-    width: calc(33% - 20px); /* Adjust the width as needed */
-    height: 600px; /* Adjust the height as needed */
+    width: calc(33% - 25px); /* Adjust the width as needed */
+    height: 900px; /* Adjust the height as needed */
     cursor: pointer;
     margin: 10px; /* Add margin to space out the cards */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
   .cardR {
@@ -188,9 +207,9 @@ li:hover, .isActive {
     justify-content: center;
     align-items: center;
     flex-direction: column; 
-    font-size: 1.5rem;
+    font-size: 2.5rem; /* Increased font size */
     font-family: Times, cursive;
-    line-height: 1.3;
+    line-height: 1.5;
     padding: 8px;
     text-align: center;
     border-radius: 10px; /* Optional: Add border radius for rounded corners */
@@ -203,10 +222,11 @@ li:hover, .isActive {
     background-size: cover;
     background-color: #ECFADC;
     transform: rotateY(180deg);
+    border-radius: 10px;
     display: flex; 
     justify-content: center;
     align-items: center;
-    font-size: 0.6rem; /* Reduce font size for smaller screens */
+    font-size: 0.9rem; /* Reduce font size for smaller screens */
     font-family: 'Times';
     line-height: 1.3; /* Adjust line height for smaller screens */
     padding-left: 40px; /* Reduce padding for smaller screens */
@@ -248,7 +268,7 @@ li:hover, .isActive {
       display: flex; 
       justify-content: center;
       align-items: center;
-      font-size: 0.57rem; /* Further reduce font size for very small screens */
+      font-size: 0.84rem; /* Further reduce font size for very small screens */
       line-height: 1.2; /* Further adjust line height for very small screens */
       padding-left: 30px; /* Further reduce padding for very small screens */
     }
@@ -286,4 +306,17 @@ li:hover, .isActive {
   }
   
 /* -- END CARD STYLINGS -- */
-  
+
+@font-face {
+  font-family: 'Kalam';
+  src: url('./fonts/Kalam-Bold.ttf') format('ttf'),
+       url('./fonts/Kalam-Light.ttf') format('ttf'),
+       url('./fonts/Kalam-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Kalam';
+  font-size: 24px;
+}
