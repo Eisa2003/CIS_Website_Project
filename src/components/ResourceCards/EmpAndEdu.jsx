@@ -213,6 +213,8 @@ export default function EmpAndEdu() {
     <div className={`card-container ${isFlipped8 ? 'flip' : ''}`} onClick={toggleCardFlip8}>
         <div className="cardR card-front">
           <h3>TT&T Services </h3>
+          <img src="https://media.istockphoto.com/id/519749080/photo/help-support-advice-guidance-signpost.jpg?s=612x612&w=0&k=20&c=hXetfeUaFCs0vet3Jxl3iTwtUGv-mtsN-9KiFzfxlMI=" 
+          style={{ width: '150px', height: '150px' }} />
         </div>
         <div className="cardR card-back">
           <p>

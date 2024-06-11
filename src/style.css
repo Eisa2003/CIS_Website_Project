@@ -132,23 +132,54 @@ li:hover, .isActive {
 }
 /* -- END CONTACT PAGE STYLING -- */
   
-/* Carousel Title Animation */
+/* Carousel Title Animation-  not adding just for fun*/
+
 @keyframes titletyping {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
+  from { width: 0; }
+  to { width: 100%; }
+}
+.carouseltitle {
+  overflow: hidden; 
+  white-space: nowrap; 
+  border-right: 4px solid;
+  animation: titletyping 4s steps(20, end) infinite;
+  text-align: center;
+  color: ghostwhite;
+  font-size: 4vw; /* Responsive font size */
+  font-family: Arial, sans-serif;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1vw; /* Responsive padding */
+  border-radius: 1vw; /* Responsive border radius */
+}
+@media (max-width: 768px) {
+  .carouseltitle {
+    font-size: 6vw; /* Adjust font size for smaller screens */
+  }
+}
+.carousel-inner {
+  height: 70vh;
+}
+.carousel-item img {
+  object-fit: cover;
+  height: 70vh;
+  width: 100%;
 }
 
-.titletyping-animation {
-    overflow: hidden;
-    border-right: 2px transparent; 
-    white-space: nowrap; 
-    animation: titletyping 4s steps(60, end); 
+@media (max-width: 768px) {
+  .carousel-inner {
+    height: 50vh;
+  }
+  .carousel-item img {
+    height: 50vh;
+  }
 }
-/* -- END ANIMATION -- */
+
+/* -- END Carousel Title -- */
 
 /* Links hover colors */
 .link { color: #13703dcc; } /* address colors class */
@@ -158,10 +189,12 @@ li:hover, .isActive {
 .linkweb:hover { color: #7a641a; } /* websites colors hover class */
 
 a[href^="tel:"] {
-  color: rgb(75, 142, 180);
+  color: rgba(38, 106, 146, 0.815);
   text-decoration: underline;
 }
-
+a[href^="tel:"]:hover {
+  color: #2fcfdab4;
+}
 
 /* Card Layout Styles */
 
@@ -178,11 +211,11 @@ a[href^="tel:"] {
     background-size: cover;
     perspective: 1000px;
     position: relative;
-    width: calc(33% - 25px); /* Adjust the width as needed */
-    height: 900px; /* Adjust the height as needed */
+    width: calc(35% - 38px); /* Adjust the width as needed */
+    height: 720px; /* Adjust the height as needed */
     cursor: pointer;
-    margin: 10px; /* Add margin to space out the cards */
-    border-radius: 10px;
+    margin: 5px; /* Add margin to space out the cards */
+    border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
     display: flex; 
     justify-content: center;
@@ -280,7 +313,7 @@ a[href^="tel:"] {
     columns: 2;
     -webkit-columns: 2;
     -moz-columns: 2;
-    column-gap: 40px; /* Adjust the gap between columns */
+    column-gap: 10px; /* Adjust the gap between columns */
     list-style-type: disc;
   }
   
@@ -304,9 +337,11 @@ a[href^="tel:"] {
       -moz-columns: 1;
     }
   }
-  
+  /* End Two column list */
+
 /* -- END CARD STYLINGS -- */
 
+/* -- Font styles START -- */
 @font-face {
   font-family: 'Kalam';
   src: url('./fonts/Kalam-Bold.ttf') format('ttf'),
@@ -317,6 +352,37 @@ a[href^="tel:"] {
 }
 
 body {
-  font-family: 'Kalam';
-  font-size: 24px;
+  font-family: 'Times';
+  font-size: 23px;
+}
+/* -- Font styles END -- */
+
+.survey-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.survey-popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
 }

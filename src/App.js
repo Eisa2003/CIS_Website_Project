@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
@@ -20,17 +20,42 @@ import CrisisHotlines from './components/ResourceCards/CrisisHotlines.jsx';
 import Trafficking from './components/ResourceCards/Trafficking.jsx';
 import SeniorAndDiasb from './components/ResourceCards/SeniorAndDisab.jsx';
 import Other from './components/ResourceCards/Other.jsx';
+import SurveyPopup from './components/SurveyPopup.jsx';
+
 
 function App() {
+  const [isSurveyOpen, setIsSurveyOpen] = useState(false); // Use useState
+
+  /* Survey popup open and close functions
+  const openSurvey = () => {
+    setIsSurveyOpen(true);
+  };
+  */
+
+  const closeSurvey = () => {
+    setIsSurveyOpen(false);
+  };
+
+  // Timer-based effect to show survey popup after 5 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // Logic to show survey popup
+      setIsSurveyOpen(true);
+    }, 3000); // Show popup after 3 seconds
+    return () => clearTimeout(timer);
+  }, []);
+
   const router = createBrowserRouter([
     {
       path: "/",
       element: (
         <>
+           
           <Alerts />
-          <Navbar title="HC" />         
-          <Carousel title="Hampton County Resources"/> 
+          <Navbar title="HC" />          
+          <Carousel title="Hampton County Resources"/>
 
+         
           <br/>
 
           <div className="container">
@@ -39,6 +64,7 @@ function App() {
               <h1 className='text-center'>Upcoming Events</h1>
               <hr/>
               <EventsCarousel events={Events}/>
+
             </div>
           </div>
           <hr/>
@@ -81,7 +107,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="Employment and Education" />
+          <Carousel title="Employment & Education" />
           <EmpAndEdu />
           <Footer />
         </>
@@ -93,7 +119,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="Mental Health And Substance Abuse" />
+          <Carousel title="Mental Health & Substance Abuse" />
           <MentalHAndSubAbuse />
           <Footer />
         </>
@@ -129,7 +155,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="Utilities and Basic Needs" />
+          <Carousel title="Utilities & Basic Needs" />
           <UtilAndBasicNeeds />
           <Footer />
         </>
@@ -189,7 +215,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="Senior And Disabilities" />
+          <Carousel title="Senior & Disabilities" />
           <SeniorAndDiasb />
           <Footer />
         </>
@@ -206,11 +232,16 @@ function App() {
           <Footer />
         </>
       )
-    }
+    },
+
   ]);
 
   return (
-    <RouterProvider router={router} />
+    <>
+      <RouterProvider router={router} />
+      {/* Render SurveyPopup component */}
+      <SurveyPopup isOpen={isSurveyOpen} onClose={closeSurvey} />
+    </>
   );
 }
 

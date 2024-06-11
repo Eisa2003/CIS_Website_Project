@@ -1,23 +1,28 @@
-import '../../src/style.css';
 import React from 'react';
-import GentleBreeze from './images/GentleBreeze.gif';
-import PaperFamily from './images/PaperFamily.jpg';
-import HelpingHand from './images/HelpingHand.jpg';
-
+import '../../src/style.css';
+import One from './images/one.jpg';
+import Two from './images/two.jpg';
+import Three from './images/three.jpg';
+import Four from './images/four.jpg';
+import Five from './images/five.jpg';
+import Six from './images/six.jpg';
 
 export default function Carousel(props) {
   return (
-    <div  style={{ position: 'relative'}}>
-      <h1 className="text-center" style={{ 
+    <div style={{ position: 'relative' }}>
+      <h1 style={{ 
         textAlign: 'center', 
         color: 'ghostwhite', 
-        fontSize: '60px',
-        fontFamily: 'Times',
+        fontSize: '55px',
+        fontFamily: 'Arial, sans-serif',
         position: 'absolute', 
-        top: '50%', 
+        top: '70%', 
         left: '50%', 
         transform: 'translate(-50%, -50%)',
-        zIndex: '1' 
+        zIndex: 1, // 
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Background color with some transparency
+        padding: '10px', // Padding for better appearance
+        borderRadius: '10px'
       }}>
         {props.title}
       </h1>
@@ -26,25 +31,37 @@ export default function Carousel(props) {
           <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
         </ol>
-        <div className="carousel-inner" style={{ height: '60vh'}}>
+        <div className="carousel-inner" style={{ height: '70vh' }}>
           <div className="carousel-item active">
-            <img className="d-block w-100" src={GentleBreeze} alt="First slide" style={{ objectFit: 'cover', height: '60vh', width: '100%' }} />
+            <img className="d-block w-100" src={One} alt="First slide" style={{ objectFit: 'cover', height: '70vh', width: '100%' }} />
           </div>
           <div className="carousel-item">
-            <img className="d-block w-100" src={HelpingHand} style={{ objectFit: 'cover', height: '60vh', width: '100%' }} alt="Second slide" />
+            <img className="d-block w-100" src={Two} style={{ objectFit: 'cover', height: '70vh', width: '100%' }} alt="Second slide" />
           </div>
           <div className="carousel-item">
-            <img className="d-block w-100" src={PaperFamily} style={{ objectFit: 'cover', height: '60vh', width: '100%' }} alt="Third slide" />
+            <img className="d-block w-100" src={Three} style={{ objectFit: 'cover', height: '70vh', width: '100%' }} alt="Third slide" />
+          </div>
+          <div className="carousel-item">
+            <img className="d-block w-100" src={Four} style={{ objectFit: 'cover', height: '70vh', width: '100%' }} alt="Fourth slide" />
+          </div>
+          <div className="carousel-item">
+            <img className="d-block w-100" src={Five} style={{ objectFit: 'cover', height: '70vh', width: '100%' }} alt="Fourth slide" />
+          </div>
+          <div className="carousel-item">
+            <img className="d-block w-100" src={Six} style={{ objectFit: 'cover', height: '70vh', width: '100%' }} alt="Fourth slide" />
           </div>
         </div>
         <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="sr-only" style={{ color: 'black'}}>Previous</span>
+          <span className="sr-only" style={{ color: 'black' }}>Previous</span>
         </a>
         <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
           <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="sr-only" style={{ color: 'black'}}>Next</span>
+          <span className="sr-only" style={{ color: 'black' }}>Next</span>
         </a>
       </div>
     </div>
