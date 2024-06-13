@@ -213,7 +213,7 @@ a[href^="tel:"]:hover {
   }
   
   .card-front {
-    color: #697157;
+    color: #481F01;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -335,6 +335,8 @@ body {
 }
 /* -- Font styles END -- */
 
+/* -- Pop up survery START -- */
+
 .survey-popup {
   position: fixed;
   top: 0;
@@ -364,3 +366,4 @@ body {
   font-size: 1.2rem;
   cursor: pointer;
 }
+/* -- Pop up survery END -- */
