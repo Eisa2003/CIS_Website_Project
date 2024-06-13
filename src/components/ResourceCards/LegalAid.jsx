@@ -22,7 +22,7 @@ export default function LegalAid() {
       <div className={`card-container ${isFlipped1 ? 'flip' : ''}`} onClick={toggleCardFlip1}>
         <div className="cardR card-front">
           <h3>Department of Juvenile Justice </h3>
-          <img src="https://media.istockphoto.com/id/1162658095/photo/law-and-justice-legality-concept-judge-gavel-on-wooden-table.jpg?s=612x612&w=0&k=20&c=lmyPbxVxIEnhJ6ckxS17oZi77BnV1UqYbm4u_r3L-M4=" alt="Card 1 Image" 
+          <img src="https://media.istockphoto.com/id/1162658095/photo/law-and-justice-legality-concept-judge-gavel-on-wooden-table.jpg?s=612x612&w=0&k=20&c=lmyPbxVxIEnhJ6ckxS17oZi77BnV1UqYbm4u_r3L-M4=" alt="Card 1 " 
           style={{ width: '250px', height: '175px' }} />
         </div>
         <div className="cardR card-back">
@@ -43,7 +43,7 @@ export default function LegalAid() {
       <div className={`card-container ${isFlipped2 ? 'flip' : ''}`} onClick={toggleCardFlip2}>
         <div className="cardR card-front">
           <h3>Veterans Affairs </h3>
-          <img src="https://www.va.gov/img/homepage/va-logo-white.png" alt="Card 1 Image" 
+          <img src="https://www.va.gov/img/homepage/va-logo-white.png" alt="Card 1 " 
           style={{ width: '450px', height: '130px' }} />
         </div>
         <div className="cardR card-back">

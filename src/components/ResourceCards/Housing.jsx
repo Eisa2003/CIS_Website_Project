@@ -22,7 +22,7 @@ export default function Housing() {
       <div className={`card-container ${isFlipped1 ? 'flip' : ''}`} onClick={toggleCardFlip1}>
         <div className="cardR card-front">
           <h3>Family Promise</h3>
-          <img src="https://familypromisebeaufortcounty.org/wp-content/uploads/2024/04/GD-2024-Image-1160x773.jpg" alt="Card 1 Image" 
+          <img src="https://familypromisebeaufortcounty.org/wp-content/uploads/2024/04/GD-2024-Image-1160x773.jpg" alt="Card 1 " 
           style={{ width: '200px', height: '150px' }} />
         </div>
         <div className="cardR card-back">
@@ -44,7 +44,7 @@ export default function Housing() {
       <div className={`card-container ${isFlipped2 ? 'flip' : ''}`} onClick={toggleCardFlip2}>
         <div className="cardR card-front">
           <h3>SafeHaven Homeless Shelter</h3>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScryo7b3m---kTKL-QPSMhmY5rtMBhmo9-OA&s" alt="Card 1 Image" 
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScryo7b3m---kTKL-QPSMhmY5rtMBhmo9-OA&s" alt="Card 1 " 
           style={{ width: '200px', height: '150px' }} />
         </div>
         <div className="cardR card-back">

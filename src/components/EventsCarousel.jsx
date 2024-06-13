@@ -4,7 +4,7 @@ const EventCard = ({ title, date, desc, address, imageUrl }) => {
   return (
     <div className="card" style={{borderRight: '5px', borderLeft: '5px'}}>
       <img src={imageUrl} className="card-img-top" alt="Event" style={{ height: '63vh', backgroundSize: 'cover', objectFit: 'cover'}}/>
-      <div className="card-body" style={{backgroundColor: '#38422B'}}>
+      <div className="card-body" style={{backgroundColor: '#38422B', height: 'auto'}}>
         <strong><h5 className="card-title text-white" >{title}</h5></strong>
         <p className="card-text text-light">{date}</p>
         <p className="card-text text-light">{desc}</p>

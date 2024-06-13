@@ -156,28 +156,6 @@ li:hover, .isActive {
   padding: 1vw; /* Responsive padding */
   border-radius: 1vw; /* Responsive border radius */
 }
-@media (max-width: 768px) {
-  .carouseltitle {
-    font-size: 6vw; /* Adjust font size for smaller screens */
-  }
-}
-.carousel-inner {
-  height: 70vh;
-}
-.carousel-item img {
-  object-fit: cover;
-  height: 70vh;
-  width: 100%;
-}
-
-@media (max-width: 768px) {
-  .carousel-inner {
-    height: 50vh;
-  }
-  .carousel-item img {
-    height: 50vh;
-  }
-}
 
 /* -- END Carousel Title -- */
 
