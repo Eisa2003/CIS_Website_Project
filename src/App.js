@@ -21,12 +21,13 @@ import Trafficking from './components/ResourceCards/Trafficking.jsx';
 import SeniorAndDiasb from './components/ResourceCards/SeniorAndDisab.jsx';
 import Other from './components/ResourceCards/Other.jsx';
 import SurveyPopup from './components/SurveyPopup.jsx';
+import SurveyForm from './components/SurveyForm.jsx';
 
 
 function App() {
   const [isSurveyOpen, setIsSurveyOpen] = useState(false); // Use useState
 
-  /* Survey popup open and close functions
+  /* Survey popup open and close functions 
   const openSurvey = () => {
     setIsSurveyOpen(true);
   };
@@ -41,9 +42,10 @@ function App() {
     const timer = setTimeout(() => {
       // Logic to show survey popup
       setIsSurveyOpen(true);
-    }, 3000); // Show popup after 3 seconds
+    }, 1000); // Show popup after 80 seconds
     return () => clearTimeout(timer);
   }, []);
+
 
   const router = createBrowserRouter([
     {
@@ -96,6 +98,8 @@ function App() {
           <Carousel title="Contact Us"/>
           <br/>
           <ContactUs />
+          <br/>
+          <SurveyForm />
           <br/>
           <Footer />
         </>

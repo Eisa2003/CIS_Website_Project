@@ -6,6 +6,7 @@ import Three from './images/three.jpg';
 import Four from './images/four.jpg';
 import Five from './images/five.jpg';
 import Six from './images/six.jpg';
+import Seven from './images/seven.jpg';
 
 export default function Carousel(props) {
   return (
@@ -34,6 +35,7 @@ export default function Carousel(props) {
           <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
         </ol>
         <div className="carousel-inner" style={{ height: '70vh' }}>
           <div className="carousel-item active">
@@ -53,6 +55,9 @@ export default function Carousel(props) {
           </div>
           <div className="carousel-item">
             <img className="d-block w-100" src={Six} style={{ objectFit: 'cover', height: '70vh', width: '100%' }} alt="Fourth slide" />
+          </div>
+          <div className="carousel-item">
+            <img className="d-block w-100" src={Seven} style={{ objectFit: 'cover', height: '70vh', width: '100%' }} alt="Fourth slide" />
           </div>
         </div>
         <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
