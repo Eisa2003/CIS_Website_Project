@@ -8,7 +8,7 @@
 
 .navbar-brand {
     margin-right: 35px;
-    font-size: 25px;
+    font-size: 30px;
     font-family: 'Script'; /* Apply the cursive font */
 }
 
@@ -27,8 +27,9 @@
 hr {
     width: 45%;
     padding: 1px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #697157;
+    justify-content: center;
     /*background-color: rgba(128, 128, 128, 0.488); <- old*/
 }
 
@@ -361,12 +362,12 @@ body {
 
 .close-btn {
   position: absolute;
+  width: 15%;
   top: 10px;
   right: 10px;
-  background: transparent;
-  border: none;
-  font-size: 1.2rem;
+  font-size: .5rem;
   cursor: pointer;
+  background-color: #a5a8a3;
 
 }
 /* -- Pop up survey END -- */
@@ -374,7 +375,6 @@ body {
 /* -- Survey Form Start -- */
 
 .survey-form {
-  background: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -382,41 +382,23 @@ body {
   margin: 50px auto;
 }
 
-.survey-form h2 {
-  margin-bottom: 20px;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-}
-
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: 5px;
+  border: 1px solid #a8a4a4;
   border-radius: 4px;
   box-sizing: border-box;
 }
 
-.form-group textarea {
-  resize: vertical;
-  height: 100px;
-}
 
 button {
   display: block;
-  width: 100%;
-  padding: 10px;
+  width: 40%;
+  padding: 5px;
   background-color: #327710;
   color: white;
-  border: none;
   border-radius: 4px;
   cursor: pointer;
 }

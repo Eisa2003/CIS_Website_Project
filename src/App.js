@@ -42,7 +42,7 @@ function App() {
     const timer = setTimeout(() => {
       // Logic to show survey popup
       setIsSurveyOpen(true);
-    }, 1000); // Show popup after 80 seconds
+    }, 80000); // Show popup after 80 seconds
     return () => clearTimeout(timer);
   }, []);
 
@@ -56,8 +56,6 @@ function App() {
           <Alerts />
           <Navbar title="HC" />          
           <Carousel title="Hampton County Resources"/>
-
-         
           <br/>
 
           <div className="container">
@@ -66,7 +64,6 @@ function App() {
               <h1 className='text-center'>Upcoming Events</h1>
               <hr/>
               <EventsCarousel events={Events}/>
-
             </div>
           </div>
           <hr/>
