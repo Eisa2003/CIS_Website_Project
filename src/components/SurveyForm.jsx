@@ -14,6 +14,15 @@ const styles = {
   },
   textCenter: {
     textAlign: 'center',
+  },
+  button: {
+    display: 'block',
+    width: '40%',
+    padding: '5px',
+    backgroundColor: '#327710',
+    color: 'white',
+    borderRadius: '4px',
+    cursor: 'pointer'
   }
 };
 
@@ -92,7 +101,7 @@ const SurveyForm = () => {
                 onChange={handleChange}
               ></textarea>
             </div>
-            <button type="submit">Submit</button>
+            <button style={styles.button} type="submit">Submit</button>
           </form>
         </div>
       </div>
