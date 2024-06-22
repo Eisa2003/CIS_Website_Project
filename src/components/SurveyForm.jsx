@@ -46,9 +46,10 @@ const SurveyForm = () => {
   };
 
   return (
-    <div style={styles.body}>
+    <div style={styles.body} className='container'>
+      <hr/>
       <h3 style={styles.textCenter}>Feedback</h3>
-        <hr/>
+      <hr/>
       <div style={styles.container}>
         
         <div className="survey-form">

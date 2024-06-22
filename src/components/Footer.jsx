@@ -110,7 +110,7 @@ export default function Footer({ companyName, companyDescription, companyAddress
         {/* Copyright */}
         <div className="text-center p-3" style={{ backgroundColor: '#9AA581' }}>
           © 2024 Copyright:
-          <a className="text-white" href="/">hamptoncountyresourcecenter.com</a>
+          <a className="text-white" href="/">HCresourcecenter.com</a>
         </div>
         {/* Copyright */}
       </footer>
