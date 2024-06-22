@@ -5,17 +5,17 @@ export default function ContactUs() {
     let styles = {
         body: {
             fontFamily: 'Arial, Helvetica, sans-serif',
-        },
-        '*': {
-            boxSizing: 'border-box',
-        },
-        container: {
+          },
+          container: {
             borderRadius: '5px',
             backgroundColor: '#f2f2f2',
-            padding: '16px', // Reduced padding
-            maxWidth: '400px', // Set a maximum width for the form
-            margin: '0 auto', // Center the form horizontally
-        }
+            padding: '10px',
+            maxWidth: '600px',
+            margin: '0 auto',
+          },
+          textCenter: {
+            textAlign: 'center',
+          }
     };
 
     return (
@@ -32,13 +32,6 @@ export default function ContactUs() {
 
                     <label htmlFor="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Your email.." className="contactInput"/>
-
-                    <label htmlFor="country">Country</label>
-                    <select id="country" name="country" className="contactInput">
-                        <option value="australia">Australia</option>
-                        <option value="canada">Canada</option>
-                        <option value="usa">USA</option>
-                    </select>
 
                     <label htmlFor="subject">Subject</label>
                     <textarea id="subject" name="subject" placeholder="Write something.." className="contactInput" style={{ height: '120px' }}></textarea>

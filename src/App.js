@@ -37,12 +37,12 @@ function App() {
     setIsSurveyOpen(false);
   };
 
-  // Timer-based effect to show survey popup after 5 seconds
+  // Timer-based effect to show survey popup after 5 mins
   useEffect(() => {
     const timer = setTimeout(() => {
       // Logic to show survey popup
       setIsSurveyOpen(true);
-    }, 80000); // Show popup after 80 seconds
+    }, 50000); // Show popup after 5 mins
     return () => clearTimeout(timer);
   }, []);
 

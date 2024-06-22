@@ -6,25 +6,30 @@ const styles = {
     fontFamily: 'Arial, Helvetica, sans-serif',
   },
   container: {
-    borderRadius: '5px',
-    backgroundColor: '#f2f2f2',
-    padding: '16px',
-    maxWidth: '400px',
-    margin: '0 auto',
+    width: '100%',
+    padding: '8px', 
+    border: '1px',
+    borderRadius: '4px', 
+    boxSizing: 'border-box', 
+    marginTop: '8px', 
+    marginBottom: '8px', 
+    fontSize: '14px', 
   },
   textCenter: {
     textAlign: 'center',
   },
   button: {
-    display: 'block',
-    width: '40%',
-    padding: '5px',
-    backgroundColor: '#327710',
+    backgroundColor: '#9AA581', 
     color: 'white',
+    padding: '8px 16px', 
+    border: 'none',
     borderRadius: '4px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    fontSize: '14px', 
   }
 };
+
+
 
 const SurveyForm = () => {
   const [responses, setResponses] = useState({
@@ -48,53 +53,83 @@ const SurveyForm = () => {
   return (
     <div style={styles.body} className='container'>
       <hr/>
-      <h3 style={styles.textCenter}>Feedback</h3>
+      <h3 style={styles.textCenter}>Feedback Survey</h3>
       <hr/>
       <div style={styles.container}>
-        
+        <h5 style={styles.textCenter}>Your Opinion Matters!&#9786;</h5> 
+        <h6 style={styles.textCenter}>Please Leave Your Feedback and Help Us Improve</h6>
         <div className="survey-form">
           <form id="feedbackForm" onSubmit={handleSubmit}>
             <div className="form-group">
-              <label htmlFor="name">Name:</label>
-              <input
+              <label htmlFor="name">How easy is it to navigate our website/app? (Scale: 1-10)</label>
+              <select
                 type="text"
                 id="name"
                 name="name"
-                value={responses.name}
+                value={responses.navigate}
                 onChange={handleChange}
                 required
-              />
+                >
+                <option value="">Select...</option>
+                <option value="5">1</option>
+                <option value="4">2</option>
+                <option value="3">3</option>
+                <option value="2">4</option>
+                <option value="1">5</option>
+                <option value="1">6</option>
+                <option value="1">7</option>
+                <option value="1">8</option>
+                <option value="1">9</option>
+                <option value="1">10</option>
+              </select>
             </div>
             <div className="form-group">
-              <label htmlFor="email">Email:</label>
-              <input
+              <label htmlFor="email">How would you rate the design and layout of our website/app? (Scale: 1-10)</label>
+              <select
                 type="email"
                 id="email"
                 name="email"
-                value={responses.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="rating">Rating:</label>
-              <select
-                id="rating"
-                name="rating"
-                value={responses.rating}
+                value={responses.design}
                 onChange={handleChange}
                 required
               >
                 <option value="">Select...</option>
-                <option value="5">Excellent</option>
-                <option value="4">Good</option>
-                <option value="3">Average</option>
-                <option value="2">Fair</option>
-                <option value="1">Poor</option>
+                <option value="5">1</option>
+                <option value="4">2</option>
+                <option value="3">3</option>
+                <option value="2">4</option>
+                <option value="1">5</option>
+                <option value="1">6</option>
+                <option value="1">7</option>
+                <option value="1">8</option>
+                <option value="1">9</option>
+                <option value="1">10</option>
               </select>
             </div>
             <div className="form-group">
-              <label htmlFor="comments">Comments:</label>
+              <label htmlFor="rating">Is the content on our website/app helpful and informative? (Scale: 1-10)</label>
+              <select
+                id="rating"
+                name="rating"
+                value={responses.content}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select...</option>
+                <option value="5">1</option>
+                <option value="4">2</option>
+                <option value="3">3</option>
+                <option value="2">4</option>
+                <option value="1">5</option>
+                <option value="1">6</option>
+                <option value="1">7</option>
+                <option value="1">8</option>
+                <option value="1">9</option>
+                <option value="1">10</option>
+              </select>
+            </div>
+            <div className="form-group">
+              <label htmlFor="comments">Do you have any additional comments or suggestions?</label>
               <textarea
                 id="comments"
                 name="comments"
