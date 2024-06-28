@@ -9,7 +9,7 @@ const EventsCarousel = () => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/events/');
+        const response = await fetch('http://localhost:5001/api/events/');
         const data = await response.json();
         setEvents(data);
       } catch (error) {
@@ -42,34 +42,35 @@ const EventsCarousel = () => {
         <div>Loading events...</div>
       ) : (
         <div id="eventCarousel" className="carousel slide" data-bs-ride="carousel">
-          <ol className="carousel-indicators">
+          <ol className="carousel-indicators" style={{top: '10px'}}>
             {events.map((_, index) => (
               <li
                 key={index}
                 data-bs-target="#eventCarousel"
                 data-bs-slide-to={index}
                 className={index === currentSlide ? 'active' : ''}
+                style={index === currentSlide ? {backgroundColor: 'black'} : {backgroundColor: 'grey'}}
                 onClick={() => handleIndicatorClick(index)}
               ></li>
             ))}
           </ol>
-          <div className="carousel-inner">
+          <div className="carousel-inner" style={{ borderRadius: '20px' }}>
             {events.map((event, index) => (
               <div key={event._id} className={`carousel-item ${index === currentSlide ? 'active' : ''}`}>
-                <div className="card" style={{ borderRight: '5px', borderLeft: '5px' }}>
+                <div className="card" style={{ borderTopRightRadius: '20px', borderTopLeftRadius: '20px' }}>
                   <img
                     src={event.imageUrl}
                     className="card-img-top"
                     alt="Event"
-                    style={{ height: '63vh', backgroundSize: 'cover', objectFit: 'cover' }}
+                    style={{ height: '63vh', backgroundSize: 'cover', objectFit: 'contain', backgroundColor: 'grey' }}
                   />
                   <div className="card-body" style={{ backgroundColor: '#38422B', height: 'auto' }}>
                     <strong>
-                      <h5 className="card-title text-white">{event.title}</h5>
+                      <h5 className="card-title text-white" style={{fontWeight: 'bold', fontSize: '25px', textShadow: '2px 2px 4px #000000'}}>{event.title}</h5>
                     </strong>
-                    <p className="card-text text-light">{event.date}</p>
-                    <p className="card-text text-light">{event.desc}</p>
-                    <p className="card-text text-light">{event.address}</p>
+                    <p className="card-text text-light" style={{fontSize: '15px' }}>{event.date}</p>
+                    <p className="card-text text-light" style={{fontSize: '15px' }}>{event.desc}</p>
+                    <p className="card-text text-light" style={{fontSize: '15px' }}>{event.address}</p>
                   </div>
                 </div>
               </div>
