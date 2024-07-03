@@ -22,6 +22,7 @@ import SeniorAndDiasb from './components/ResourceCards/SeniorAndDisab.jsx';
 import Other from './components/ResourceCards/Other.jsx';
 import SurveyPopup from './components/SurveyPopup.jsx';
 import SurveyForm from './components/SurveyForm.jsx';
+import AdminLogin from './components/AdminLogin.jsx';
 
 
 function App() {
@@ -227,12 +228,23 @@ function App() {
       path: "/Resources/Other",
       element: (
         <>
-          <Navbar title="HC" />
+          <Navbar title="HC" /> 
           <Carousel title="Other" />
           <Other />
           <Footer />
         </>
       )
+    },
+
+    {
+      path: "/Admin/Access",
+      element: (
+        <>
+          <Navbar title="HC"/>
+          <AdminLogin />
+          <Footer />
+        </>
+      ),
     },
 
   ]);

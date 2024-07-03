@@ -90,9 +90,22 @@ li{
     margin: 5px 0px 5px 5px;
 }
 
-li:hover, .isActive {
+/* The style for the login nav items */
+#loginnav{
+  color: white;
+}
+#loginnav:hover, #loginnav:active{
+  color: white;
+}
+
+#tab-login active{
+  background-color: #6E7753;
+}
+
+/* Style for the nav items other than the login nav */
+li:not(#loginnav):hover, li:not(#loginnav).isActive, .lactive {
     color: #CCD5C0;
-    background-color:#6E7753;
+    background-color: #6E7753;
     border-radius: 5px;
 }
 /* -- END NAV-LINKS STYLING */
@@ -393,4 +406,4 @@ body {
   box-sizing: border-box;
 }
 
-/* -- Survey Form End -- */
+/* -- Survey Form End -- */                     
