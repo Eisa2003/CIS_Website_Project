@@ -12,7 +12,9 @@ export default function AdminLogin() {
     confirmPassword: ''
   })
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Calling a React hook that returns a 
+                                  // function object called navigate(That's what I think)
+                                  // But we are storing the reference in the variable called navigate so it doesn't even matter
 
   const storeToken = (token) => {
     Cookies.set('authToken', token, { expires: process.env.EXPIRES_IN / 3600, httpOnly: true }); // expires in an hour
