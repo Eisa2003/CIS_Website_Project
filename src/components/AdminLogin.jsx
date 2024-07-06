@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 export default function AdminLogin() {
   const [validatorText, setValidatorText] = useState('');
@@ -11,11 +12,13 @@ export default function AdminLogin() {
     confirmPassword: ''
   })
 
+  const navigate = useNavigate();
+
   const storeToken = (token) => {
-    Cookies.set('authToken', token, { expires: process.env.EXPIRES_IN / 3600, httpOnly: true });
+    Cookies.set('authToken', token, { expires: process.env.EXPIRES_IN / 3600, httpOnly: true }); // expires in an hour
   }
 
-  const retrieveToken = () => Cookies.get('authToken');
+  const retrieveToken = () => Cookies.get('authToken'); // Will be using this in a diff file
 
   const handleClick = (indicator) => {
     setValidatorText('');
@@ -71,6 +74,9 @@ export default function AdminLogin() {
           // console.log("The result from success: " + data)
           // setValidatorText(data.accessToken);
           storeToken(data.accessToken);
+          
+          navigate('/Admin/Access/controls'); // a function imported from the react-router module
+
         } catch (err) {
           // Handle errors from both fetch and backend API
 
@@ -87,7 +93,7 @@ export default function AdminLogin() {
       }
       else if(formData.password != formData.confirmPassword)
       {
-        setValidatorText("The passwords don't match")
+        setValidatorText("The passwords doesn't match")
       }
       else {
         const RegisterFormData = {
@@ -135,7 +141,8 @@ export default function AdminLogin() {
       <>
         <br /><hr />
         <h1 className='text-center'>Sign-in to get <strong>Admin</strong> access</h1><hr /><br />
-        <h4 className="text-center text-danger">{validatorText}</h4>
+        <h4 className={validatorText === "Admin Registered Successfully!"? "text-center text-success" : "text-center bg-danger text-white"}
+            style={{borderRadius: '5px', maxWidth: 'fit-content', marginInline: 'auto'}}>{validatorText}</h4>
         <ul className="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
           <li className="nav-item" id="loginnav" role="presentation">
             <a

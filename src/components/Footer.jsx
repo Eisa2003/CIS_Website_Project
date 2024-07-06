@@ -60,19 +60,13 @@ export default function Footer({ companyName, companyDescription, companyAddress
               {/* Grid column */}
               <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                 {/* Links */}
-                <h6 className="text-uppercase fw-bold">Products</h6>
+                <h6 className="text-uppercase fw-bold">Controls</h6>
                 <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{ width: '60px', backgroundColor: '#CAAD7E', height: '2px' }} />
                 <p>
-                  <a href="#!" className="text-white">Something</a>
+                  <a href="#!" className="text-white">Admin Controls</a>
                 </p>
                 <p>
-                  <a href="#!" className="text-white">Something</a>
-                </p>
-                <p>
-                  <a href="#!" className="text-white">Something</a>
-                </p>
-                <p>
-                  <a href="#!" className="text-white">Something</a>
+                  <a href="#!" className="text-white">User</a>
                 </p>
               </div>
               {/* Grid column */}

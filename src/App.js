@@ -23,6 +23,8 @@ import Other from './components/ResourceCards/Other.jsx';
 import SurveyPopup from './components/SurveyPopup.jsx';
 import SurveyForm from './components/SurveyForm.jsx';
 import AdminLogin from './components/AdminLogin.jsx';
+import AdminNavbar from './components/AdminNavbar.jsx';
+import AdminControls from './components/AdminControls.jsx';
 
 
 function App() {
@@ -240,8 +242,19 @@ function App() {
       path: "/Admin/Access",
       element: (
         <>
-          <Navbar title="HC"/>
+          <AdminNavbar title="Admin Controls Login"/>
           <AdminLogin />
+          <Footer />
+        </>
+      ),
+    },
+
+    {
+      path: "/Admin/Access/controls",
+      element: (
+        <>
+          <AdminNavbar title="Admin Controls Page"/>
+          <AdminControls />
           <Footer />
         </>
       ),
@@ -253,7 +266,7 @@ function App() {
     <>
       <RouterProvider router={router} />
       {/* Render SurveyPopup component */}
-      <SurveyPopup isOpen={isSurveyOpen} onClose={closeSurvey} />
+      {/*<SurveyPopup isOpen={isSurveyOpen} onClose={closeSurvey} />*/}
     </>
   );
 }
