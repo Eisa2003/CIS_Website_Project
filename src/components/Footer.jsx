@@ -1,8 +1,6 @@
 import React from 'react';
 import '../../node_modules/bootstrap-icons/font/bootstrap-icons.css';
-
-
-
+import { NavLink } from 'react-router-dom';
 
 
 export default function Footer({ companyName, companyDescription, companyAddress, companyEmail, companyPhone }) {
@@ -63,10 +61,10 @@ export default function Footer({ companyName, companyDescription, companyAddress
                 <h6 className="text-uppercase fw-bold">Controls</h6>
                 <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{ width: '60px', backgroundColor: '#CAAD7E', height: '2px' }} />
                 <p>
-                  <a href="#!" className="text-white">Admin Controls</a>
+                  <NavLink className="text-white" to='/Admin/Access/'>Admin Controls</NavLink>
                 </p>
                 <p>
-                  <a href="#!" className="text-white">User</a>
+                  <NavLink className="text-white" to='/'>User</NavLink>
                 </p>
               </div>
               {/* Grid column */}
@@ -77,10 +75,10 @@ export default function Footer({ companyName, companyDescription, companyAddress
                 <h6 className="text-uppercase fw-bold">Useful links</h6>
                 <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{ width: '60px', backgroundColor: '#CAAD7E', height: '2px' }} />
                 <p>
-                  <a href="#!" className="text-white">Your Account</a>
+                  <NavLink className="text-white" to='/'>Your Account</NavLink>
                 </p>
                 <p>
-                  <a href="#!" className="text-white">Help</a>
+                  <NavLink className="text-white" to='/ContactUs'>Help</NavLink>
                 </p>
               </div>
               {/* Grid column */}
@@ -104,7 +102,7 @@ export default function Footer({ companyName, companyDescription, companyAddress
         {/* Copyright */}
         <div className="text-center p-3" style={{ backgroundColor: '#9AA581' }}>
           © 2024 Copyright:
-          <a className="text-white" href="/">HCresourcecenter.com</a>
+          <NavLink className="text-white" to='/'>HCresourcecenter.com</NavLink>
         </div>
         {/* Copyright */}
       </footer>
