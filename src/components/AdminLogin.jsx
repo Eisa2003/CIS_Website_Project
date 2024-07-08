@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { createContext, useState, useContext } from 'react'
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import TokenContext from './TokenContext'; // The reference to the created context
 
 export default function AdminLogin() {
   const [validatorText, setValidatorText] = useState('');
@@ -11,16 +12,19 @@ export default function AdminLogin() {
     password: '',
     confirmPassword: ''
   })
+  const {token, setToken} = useContext(TokenContext); // Access token from context
 
   const navigate = useNavigate(); // Calling a React hook that returns a 
                                   // function object called navigate(That's what I think)
                                   // But we are storing the reference in the variable called navigate so it doesn't even matter
 
+  /*
   const storeToken = (token) => {
     Cookies.set('authToken', token, { expires: process.env.EXPIRES_IN / 3600, httpOnly: true }); // expires in an hour
   }
 
   const retrieveToken = () => Cookies.get('authToken'); // Will be using this in a diff file
+  */
 
   const handleClick = (indicator) => {
     setValidatorText('');
@@ -75,8 +79,9 @@ export default function AdminLogin() {
 
           // console.log("The result from success: " + data)
           // setValidatorText(data.accessToken);
-          storeToken(data.accessToken);
-          
+          setToken(data.accessToken);
+          // storeToken(data.accessToken);
+          console.log("This is from the AdminLogin : " + token);
           navigate('/Admin/Access/controls'); // a function imported from the react-router module
 
         } catch (err) {
@@ -139,8 +144,8 @@ export default function AdminLogin() {
 
   return (
 
+    <>
     <div className='container'>
-      <>
         <br /><hr />
         <h1 className='text-center'>Sign-in to get <strong>Admin</strong> access</h1><hr /><br />
         <h4 className={validatorText === "Admin Registered Successfully!"? "text-center text-success" : "text-center bg-danger text-white"}
@@ -309,8 +314,9 @@ export default function AdminLogin() {
           </div>
         </div>
         {/* Pills content */}
-      </>
+      
 
     </div>
+    </>
   )
 }

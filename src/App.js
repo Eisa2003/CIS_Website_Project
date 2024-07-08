@@ -25,10 +25,11 @@ import SurveyForm from './components/SurveyForm.jsx';
 import AdminLogin from './components/AdminLogin.jsx';
 import AdminNavbar from './components/AdminNavbar.jsx';
 import AdminControls from './components/AdminControls.jsx';
-
+import TokenContext from './components/TokenContext.js'; // establishing a reference to the context object
 
 function App() {
-  const [isSurveyOpen, setIsSurveyOpen] = useState(false); // Use useState
+  const [isSurveyOpen, setIsSurveyOpen] = useState(false); // Using useState
+  const [token, setToken] = useState(null); // Initial token state
 
   /* Survey popup open and close functions 
   const openSurvey = () => {
@@ -263,11 +264,12 @@ function App() {
   ]);
 
   return (
-    <>
+    <TokenContext.Provider value={{ token, setToken }}> {/* The provider comp is what that
+                                                            establishes the context tree and helps provide the value */}
       <RouterProvider router={router} />
       {/* Render SurveyPopup component */}
       {/*<SurveyPopup isOpen={isSurveyOpen} onClose={closeSurvey} />*/}
-    </>
+    </TokenContext.Provider>
   );
 }
 

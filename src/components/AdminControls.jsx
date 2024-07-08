@@ -1,12 +1,51 @@
-import React from 'react'
-
+import React, { useEffect, useState, useContext } from 'react'
+import Cookies from 'js-cookie';
+import TokenContext from './TokenContext'; // Importing the created context
+// idea - when fetching the event cards, we will perform a token validation at the backend
 export default function AdminControls() {
+
+    const [errorMsg, setErrorMsg] = useState('');
+    const [eventsData, setEventsData] = useState([])
+    const { token }= useContext(TokenContext)
+
+    const fetchEventsData = async() => {
+        let authToken = token;
+        console.log("This is from the AdminControls: " + authToken)
+        try{
+            const response = await fetch('http://localhost:5001/api/events/admin',
+                {
+                  method: 'GET',
+                  headers: {
+                    'Authorization': `Bearer ${authToken}` // We write Bearer to signify the type of token it is
+                  }
+                }
+              )
+            if(!response.ok){
+                let error = await response.json();
+                throw new Error(error.message);
+            } // end if
+
+            let data = await response.json();
+            setEventsData(data);
+            console.log(data);
+
+            
+        }
+        catch(err){
+            setErrorMsg(err.message); // As we know that the err object always has property called message attached to it
+        } // end try/catch block
+    } // end function fetchEventsData
+
+    useEffect(() => {
+        fetchEventsData();
+    }, []) // end hook useEffect 
+
     return (
         <>
             <br />
 
             <div className='container'>
-
+                <h2 className="text-center">{errorMsg}</h2>
                 {/* Start of the row */}
                 <div className="row mb-3">
 
