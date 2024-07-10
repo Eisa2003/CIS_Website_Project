@@ -251,7 +251,7 @@ function App() {
     },
 
     {
-      path: "/Admin/Access/controls",
+      path: "/Admin/Access/Controls/Events",
       element: (
         <>
           <AdminNavbar title="Admin Controls Page"/>

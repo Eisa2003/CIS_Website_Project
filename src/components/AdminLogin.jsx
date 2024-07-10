@@ -1,5 +1,4 @@
 import React, { createContext, useState, useContext } from 'react'
-import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 import TokenContext from './TokenContext'; // The reference to the created context
 
@@ -58,7 +57,7 @@ export default function AdminLogin() {
         // Test link for the API - http://localhost:5001/api/admin/login
 
         try {
-          const response = await fetch('http://localhost:5001/api/admin/login',
+          const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/admin/login',
             {
               method: 'POST',
               headers: {
@@ -82,7 +81,7 @@ export default function AdminLogin() {
           setToken(data.accessToken);
           // storeToken(data.accessToken);
           console.log("This is from the AdminLogin : " + token);
-          navigate('/Admin/Access/controls'); // a function imported from the react-router module
+          navigate('/Admin/Access/Controls/Events'); // a function imported from the react-router module
 
         } catch (err) {
           // Handle errors from both fetch and backend API
@@ -113,7 +112,7 @@ export default function AdminLogin() {
         // Test link for the API - http://localhost:5001/api/admin/register
 
         try {
-          const response = await fetch('http://localhost:5001/api/admin/register',
+          const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/admin/register',
             {
               method: 'POST',
               headers: {

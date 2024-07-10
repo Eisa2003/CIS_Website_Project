@@ -406,4 +406,41 @@ body {
   box-sizing: border-box;
 }
 
-/* -- Survey Form End -- */                     
+/* -- Survey Form End -- */     
+
+/* -- Global -- */
+.btn-primary{
+  background-color: #6E7753;
+  border-color: #697157;
+}
+
+.btn-primary:hover{
+  background-color: #38422B;
+}
+
+/* -- Admin Controls -- */
+.fixed-create-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 50%;
+  background-color: #38422B; /* Adjust color as needed */
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 100; /* Ensure button is above other elements */
+}
+
+.create-form-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the form */
+  background-color: white;
+  border-radius: 10px; /* Adjust as needed */
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  z-index: 101; /* Ensure form is above other elements */
+  max-width: 500px; /* Optional: Set a maximum width */
+}
