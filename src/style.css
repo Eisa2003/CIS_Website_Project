@@ -444,3 +444,11 @@ body {
   z-index: 101; /* Ensure form is above other elements */
   max-width: 500px; /* Optional: Set a maximum width */
 }
+
+/* -- End Admin Controls --*/
+
+/* -- heroBanner -- */
+
+.heroBanner{
+  background-color: #38422B;
+}
