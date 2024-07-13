@@ -7,7 +7,8 @@ const styles = {
   },
   container: {
     backgroundColor: '#F5F5DC',
-    width: '40%',
+    maxWidth: '80%', // Adjust as needed
+    width: 'auto',
     padding: '8px',
     border: '1px solid #ccc',
     borderRadius: '4px',
