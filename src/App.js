@@ -46,7 +46,7 @@ function App() {
     const timer = setTimeout(() => {
       // Logic to show survey popup
       setIsSurveyOpen(true);
-    }, 50000); // Show popup after 5 mins
+    }, 1000); // Show popup after 5 mins
     return () => clearTimeout(timer);
   }, []);
 
@@ -268,7 +268,7 @@ function App() {
                                                             establishes the context tree and helps provide the value */}
       <RouterProvider router={router} />
       {/* Render SurveyPopup component */}
-      {/*<SurveyPopup isOpen={isSurveyOpen} onClose={closeSurvey} />*/}
+      {<SurveyPopup isOpen={isSurveyOpen} onClose={closeSurvey} />}
     </TokenContext.Provider>
   );
 }
