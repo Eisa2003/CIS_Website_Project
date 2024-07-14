@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import TokenContext from './TokenContext'; // The reference to the created context
 
@@ -97,7 +97,7 @@ export default function AdminLogin() {
       {
         setValidatorText('Cannot leave the fields empty')
       }
-      else if(formData.password != formData.confirmPassword)
+      else if(formData.password !== formData.confirmPassword)
       {
         setValidatorText("The passwords doesn't match")
       }
@@ -154,7 +154,7 @@ export default function AdminLogin() {
             <a
               className={indicator === 0 ? 'nav-link lactive' : 'nav-link'}
               id="tab-login"
-              href=''
+              href='/'
               role="tab"
               aria-controls="pills-login"
               onClick={() => handleClick(0)} // We need to assign a function 
@@ -168,7 +168,7 @@ export default function AdminLogin() {
             <a
               className={indicator === 1 ? 'nav-link lactive' : 'nav-link'}
               id="tab-register"
-              href="#"
+              href="/"
               role="tab"
               aria-controls="pills-register"
               onClick={() => handleClick(1)}
@@ -244,7 +244,7 @@ export default function AdminLogin() {
               {/* Register buttons */}
               <div className="text-center">
                 <p>
-                  Not a member? <a href="#" onClick={() => handleClick(1)}>Register</a>
+                  Not a member? <a href="/" onClick={() => handleClick(1)}>Register</a>
                 </p>
               </div>
             </form>

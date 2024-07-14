@@ -32,13 +32,16 @@ export default function Navbar(props) {
 
   const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
+  /*
+  <NavLink className={`navbar-brand ${animationKey}`} to="/" key={animationKey}>
+            <strong>{props.title}</strong>
+          </NavLink>*/
+
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark" style={{ padding: '25px 15px 25px 15px', backgroundColor: '#38422B'}}>
+      <nav className="navbar navbar-expand-lg navbar-dark" style={{}}>
         <div className='container'>
-          <NavLink className={`navbar-brand ${animationKey}`} to="/" key={animationKey}>
-            <strong>{props.title}</strong>
-          </NavLink>
+          
           <button 
             className="navbar-toggler" 
             type="button" 

@@ -1,3 +1,20 @@
+body {
+  font-family: 'Arial';
+  font-size: 22px;
+  background-color: #F6F6DB;
+}
+
+/* Home page and important stuff*/
+.impTitles{
+  margin-inline: auto;
+  font-weight: 800;
+  box-shadow: 10px 10px 10px #38422B;
+  width: 60%;
+  border-radius: 10px;
+  padding: 5px 0px 5px 0px;
+}
+
+
 /* Navbar Logo Animations */
 @keyframes typing {
     0% { margin-left: 0; width: 70px; }
@@ -6,6 +23,10 @@
     100% { margin-left: 35px; width: 0px; }
 }
 
+.navbar {
+  background-color: #38422B;
+  padding: 25px 15px 25px 15px;
+}
 .navbar-brand {
     margin-right: 35px;
     font-size: 30px;
@@ -85,9 +106,8 @@ h1::after{
 /* These are the nav-link's style */
 li{
     padding: 4px 15px 4px 15px;
-    transition: 0.5s;
     border-radius: 5px;
-    margin: 5px 0px 5px 5px;
+    margin: 5px 5px 5px 5px;
 }
 
 /* The style for the login nav items */
@@ -103,10 +123,14 @@ li{
 }
 
 /* Style for the nav items other than the login nav */
-li:not(#loginnav):hover, li:not(#loginnav).isActive, .lactive {
+li:not(#loginnav):hover, .lactive {
+    color: #CCD5C0;
+    border: #6E7753 solid;
+}
+
+li:not(#loginnav).isActive{
     color: #CCD5C0;
     background-color: #6E7753;
-    border-radius: 5px;
 }
 /* -- END NAV-LINKS STYLING */
 
@@ -270,6 +294,13 @@ a[href^="tel:"]:hover {
     transform: rotateY(0deg);
   }   
  @media only screen and (max-width: 768px) {
+
+  .indCards {
+    /* Set desired width for mobile view */
+    width: 90vw;
+    flex-basis: 90vw; /* Example: 100% width with 10px margin on each side */
+  }
+
     .card-container {
       width: calc(50% - 20px); /* Adjust width for smaller screens */
     }
@@ -286,6 +317,7 @@ a[href^="tel:"]:hover {
   }
   
   @media only screen and (max-width: 480px) {
+
     .card-container {
       width: calc(100% - 20px); /* Adjust width for even smaller screens */
     }
@@ -335,6 +367,76 @@ a[href^="tel:"]:hover {
 
 /* -- END CARD STYLINGS -- */
 
+/* Carousel stylings */
+.eventCardsContainer{
+  height: 82vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* background-color: grey; */
+  padding: 5px;
+  flex-direction: row;
+  margin-inline: auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px 10px #6E7753;
+}
+
+.indCards {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 5px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  box-sizing: border-box;
+  border-radius: 20px;
+  /* Ensure padding and border are included in the width */
+}
+.indCardBody{
+  height: 30vh;
+  color: black;
+  overflow: scroll;
+  margin-bottom: '5px';
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: #9AA581;
+  overflow-x: hidden;
+}
+
+.indCardsbtn{
+  margin: 10px;
+  background-color: #6E7753;
+  border-color: #697157;
+  color: white;
+  width: 200px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.indCardsbtn:hover{
+  background-color: #38422B;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 /* -- Font styles START -- */
 @font-face {
   font-family: 'Kalam';
@@ -343,11 +445,6 @@ a[href^="tel:"]:hover {
        url('./fonts/Kalam-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-}
-
-body {
-  font-family: 'Arial';
-  font-size: 22px;
 }
 /* -- Font styles END -- */
 
@@ -458,4 +555,14 @@ body {
 
 .heroBanner{
   background-color: #38422B;
+}
+
+.heroBanner:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(56, 66, 43, 0.9); /* Blue filter with 30% opacity */
 }

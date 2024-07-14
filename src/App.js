@@ -5,6 +5,7 @@ import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer';
 import Events from './components/Events';
 import EventsCarousel from './components/EventsCarousel';
+import NewEventsCr from './components/NewEventsCr.jsx';
 import Alerts from './components/Alerts.jsx';
 import Carousel from './components/Carousel.jsx';
 import AboutUs from './components/AboutUs.jsx';
@@ -26,6 +27,7 @@ import AdminLogin from './components/AdminLogin.jsx';
 import AdminNavbar from './components/AdminNavbar.jsx';
 import AdminControls from './components/AdminControls.jsx';
 import TokenContext from './components/TokenContext.js'; // establishing a reference to the context object
+import HeroBanner from './components/HeroBanner.jsx';
 
 function App() {
   const [isSurveyOpen, setIsSurveyOpen] = useState(false); // Using useState
@@ -58,18 +60,19 @@ function App() {
         <>
            
           <Alerts />
-          <Navbar title="HC" />          
-          <Carousel title="Hampton County Resources"/>
-          <br/>
+          <Navbar title="HC" />  
+          <HeroBanner />   
 
-          <div className="container">
-          <div className="row">
-            <div className="col">
-              <h1 className='text-center'>Upcoming Events</h1>
-              <hr/>
-              <EventsCarousel events={Events}/>
-            </div>
-          </div>
+          <div className="container">     
+          <br/>
+          
+          <h1 className='text-center impTitles'>Hampton County</h1><br />
+          <Carousel title="Hampton County Views"/>
+          <br/>
+          
+              <h1 className='text-center impTitles'>Upcoming Events</h1><br />
+              <NewEventsCr/>
+          
           <hr/>
           </div>
 

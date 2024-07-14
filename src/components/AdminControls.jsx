@@ -75,7 +75,7 @@ export default function AdminControls() {
         // console.log("This is the target object: " + e.target + " And this is the value :" +value);
 
         for (let index in eventsData) {
-            if (eventsData[index]._id == editedEventId) {
+            if (eventsData[index]._id === editedEventId) {
                 selectedFormData = eventsData[index] // Basically separating and storing the required event
             } // end if
         } // end for
@@ -206,7 +206,7 @@ export default function AdminControls() {
                 throw new Error(await response.json().message);
             }
 
-            const data = await response.json();
+            //const data = await response.json();
             //setErrorMsg(data) // This actually is a success msg
 
             setIsCreateFormOpen(false); // Close form after success
@@ -239,14 +239,14 @@ export default function AdminControls() {
                                 <div>Loading events...</div>
                             ) : (<div style={{ marginInline: 'auto', width: '100%' }}> {eventsData.map((event, index) => (
                                 <div class="card mb-3" key={index}>
-                                    <img class="card-img-top" style={{ width: "100%", height: "18em", objectFit: "cover" }} src={event.imageUrl} alt="Card image cap" />
+                                    <img class="card-img-top" style={{ width: "100%", height: "18em", objectFit: "cover" }} src={event.imageUrl} alt={event.title} />
                                     <div class="card-body">
                                         <h5 class="card-title"><strong>{event.title}</strong></h5>
                                         <p class="card-text">{event.desc}</p>
                                         <p className="card-text">{event.date}</p>
                                         <p className="card-text">{event.address}</p>
-                                        <a href="#" class="btn btn-primary mr-2" data-toggle={event._id} onClick={handleToggle}>Edit</a>
-                                        <a href="#" class="btn btn-primary" data-delete={event._id} onClick={handleDelete}>Delete</a>
+                                        <a href="/" class="btn btn-primary mr-2" data-toggle={event._id} onClick={handleToggle}>Edit</a>
+                                        <a href="/" class="btn btn-primary" data-delete={event._id} onClick={handleDelete}>Delete</a>
 
                                         <form onSubmit={handleSubmit} id={event._id} className={editFormOpen[event._id] ? 'd-block' : 'd-none'}>{/* check which ones are false */}
 

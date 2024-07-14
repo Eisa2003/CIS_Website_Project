@@ -12,6 +12,7 @@ export default function Carousel(props) {
   return (
     <div style={{ position: 'relative' }}>
       <h1 style={{ 
+        display: 'none',
         textAlign: 'center', 
         color: 'ghostwhite', 
         fontSize: '55px',
@@ -37,7 +38,7 @@ export default function Carousel(props) {
           <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
         </ol>
-        <div className="carousel-inner" style={{ height: '70vh' }}>
+        <div className="carousel-inner" style={{ height: '70vh', borderRadius: '20px' }}>
           <div className="carousel-item active">
             <img className="d-block w-100" src={One} alt="First slide" style={{ objectFit: 'cover', height: '70vh', width: '100%' }} />
           </div>
