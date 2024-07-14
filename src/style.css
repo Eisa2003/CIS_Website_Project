@@ -8,10 +8,11 @@ body {
 .impTitles{
   margin-inline: auto;
   font-weight: 800;
-  box-shadow: 10px 10px 10px #38422B;
+  box-shadow: 10px 10px 10px #6a7a55;
   width: 60%;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 5px 0px 5px 0px;
+  background-color: transparent;
 }
 
 
@@ -553,8 +554,27 @@ a[href^="tel:"]:hover {
 
 /* -- heroBanner -- */
 
-.heroBanner{
-  background-color: #38422B;
+.heroBanner {
+  position: relative;
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  z-index: 1; /* Ensures content is above the video */
+}
+
+.semicircle {
+  color: #ECFADC;/* Additional styles for semicircle */
+}
+
+.typer {
+  color: #ECFADC;
 }
 
 .heroBanner:before {
@@ -564,5 +584,5 @@ a[href^="tel:"]:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(56, 66, 43, 0.9); /* Blue filter with 30% opacity */
+  background-color: rgba(56, 66, 43, 0.349); /* Blue filter with 30% opacity */
 }

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
-import emailjs from 'emailjs-com'; 
+import emailjs from 'emailjs-com';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 // install the following
 // npm i @emailjs/browser
@@ -91,15 +92,34 @@ const ContactUs = () => {
       padding: '20px',
       marginTop: '20px',
     },
+    emailContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      marginBottom: '20px',
+    },
+    emailIcon: {
+      marginRight: '10px',
+      fontSize: '30px',
+    },
+    emailText: {
+      fontSize: '16px',
+      color: 'green',
+      textDecoration: 'underline',
+    },
   };
+
+  const companyEmail = 'helpinhamptoncounty@cisofsc.org';
 
   return (
     <div style={styles.body}>
       <h3 style={styles.textCenter}>Contact Form</h3>
       <hr />
       <div style={styles.container}>
-      <h3 style={styles.textCenter}>Message Us!</h3>
-      <hr />
+        <h3 style={styles.textCenter}>Message Us!</h3>
+        <div style={styles.emailContainer}>
+          <i className="bi bi-envelope" style={styles.emailIcon}></i>
+          <a href={`mailto:${companyEmail}`} style={styles.emailText}>{companyEmail}</a>
+        </div>
         {formSubmitted ? (
           <div style={styles.thankYouMessage}>
             <p>Thank you for your message!</p>
@@ -126,6 +146,8 @@ const ContactUs = () => {
               value="Send"
               className="submitButton"
               style={styles.submitButton}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = styles.submitButtonHover.backgroundColor}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = styles.submitButton.backgroundColor}
             />
           </form>
         )}
