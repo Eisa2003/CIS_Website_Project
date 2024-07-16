@@ -386,6 +386,23 @@ a[href^="tel:"]:hover {
 /* -- END CARD STYLINGS -- */
 
 /* Carousel stylings */
+
+.heroBanner video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1; /* Ensures the video is behind the content */
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Transition effect */
+}
+
+.heroBanner video.active {
+  opacity: 1; /* Make the active video visible */
+}
+
 .eventCardsContainer{
   height: 82vh;
   display: flex;
