@@ -48,7 +48,7 @@ function App() {
     const timer = setTimeout(() => {
       // Logic to show survey popup
       setIsSurveyOpen(true);
-    }, 50000); // Show popup after 5 mins
+    }, 1000); // Show popup after 5 mins
     return () => clearTimeout(timer);
   }, []);
 
