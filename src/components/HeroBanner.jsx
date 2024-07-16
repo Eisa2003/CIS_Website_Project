@@ -49,7 +49,7 @@ export default function HeroBanner(props) {
                     muted
                     onEnded={handleVideoEnd}
                 >
-                    <source src={slownature} type="video/mp4" />
+                    <source src={fastnature} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
                 <video
@@ -57,7 +57,7 @@ export default function HeroBanner(props) {
                     muted
                     onEnded={handleVideoEnd}
                 >
-                    <source src={fastnature} type="video/mp4" />
+                    <source src={thirdnature} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
                 <video
@@ -65,7 +65,7 @@ export default function HeroBanner(props) {
                     muted
                     onEnded={handleVideoEnd}
                 >
-                    <source src={thirdnature} type="video/mp4" />
+                    <source src={slownature} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
                 <div className="semicircle">
