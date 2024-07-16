@@ -10,7 +10,7 @@ import Seven from './images/seven.jpg';
 
 export default function Carousel(props) {
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative' }} className='container'>
       <h1 style={{ 
         display: 'none',
         textAlign: 'center', 

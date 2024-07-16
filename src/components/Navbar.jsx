@@ -6,7 +6,40 @@ import '../../src/style.css';
 export default function Navbar(props) {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   const [animationKey, setAnimationKey] = useState(0);
+  const [searchText, setSearchText] = useState('');
+  const [resources, setResources] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
   const location = useLocation();
+
+  useEffect(() => { // <- A useEffect runs at the first render too. That's why the code makes sense
+    const timeout = setTimeout(() => {
+      setAnimationKey((prev) => prev + 1);
+    }, 7000);
+
+    return () => clearTimeout(timeout);
+  }, [animationKey]);
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/events/');
+        const data = await response.json();
+        setResources(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    fetchData();
+
+  }, [])
+
+  useEffect(() => {
+    const fiteredResults = resources.filter((resource) => resource.title.toLowerCase().includes(searchText.toLowerCase()))
+    setSearchResults(fiteredResults)
+    //console.log(searchResults)
+  }, [searchText, resources])
 
   const activeDropdownPaths = [
     '/Resources/Emp&Edu',
@@ -22,15 +55,12 @@ export default function Navbar(props) {
     '/Resources/Other'
   ];
 
-  useEffect(() => { // <- A useEffect runs at the first render too. That's why the code makes sense
-    const timeout = setTimeout(() => {
-      setAnimationKey((prev) => prev + 1);
-    }, 7000);
-
-    return () => clearTimeout(timeout);
-  }, [animationKey]);
-
   const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+
+  const handleChange = (e) => {
+    let text = e.target.value
+    setSearchText(text)
+  }
 
   /*
   <NavLink className={`navbar-brand ${animationKey}`} to="/" key={animationKey}>
@@ -41,14 +71,14 @@ export default function Navbar(props) {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark" style={{}}>
         <div className='container'>
-          
-          <button 
-            className="navbar-toggler" 
-            type="button" 
-            data-toggle="collapse" 
-            data-target="#navbarSupportedContent" 
-            aria-controls="navbarSupportedContent" 
-            aria-expanded={!isNavCollapsed} 
+
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded={!isNavCollapsed}
             aria-label="Toggle navigation"
             onClick={handleNavCollapse}
           >
@@ -66,10 +96,10 @@ export default function Navbar(props) {
                 <NavLink className="nav-link" to="/ContactUs">{props.contactUs}</NavLink>
               </li>
               <li className={`nav-item dropdown ${activeDropdownPaths.includes(location.pathname) ? 'isActive' : ''}`}>
-                <NavLink 
-                  className="nav-link dropdown-toggle" 
-                  id="navbarDropdown" 
-                  role="button" 
+                <NavLink
+                  className="nav-link dropdown-toggle"
+                  id="navbarDropdown"
+                  role="button"
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
@@ -94,8 +124,22 @@ export default function Navbar(props) {
             </ul>
             <div className='searchComponent'>
               <form className="form-inline my-2 my-lg-0" style={{ display: 'flex', alignItems: 'center' }}>
-                <input className="searchBox" type="search" placeholder="Search" aria-label="Search" />
-                <button className="searchBtn" type="submit">Search</button>
+                <input className="searchBox" type="search" placeholder="Search" aria-label="Search" value={searchText} onChange={handleChange} />
+                <button className="searchBtn" type="submit" >Search</button>
+                <div className="searchResults" style={{position: 'absolute', backgroundColor: 'white', marginTop: '40vh'}}>
+                {searchResults.length > 0 ? (
+                  <ul style={{listStyleType: 'none', display: 'none'}}>
+                    {searchResults.map((event) => (
+                      <li key={event.id}>
+                        {event.title}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>No results found.</p>
+                )}
+                </div>
+                
               </form>
             </div>
           </div>

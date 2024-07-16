@@ -28,6 +28,7 @@ body {
   background-color: #38422B;
   padding: 25px 15px 25px 15px;
 }
+
 .navbar-brand {
     margin-right: 35px;
     font-size: 30px;
@@ -102,6 +103,20 @@ h1::after{
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+
+.searchResults{
+  position: absolute;
+  background-color: white;
+  margin-top: 40vh;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 2;
+}
+
+.searchResults li{
+  cursor: pointer;
+}
+
 /* -- END SEARCH BAR STYLING -- */
 
 /* These are the nav-link's style */
@@ -109,6 +124,8 @@ li{
     padding: 4px 15px 4px 15px;
     border-radius: 5px;
     margin: 5px 5px 5px 5px;
+    border: #38422B solid;
+    transition: 0.5s;
 }
 
 /* The style for the login nav items */
