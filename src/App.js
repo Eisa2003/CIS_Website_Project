@@ -61,7 +61,7 @@ function App() {
            
           <Alerts />
           <Navbar title="HC" />  
-          <HeroBanner />   
+          <HeroBanner title="Welcome "/>   
 
           <div className="container">     
           <br/>
@@ -85,7 +85,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="Our Story"/>
+          <HeroBanner title="Our Story"/>
           <br/>
           <AboutUs />
           <br/>
@@ -99,7 +99,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="Contact Us"/>
+          <HeroBanner title="Contact Us"/>
           <br/>
           <ContactUs />
           <br/>
@@ -115,7 +115,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="Employment & Education" />
+          <HeroBanner title="Employment & Education" />
           <EmpAndEdu />
           <Footer />
         </>
@@ -127,7 +127,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="Mental Health & Substance Abuse" />
+          <HeroBanner title="Mental Health & Substance Abuse" />
           <MentalHAndSubAbuse />
           <Footer />
         </>
@@ -139,7 +139,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="Housing" />
+          <HeroBanner title="Housing" />
           <Housing />
           <Footer />
         </>
@@ -151,7 +151,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="Food Assistance" />
+          <HeroBanner title="Food Assistance" />
           <FoodAsst />
           <Footer />
         </>
@@ -163,7 +163,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="Utilities & Basic Needs" />
+          <HeroBanner title="Utilities & Basic Needs" />
           <UtilAndBasicNeeds />
           <Footer />
         </>
@@ -175,7 +175,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="Health" />
+          <HeroBanner title="Health" />
           <Health />
           <Footer />
         </>
@@ -187,7 +187,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="Legal Aid" />
+          <HeroBanner title="Legal Aid" />
           <LegalAid />
           <Footer />
         </>
@@ -199,7 +199,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="Crisis Hotlines" />
+          <HeroBanner title="Crisis Hotlines" />
           <CrisisHotlines />
           <Footer />
         </>
@@ -211,7 +211,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="Trafficking , Abuse, & Violence Services" />
+          <HeroBanner title="Trafficking , Abuse, & Violence Services" />
           <Trafficking />
           <Footer />
         </>
@@ -223,7 +223,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <Carousel title="Senior & Disabilities" />
+          <HeroBanner title="Senior & Disabilities" />
           <SeniorAndDiasb />
           <Footer />
         </>
@@ -235,7 +235,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" /> 
-          <Carousel title="Other" />
+          <HeroBanner title="Other" />
           <Other />
           <Footer />
         </>

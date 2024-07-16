@@ -2,7 +2,7 @@ import React from 'react';
 import '../../src/style.css'; // Correcting the import path
 import slownature from './images/slownature.mp4';
 
-export default function HeroBanner() {
+export default function HeroBanner(props) {
     return (
         <div>
             <div
@@ -34,7 +34,7 @@ export default function HeroBanner() {
                     Your browser does not support the video tag.
                 </video>
                 <div className="semicircle">
-                    <h1 className="typer">Welcome</h1>
+                    <h1 className="typer">{props.title}</h1>
                 </div>
             </div>
         </div>
