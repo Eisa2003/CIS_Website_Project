@@ -53,6 +53,7 @@ const SurveyForm = () => {
   const styles = {
     body: {
       fontFamily: 'Arial, Helvetica, sans-serif',
+      zIndex: '4',
     },
     outerContainer: {
       backgroundColor: '#EAE3C9',

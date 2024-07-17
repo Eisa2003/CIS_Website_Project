@@ -26,7 +26,7 @@ body {
 
 .navbar {
   background-color: #38422B;
-  padding: 25px 15px 25px 15px;
+  padding: 15px 10px 15px 10px;
 }
 
 .navbar-brand {
@@ -74,7 +74,7 @@ h1::after{
 }
 
 .searchBox {
-    padding: 10px 15px 10px 15px;
+    padding: 1vh 2vh 1vh 2vh;
     border: none;
     background-color: #F6F6DB;
     border-top-left-radius: 5px;
@@ -88,7 +88,7 @@ h1::after{
     background-color: #9AA581;
     border: none;
     text-align: center;
-    padding: 10px 15px 10px 15px;
+    padding: 1vh 2vh 1vh 2vh;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     box-shadow: none;
@@ -121,12 +121,27 @@ h1::after{
 
 /* These are the nav-link's style */
 li{
-    padding: 4px 15px 4px 15px;
+    padding: 5px 12px 5px 12px;  /* 10px 15px 10px 15px;  0.5vh 2vh 0.5vh 2vh;*/
     border-radius: 5px;
     margin: 5px 5px 5px 5px;
     border: #38422B solid;
     transition: 0.5s;
 }
+
+@media only screen and (max-width: 1250px) {
+  li{
+    font-size: 18px;
+  }
+
+  .searchBox {
+    padding: 2px 4px 2px 4px;
+  }
+
+  .searchBtn {
+    padding: 2px 4px 2px 4px;
+  }
+}
+
 
 /* The style for the login nav items */
 #loginnav{

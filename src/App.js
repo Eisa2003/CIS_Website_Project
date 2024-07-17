@@ -3,8 +3,6 @@ import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer';
-import Events from './components/Events';
-import EventsCarousel from './components/EventsCarousel';
 import NewEventsCr from './components/NewEventsCr.jsx';
 import Alerts from './components/Alerts.jsx';
 import Carousel from './components/Carousel.jsx';
