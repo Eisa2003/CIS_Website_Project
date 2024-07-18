@@ -198,7 +198,10 @@ function App() {
         <>
           <Navbar title="HC" />
           <HeroBanner title="Crisis Hotlines" />
+          <br />
           <CrisisHotlines />
+          <br />
+          
           <Footer />
         </>
       )
