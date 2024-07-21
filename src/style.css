@@ -71,7 +71,6 @@ h1::after{
 /* Search Bar Styling */
 .searchWrapper{
   display: block;
-  background-color: black;
   height: 53px;
   width: 40%;
 }
@@ -117,18 +116,32 @@ h1::after{
   background-color:#F6F6DB;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  z-index: 5;
   width: 100%;
+  overflow: hidden;
+}
+
+.searchResultsActive{
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 .searchResults a{
+  font-weight: bold;
   padding: 10px 30px 10px 30px;
   display: block;
   cursor: pointer;
+  transition: 1s;
+  animation: slide 1s forwards;
+}
+
+@keyframes slide {
+  0%{ left: -100px; position: relative;}
+  100%{ left: 0px; position: relative; }
 }
 
 .searchResults a:hover{
-  background-color: #f5f5c5;
+  background-color: #f6f6af;
+  border-radius: 20px;
 }
 
 
@@ -155,6 +168,7 @@ h1::after{
 }
 /* These are the nav-link's style */
 li{
+    position: relative;
     padding: 5px 12px 5px 12px;  /* 10px 15px 10px 15px;  0.5vh 2vh 0.5vh 2vh;*/
     border-radius: 5px;
     margin: 5px 5px 5px 5px;
@@ -162,6 +176,17 @@ li{
     transition: 0.5s;
 }
 
+li::after {
+  content: '';
+  position: absolute;
+  height: 10px;
+  width: 0;
+  background-color: #6E7753;
+  border-radius: 20px;
+  transition: width 1s;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 /* The style for the login nav items */
 #loginnav{
@@ -181,9 +206,20 @@ li:not(#loginnav):hover, .lactive {
     border: #6E7753 solid;
 }
 
+li:not(#loginnav):hover::after, .lactive::after {
+  width: 50%;
+}
+
+/* Have to design one for the actual div and the other one for the pseudo element */
+
 li:not(#loginnav).isActive{
     color: #CCD5C0;
-    background-color: #6E7753;
+    border: #b8bda9 solid;
+}
+
+li:not(#loginnav).isActive::after{
+  background-color: #b8bda9;
+  width: 50%;
 }
 /* -- END NAV-LINKS STYLING */
 

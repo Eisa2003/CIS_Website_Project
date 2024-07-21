@@ -42,6 +42,7 @@ export default function HeroBanner(props) {
                     justifyContent: 'center',
                     alignItems: 'center',
                     position: 'relative',
+                    zIndex: '-1'
                 }}
             >
                 <video

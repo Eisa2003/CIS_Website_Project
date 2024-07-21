@@ -57,7 +57,7 @@ function App() {
       element: (
         <>
            
-          <Alerts />
+          <Alerts /> {/* I have noticed that because of this component, react is re-rendering the nav - Eisa */}
           <Navbar title="HC" />  
           <HeroBanner title="Welcome "/>   
 

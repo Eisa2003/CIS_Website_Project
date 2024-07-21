@@ -124,10 +124,10 @@ export default function Navbar(props) {
             </ul>
             <div className="searchWrapper">
               <div className='searchComponent'>
-                <input className="searchBox" type="search" placeholder="Search" aria-label="Search" value={searchText} onChange={handleChange} />
-                <button className="searchBtn" type="submit" >Search</button>
+                <input className={searchText === '' ? 'searchBox' : 'searchBox searchResultsActive'} type="search" placeholder="Search" aria-label="Search" value={searchText} onChange={handleChange} />
+                <button className={searchText === '' ? 'searchBtn' : 'searchBtn searchResultsActive'} type="submit" >Search</button>
               </div>
-              <div className="searchResults">
+              <div className= "searchResults" style={{ display: searchText === '' ? 'none' : '' }}>
                 {searchResults.length > 0 ? (
                   <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>
                     {searchResults.map((event) => (
@@ -137,7 +137,7 @@ export default function Navbar(props) {
                     ))}
                   </ul>
                 ) : (
-                  <p>No results found.</p>
+                  <p style={{fontWeight: 'bold', display: 'block', textAlign: 'center', cursor: 'not-allowed'}}>No results found.</p>
                 )}
               </div>
 
