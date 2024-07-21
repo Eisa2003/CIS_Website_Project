@@ -122,26 +122,28 @@ export default function Navbar(props) {
                 </div>
               </li>
             </ul>
-            <div className='searchComponent'>
-              <form className="form-inline my-2 my-lg-0" style={{ display: 'flex', alignItems: 'center' }}>
+            <div className="searchWrapper">
+              <div className='searchComponent'>
                 <input className="searchBox" type="search" placeholder="Search" aria-label="Search" value={searchText} onChange={handleChange} />
                 <button className="searchBtn" type="submit" >Search</button>
-                <div className="searchResults" style={{position: 'absolute', backgroundColor: 'white', marginTop: '40vh'}}>
+              </div>
+              <div className="searchResults">
                 {searchResults.length > 0 ? (
-                  <ul style={{listStyleType: 'none', display: 'none'}}>
+                  <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>
                     {searchResults.map((event) => (
-                      <li key={event.id}>
+                      <a key={event.id}>
                         {event.title}
-                      </li>
+                      </a>
                     ))}
                   </ul>
                 ) : (
                   <p>No results found.</p>
                 )}
-                </div>
-                
-              </form>
+              </div>
+
+
             </div>
+
           </div>
         </div>
       </nav>

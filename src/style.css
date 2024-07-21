@@ -69,18 +69,26 @@ h1::after{
 }*/
 
 /* Search Bar Styling */
+.searchWrapper{
+  display: block;
+  background-color: black;
+  height: 53px;
+  width: 40%;
+}
 .searchComponent {
     padding: 0;
+    display: flex;
 }
 
 .searchBox {
-    padding: 1vh 2vh 1vh 2vh;
+    padding: 10px 20px 10px 20px;
     border: none;
     background-color: #F6F6DB;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     color: black;
     font-weight: 500;
+    width: 75%;
 }
 
 .searchBtn {
@@ -88,12 +96,13 @@ h1::after{
     background-color: #9AA581;
     border: none;
     text-align: center;
-    padding: 1vh 2vh 1vh 2vh;
+    padding: 10px 20px 10px 20px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     box-shadow: none;
     cursor: pointer;
     transition: 0.5s;
+    width: 25%;
 }
 
 .searchBtn:hover{
@@ -105,20 +114,45 @@ h1::after{
 }
 
 .searchResults{
-  position: absolute;
-  background-color: white;
-  margin-top: 40vh;
+  background-color:#F6F6DB;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  z-index: 2;
+  z-index: 5;
+  width: 100%;
 }
 
-.searchResults li{
+.searchResults a{
+  padding: 10px 30px 10px 30px;
+  display: block;
   cursor: pointer;
 }
 
-/* -- END SEARCH BAR STYLING -- */
+.searchResults a:hover{
+  background-color: #f5f5c5;
+}
 
+
+/* -- END SEARCH BAR STYLING -- */
+@media only screen and (max-width: 1250px) {
+  li{
+    font-size: 18px;
+  }
+  .searchWrapper{
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .searchWrapper{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .searchWrapper{
+    width: 100%;
+  }
+}
 /* These are the nav-link's style */
 li{
     padding: 5px 12px 5px 12px;  /* 10px 15px 10px 15px;  0.5vh 2vh 0.5vh 2vh;*/
@@ -126,20 +160,6 @@ li{
     margin: 5px 5px 5px 5px;
     border: #38422B solid;
     transition: 0.5s;
-}
-
-@media only screen and (max-width: 1250px) {
-  li{
-    font-size: 18px;
-  }
-
-  .searchBox {
-    padding: 2px 4px 2px 4px;
-  }
-
-  .searchBtn {
-    padding: 2px 4px 2px 4px;
-  }
 }
 
 
