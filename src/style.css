@@ -39,7 +39,7 @@ body {
 
 .navbar {
   background-color: #38422B;
-  padding: 15px 10px 15px 10px;
+  padding: 0px 10px 0px 10px;
 }
 
 .navbar-brand {
@@ -135,6 +135,7 @@ h1::after{
   border-bottom-right-radius: 20px;
   width: 100%;
   overflow: hidden;
+  z-index: 2;
 }
 
 .searchResultsActive {
@@ -521,6 +522,7 @@ a[href^="tel:"]:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: #38422B;
   /* background-color: grey; */
   padding: 5px;
   flex-direction: row;
@@ -549,7 +551,7 @@ a[href^="tel:"]:hover {
   margin-bottom: '5px';
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  background-color: #9AA581;
+  background-color: #F6F6DB; /* F6F6DB 38422B */
   overflow-x: hidden;
 }
 

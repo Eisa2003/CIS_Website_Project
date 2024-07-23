@@ -16,6 +16,7 @@ import AdminNavbar from './components/AdminNavbar.jsx';
 import AdminControls from './components/AdminControls.jsx';
 import TokenContext from './components/TokenContext.js'; // establishing a reference to the context object
 import HeroBanner from './components/HeroBanner.jsx';
+import WeatherWidget from './components/WeatherWidget.jsx';
 
 function App() {
   const [isSurveyOpen, setIsSurveyOpen] = useState(false); // Using useState
@@ -39,6 +40,7 @@ function App() {
     }, 600000); // Show popup after 10 mins (10 * 60 * 1000 milliseconds)
     return () => clearTimeout(timer);
   }, []);
+  
 
 
   const router = createBrowserRouter([
@@ -46,10 +48,12 @@ function App() {
       path: "/",
       element: (
         <>
-           
           <Alerts /> {/* I have noticed that because of this component, react is re-rendering the nav - Eisa */}
+          
           <Navbar title="HC" />  
+          <WeatherWidget />
           <HeroBanner title="Welcome "/>   
+          
 
           <div className="container">     
           <br/>
