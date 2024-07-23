@@ -8,17 +8,7 @@ import Alerts from './components/Alerts.jsx';
 import Carousel from './components/Carousel.jsx';
 import AboutUs from './components/AboutUs.jsx';
 import ContactUs from './components/ContactUs.jsx';
-import EmpAndEdu from './components/ResourceCards/EmpAndEdu.jsx';
-import MentalHAndSubAbuse from './components/ResourceCards/MentalHAndSubAbuse.jsx';
-import Housing from './components/ResourceCards/Housing.jsx';
-import FoodAsst from './components/ResourceCards/FoodAsst.jsx';
-import UtilAndBasicNeeds from './components/ResourceCards/UtilAndBasicNeeds.jsx';
-import Health from './components/ResourceCards/Health.jsx';
-import LegalAid from './components/ResourceCards/LegalAid.jsx';
-import CrisisHotlines from './components/ResourceCards/CrisisHotlines.jsx';
-import Trafficking from './components/ResourceCards/Trafficking.jsx';
-import SeniorAndDiasb from './components/ResourceCards/SeniorAndDisab.jsx';
-import Other from './components/ResourceCards/Other.jsx';
+import ResourceCards from './components/ResourceCards/ResourceCards.jsx';
 import SurveyPopup from './components/SurveyPopup.jsx';
 import SurveyForm from './components/SurveyForm.jsx';
 import AdminLogin from './components/AdminLogin.jsx';
@@ -113,8 +103,11 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <HeroBanner title="Employment & Education" />
-          <EmpAndEdu />
+          <HeroBanner title="Crisis Hotlines" />
+          <br />
+          <ResourceCards resourceTitle='EmpAndEdu'/>
+          <br />
+          
           <Footer />
         </>
       )
@@ -125,8 +118,11 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <HeroBanner title="Mental Health & Substance Abuse" />
-          <MentalHAndSubAbuse />
+          <HeroBanner title="Crisis Hotlines" />
+          <br />
+          <ResourceCards resourceTitle='MentalHAndSubAbuse'/>
+          <br />
+          
           <Footer />
         </>
       )
@@ -137,8 +133,11 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <HeroBanner title="Housing" />
-          <Housing />
+          <HeroBanner title="Crisis Hotlines" />
+          <br />
+          <ResourceCards resourceTitle='Housing'/>
+          <br />
+          
           <Footer />
         </>
       )
@@ -149,8 +148,11 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <HeroBanner title="Food Assistance" />
-          <FoodAsst />
+          <HeroBanner title="Crisis Hotlines" />
+          <br />
+          <ResourceCards resourceTitle='FoodAsst'/>
+          <br />
+          
           <Footer />
         </>
       )
@@ -161,8 +163,11 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <HeroBanner title="Utilities & Basic Needs" />
-          <UtilAndBasicNeeds />
+          <HeroBanner title="Crisis Hotlines" />
+          <br />
+          <ResourceCards resourceTitle='UtilAndBasicNeeds'/>
+          <br />
+          
           <Footer />
         </>
       )
@@ -173,8 +178,11 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <HeroBanner title="Health" />
-          <Health />
+          <HeroBanner title="Crisis Hotlines" />
+          <br />
+          <ResourceCards resourceTitle='Health'/>
+          <br />
+          
           <Footer />
         </>
       )
@@ -185,8 +193,11 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <HeroBanner title="Legal Aid" />
-          <LegalAid />
+          <HeroBanner title="Crisis Hotlines" />
+          <br />
+          <ResourceCards resourceTitle='LegalAid'/>
+          <br />
+          
           <Footer />
         </>
       )
@@ -199,7 +210,7 @@ function App() {
           <Navbar title="HC" />
           <HeroBanner title="Crisis Hotlines" />
           <br />
-          <CrisisHotlines resourceTitle='CrisisHotlines'/>
+          <ResourceCards resourceTitle='CrisisHotlines'/>
           <br />
           
           <Footer />
@@ -212,8 +223,11 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <HeroBanner title="Trafficking , Abuse, & Violence Services" />
-          <Trafficking />
+          <HeroBanner title="Crisis Hotlines" />
+          <br />
+          <ResourceCards resourceTitle='Trafficking'/>
+          <br />
+          
           <Footer />
         </>
       )
@@ -224,8 +238,11 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
-          <HeroBanner title="Senior & Disabilities" />
-          <SeniorAndDiasb />
+          <HeroBanner title="Crisis Hotlines" />
+          <br />
+          <ResourceCards resourceTitle='SeniorAndDisab'/>
+          <br />
+          
           <Footer />
         </>
       )
@@ -235,9 +252,12 @@ function App() {
       path: "/Resources/Other",
       element: (
         <>
-          <Navbar title="HC" /> 
-          <HeroBanner title="Other" />
-          <Other />
+          <Navbar title="HC" />
+          <HeroBanner title="Crisis Hotlines" />
+          <br />
+          <ResourceCards resourceTitle='Other'/>
+          <br />
+          
           <Footer />
         </>
       )

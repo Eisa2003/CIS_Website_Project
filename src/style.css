@@ -5,7 +5,7 @@ body {
 }
 
 /* Home page and important stuff*/
-.impTitles{
+.impTitles {
   margin-inline: auto;
   font-weight: 800;
   box-shadow: 10px 10px 10px #6a7a55;
@@ -18,10 +18,23 @@ body {
 
 /* Navbar Logo Animations */
 @keyframes typing {
-    0% { margin-left: 0; width: 70px; }
-    10% { border-left: 2px solid chartreuse; }
-    98% { border-left: 2px solid chartreuse; }
-    100% { margin-left: 35px; width: 0px; }
+  0% {
+    margin-left: 0;
+    width: 70px;
+  }
+
+  10% {
+    border-left: 2px solid chartreuse;
+  }
+
+  98% {
+    border-left: 2px solid chartreuse;
+  }
+
+  100% {
+    margin-left: 35px;
+    width: 0px;
+  }
 }
 
 .navbar {
@@ -30,30 +43,33 @@ body {
 }
 
 .navbar-brand {
-    margin-right: 35px;
-    font-size: 30px;
-    font-family: 'Script'; /* Apply the cursive font */
+  margin-right: 35px;
+  font-size: 30px;
+  font-family: 'Script';
+  /* Apply the cursive font */
 }
 
 .navbar-brand::before {
-    position: absolute;
-    content: "";
-    display: block;
-    height: 35px; /* Adjust height if necessary */
-    background-color: #38422B;
-    animation: typing 0.6s steps(4) forwards; /* Adding delay after each iteration */
+  position: absolute;
+  content: "";
+  display: block;
+  height: 35px;
+  /* Adjust height if necessary */
+  background-color: #38422B;
+  animation: typing 0.6s steps(4) forwards;
+  /* Adding delay after each iteration */
 }
 
 /* -- ANIMATION END -- */
 
 /* Fancy Horizontal Bar */
 hr {
-    width: 80%;
-    padding: 1px;
-    border-radius: 10px;
-    background-color: #697157;
-    justify-content: center;
-    /*background-color: rgba(128, 128, 128, 0.488); <- old*/
+  width: 80%;
+  padding: 1px;
+  border-radius: 10px;
+  background-color: #697157;
+  justify-content: center;
+  /*background-color: rgba(128, 128, 128, 0.488); <- old*/
 }
 
 /* Some future work
@@ -69,63 +85,64 @@ h1::after{
 }*/
 
 /* Search Bar Styling */
-.searchWrapper{
+.searchWrapper {
   display: block;
   height: 53px;
   width: 40%;
 }
+
 .searchComponent {
-    padding: 0;
-    display: flex;
+  padding: 0;
+  display: flex;
 }
 
 .searchBox {
-    padding: 10px 20px 10px 20px;
-    border: none;
-    background-color: #F6F6DB;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    color: black;
-    font-weight: 500;
-    width: 75%;
+  padding: 10px 20px 10px 20px;
+  border: none;
+  background-color: #F6F6DB;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: black;
+  font-weight: 500;
+  width: 75%;
 }
 
 .searchBtn {
-    color: white;
-    background-color: #9AA581;
-    border: none;
-    text-align: center;
-    padding: 10px 20px 10px 20px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    box-shadow: none;
-    cursor: pointer;
-    transition: 0.5s;
-    width: 25%;
+  color: white;
+  background-color: #9AA581;
+  border: none;
+  text-align: center;
+  padding: 10px 20px 10px 20px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: none;
+  cursor: pointer;
+  transition: 0.5s;
+  width: 25%;
 }
 
-.searchBtn:hover{
-    border-radius: 1px;
-    background-color: #697157;
-    color: rgb(34, 184, 56);
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+.searchBtn:hover {
+  border-radius: 1px;
+  background-color: #697157;
+  color: rgb(34, 184, 56);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
-.searchResults{
-  background-color:#F6F6DB;
+.searchResults {
+  background-color: #F6F6DB;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   width: 100%;
   overflow: hidden;
 }
 
-.searchResultsActive{
+.searchResultsActive {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
 
-.searchResults a{
+.searchResults a {
   font-weight: bold;
   padding: 10px 30px 10px 30px;
   display: block;
@@ -135,11 +152,18 @@ h1::after{
 }
 
 @keyframes slide {
-  0%{ left: -100px; position: relative;}
-  100%{ left: 0px; position: relative; }
+  0% {
+    left: -100px;
+    position: relative;
+  }
+
+  100% {
+    left: 0px;
+    position: relative;
+  }
 }
 
-.searchResults a:hover{
+.searchResults a:hover {
   background-color: #f6f6af;
   border-radius: 20px;
 }
@@ -147,33 +171,36 @@ h1::after{
 
 /* -- END SEARCH BAR STYLING -- */
 @media only screen and (max-width: 1250px) {
-  li{
+  li {
     font-size: 18px;
   }
-  .searchWrapper{
+
+  .searchWrapper {
     width: 40%;
   }
 }
 
 @media only screen and (max-width: 990px) {
-  .searchWrapper{
+  .searchWrapper {
     width: 100%;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  .searchWrapper{
+  .searchWrapper {
     width: 100%;
   }
 }
+
 /* These are the nav-link's style */
-li{
-    position: relative;
-    padding: 5px 12px 5px 12px;  /* 10px 15px 10px 15px;  0.5vh 2vh 0.5vh 2vh;*/
-    border-radius: 5px;
-    margin: 5px 5px 5px 5px;
-    border: #38422B solid;
-    transition: 0.5s;
+li {
+  position: relative;
+  padding: 5px 12px 5px 12px;
+  /* 10px 15px 10px 15px;  0.5vh 2vh 0.5vh 2vh;*/
+  border-radius: 5px;
+  margin: 5px 5px 5px 5px;
+  border: #38422B solid;
+  transition: 0.5s;
 }
 
 li::after {
@@ -189,90 +216,113 @@ li::after {
 }
 
 /* The style for the login nav items */
-#loginnav{
-  color: white;
-}
-#loginnav:hover, #loginnav:active{
+#loginnav {
   color: white;
 }
 
-#tab-login active{
+#loginnav:hover,
+#loginnav:active {
+  color: white;
+}
+
+#tab-login active {
   background-color: #6E7753;
 }
 
 /* Style for the nav items other than the login nav */
-li:not(#loginnav):hover, .lactive {
-    color: #CCD5C0;
-    border: #6E7753 solid;
+li:not(#loginnav):hover,
+.lactive {
+  color: #CCD5C0;
+  border: #6E7753 solid;
 }
 
-li:not(#loginnav):hover::after, .lactive::after {
+li:not(#loginnav):hover::after,
+.lactive::after {
   width: 50%;
 }
 
 /* Have to design one for the actual div and the other one for the pseudo element */
 
-li:not(#loginnav).isActive{
-    color: #CCD5C0;
-    border: #b8bda9 solid;
+li:not(#loginnav).isActive {
+  color: #CCD5C0;
+  border: #b8bda9 solid;
 }
 
-li:not(#loginnav).isActive::after{
+li:not(#loginnav).isActive::after {
   background-color: #b8bda9;
   width: 50%;
 }
+
 /* -- END NAV-LINKS STYLING */
 
 /* CONTACT & ABOUT PAGE */
 .indented-paragraph {
-    text-indent: 15px; 
-    font-family: 'Georgia, serif';
-    margin-left: 20px; /* Add left margin to each paragraph */
-    margin-right: 20px; /* Add right margin to each paragraph to balance the text */
-    margin-bottom: 15px; /* Add space between paragraphs */
+  text-indent: 15px;
+  font-family: 'Georgia, serif';
+  margin-left: 20px;
+  /* Add left margin to each paragraph */
+  margin-right: 20px;
+  /* Add right margin to each paragraph to balance the text */
+  margin-bottom: 15px;
+  /* Add space between paragraphs */
 }
 
 .contactInput {
-    width: 100%;
-    padding: 8px; /* Reduced padding */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 4px; /* Reduced margin */
-    margin-bottom: 8px; /* Reduced margin */
-    resize: vertical;
-    font-size: 14px; /* Reduced font size */
-  }
+  width: 100%;
+  padding: 8px;
+  /* Reduced padding */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 4px;
+  /* Reduced margin */
+  margin-bottom: 8px;
+  /* Reduced margin */
+  resize: vertical;
+  font-size: 14px;
+  /* Reduced font size */
+}
 
 .submitButton {
-    background-color: #9AA581;
-    color: white;
-    padding: 8px 16px; /* Correct syntax for padding */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px; /* Correct syntax for font size */
+  background-color: #9AA581;
+  color: white;
+  padding: 8px 16px;
+  /* Correct syntax for padding */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  /* Correct syntax for font size */
 }
 
 .submitButton:hover {
-    background-color: #697157; /* Correct syntax for hover background color */
+  background-color: #697157;
+  /* Correct syntax for hover background color */
 }
+
 /* -- END CONTACT PAGE STYLING -- */
-  
+
 /* Carousel Title Animation-  not adding just for fun*/
 
 @keyframes titletyping {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
+
 .carouseltitle {
-  overflow: hidden; 
-  white-space: nowrap; 
+  overflow: hidden;
+  white-space: nowrap;
   border-right: 4px solid;
   animation: titletyping 4s steps(20, end) infinite;
   text-align: center;
   color: ghostwhite;
-  font-size: 4vw; /* Responsive font size */
+  font-size: 4vw;
+  /* Responsive font size */
   font-family: Arial, sans-serif;
   position: absolute;
   top: 70%;
@@ -280,23 +330,42 @@ li:not(#loginnav).isActive::after{
   transform: translate(-50%, -50%);
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 1vw; /* Responsive padding */
-  border-radius: 1vw; /* Responsive border radius */
+  padding: 1vw;
+  /* Responsive padding */
+  border-radius: 1vw;
+  /* Responsive border radius */
 }
 
 /* -- END Carousel Title -- */
 
 /* Links hover colors */
-.link { color: #13703dcc; } /* address colors class */
-.link:hover { color: #aee745; } /* address colors hover class */
+.link {
+  color: #13703dcc;
+}
 
-.linkweb { color: #be8417ea; } /* websites colors class */
-.linkweb:hover { color: #7a641a; } /* websites colors hover class */
+/* address colors class */
+.link:hover {
+  color: #aee745;
+}
+
+/* address colors hover class */
+
+.linkweb {
+  color: #be8417ea;
+}
+
+/* websites colors class */
+.linkweb:hover {
+  color: #7a641a;
+}
+
+/* websites colors hover class */
 
 a[href^="tel:"] {
   color: rgba(38, 106, 146, 0.815);
   text-decoration: underline;
 }
+
 a[href^="tel:"]:hover {
   color: #2fcfdab4;
 }
@@ -305,122 +374,124 @@ a[href^="tel:"]:hover {
 
 /* Card Layout Styles */
 
-.card-resources{
-    display: block;
-    /* background-color: rgba(47, 77, 6, 0.938); */
+.card-resources {
+  display: block;
+  /* background-color: rgba(47, 77, 6, 0.938); */
 }
 
 .card-container {
-    background-image: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm00MjItMDQ3LWtxOTJ3eDl5LmpwZw.jpg'); /* URL of the background image */
-    background-repeat: no-repeat;
-    background-size: cover;
-    perspective: 1000px;
-    position: relative;
-    /* width: calc(35% - 38px); /* Adjust the width as needed */
-    width: 80%;
-    margin-inline: auto;
-    margin-bottom: 20px;
-    height: 70vh;
-    max-height: 500px;
-    cursor: pointer;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  background-image: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm00MjItMDQ3LWtxOTJ3eDl5LmpwZw.jpg');
+  /* URL of the background image */
+  background-repeat: no-repeat;
+  background-size: cover;
+  perspective: 1000px;
+  position: relative;
+  /* width: calc(35% - 38px); /* Adjust the width as needed */
+  width: 80%;
+  margin-inline: auto;
+  margin-bottom: 20px;
+  height: 70vh;
+  max-height: 500px;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  /* Add a subtle box shadow */
 
 }
 
-  .cardR {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    transition: transform 0.8s;
-    border-radius: 10px;
-  }
-  
-  .card-front {
-    color: #481F01;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; 
-    font-size: 2.5rem; /* Increased font size */
-    font-family: Times, cursive;
-    line-height: 1.5;
-    padding: 8px;
-    text-align: center;
-    border-radius: 10px; /* Optional: Add border radius for rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for a 3D effect */
+.cardR {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.8s;
+  border-radius: 10px;
 }
-  
-  .card-back {
-    /*background-image: url('https://marketplace.canva.com/EAFJBHqvlTo/1/0/1131w/canva-cream-floral-page-border-EXzZHJEaCys.jpg'); /* URL of the background image */
-    transform: rotateY(180deg); /* We initially flip this card-back to give an effect of this card being flipped */
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
-    
-    }
-  
 
-  .card-container.flip .card-front {
-    transform: rotateY(180deg);
-  }
-  
-  .card-container.flip .card-back {
-    transform: rotateY(0deg);
-  }   
- @media only screen and (max-width: 768px) {
+.card-front {
+  color: #481F01;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2.5rem;
+  /* Increased font size */
+  font-family: Times, cursive;
+  line-height: 1.5;
+  padding: 8px;
+  text-align: center;
+  border-radius: 10px;
+  /* Optional: Add border radius for rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Optional: Add box shadow for a 3D effect */
+}
+
+.card-back {
+  /*background-image: url('https://marketplace.canva.com/EAFJBHqvlTo/1/0/1131w/canva-cream-floral-page-border-EXzZHJEaCys.jpg'); /* URL of the background image */
+  transform: rotateY(180deg);
+  /* We initially flip this card-back to give an effect of this card being flipped */
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+
+}
+
+
+.card-container.flip .card-front {
+  transform: rotateY(180deg);
+}
+
+.card-container.flip .card-back {
+  transform: rotateY(0deg);
+}
+
+@media only screen and (max-width: 768px) {
 
   .indCards {
     /* Set desired width for mobile view */
     width: 90vw;
-    flex-basis: 90vw; /* Example: 100% width with 10px margin on each side */
+    flex-basis: 90vw;
+    /* Example: 100% width with 10px margin on each side */
   }
 
-    .card-container {
-      width: calc(50% - 20px); /* Adjust width for smaller screens */
-    }
-  }
-  
-  @media only screen and (max-width: 480px) {
+}
 
-    .card-container {
-      width: calc(100% - 20px); /* Adjust width for even smaller screens */
-    }
 
-  }
+/* Two column list */
 
-  /* Two column list */
+.two-column-list ul {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  column-gap: 10px;
+  /* Adjust the gap between columns */
+  list-style-type: disc;
+}
 
-  .two-column-list ul {
-    columns: 2;
-    -webkit-columns: 2;
-    -moz-columns: 2;
-    column-gap: 10px; /* Adjust the gap between columns */
-    list-style-type: disc;
-  }
-  
+.two-column-list li {
+  margin-bottom: 10px;
+  /* Add space between items */
+  list-style-position: inside;
+  /* Ensure bullet points are inside the columns */
+}
+
+@media only screen and (max-width: 600px) {
   .two-column-list li {
-    margin-bottom: 10px; /* Add space between items */
-    list-style-position: inside; /* Ensure bullet points are inside the columns */
+    columns: 1;
+    -webkit-columns: 1;
+    -moz-columns: 1;
   }
-  
-  @media only screen and (max-width: 600px) {
-    .two-column-list li {
-      columns: 1;
-      -webkit-columns: 1;
-      -moz-columns: 1;
-    }
+}
+
+@media only screen and (max-width: 480px) {
+  .two-column-list li {
+    columns: 1;
+    -webkit-columns: 1;
+    -moz-columns: 1;
   }
-  
-  @media only screen and (max-width: 480px) {
-    .two-column-list li {
-      columns: 1;
-      -webkit-columns: 1;
-      -moz-columns: 1;
-    }
-  }
-  /* End Two column list */
+}
+
+/* End Two column list */
 
 /* -- END CARD STYLINGS -- */
 
@@ -433,16 +504,19 @@ a[href^="tel:"]:hover {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  z-index: -1; /* Ensures the video is behind the content */
+  z-index: -1;
+  /* Ensures the video is behind the content */
   opacity: 0;
-  transition: opacity 1s ease-in-out; /* Transition effect */
+  transition: opacity 1s ease-in-out;
+  /* Transition effect */
 }
 
 .heroBanner video.active {
-  opacity: 1; /* Make the active video visible */
+  opacity: 1;
+  /* Make the active video visible */
 }
 
-.eventCardsContainer{
+.eventCardsContainer {
   height: 82vh;
   display: flex;
   flex-wrap: wrap;
@@ -467,7 +541,8 @@ a[href^="tel:"]:hover {
   border-radius: 20px;
   /* Ensure padding and border are included in the width */
 }
-.indCardBody{
+
+.indCardBody {
   height: 30vh;
   color: black;
   overflow: scroll;
@@ -478,7 +553,7 @@ a[href^="tel:"]:hover {
   overflow-x: hidden;
 }
 
-.indCardsbtn{
+.indCardsbtn {
   margin: 10px;
   background-color: #6E7753;
   border-color: #697157;
@@ -488,7 +563,8 @@ a[href^="tel:"]:hover {
   cursor: pointer;
   transition: 0.5s;
 }
-.indCardsbtn:hover{
+
+.indCardsbtn:hover {
   background-color: #38422B;
 }
 
@@ -515,11 +591,12 @@ a[href^="tel:"]:hover {
 @font-face {
   font-family: 'Kalam';
   src: url('./fonts/Kalam-Bold.ttf') format('ttf'),
-       url('./fonts/Kalam-Light.ttf') format('ttf'),
-       url('./fonts/Kalam-Regular.ttf') format('truetype');
+    url('./fonts/Kalam-Light.ttf') format('ttf'),
+    url('./fonts/Kalam-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
+
 /* -- Font styles END -- */
 
 /* -- Pop up survery START -- */
@@ -555,6 +632,7 @@ a[href^="tel:"]:hover {
   background-color: #a5a8a3;
 
 }
+
 /* -- Pop up survey END -- */
 
 
@@ -580,19 +658,19 @@ a[href^="tel:"]:hover {
   box-sizing: border-box;
 }
 
-/* -- Survey Form End -- */     
+/* -- Survey Form End -- */
 
 
 
 
 
 /* -- Global -- */
-.btn-primary{
+.btn-primary {
   background-color: #6E7753;
   border-color: #697157;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
   background-color: #38422B;
 }
 
@@ -603,24 +681,30 @@ a[href^="tel:"]:hover {
   right: 20px;
   padding: 15px 20px;
   border-radius: 50%;
-  background-color: #38422B; /* Adjust color as needed */
+  background-color: #38422B;
+  /* Adjust color as needed */
   color: white;
   font-size: 1.2rem;
   cursor: pointer;
-  z-index: 100; /* Ensure button is above other elements */
+  z-index: 100;
+  /* Ensure button is above other elements */
 }
 
 .create-form-container {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Center the form */
+  transform: translate(-50%, -50%);
+  /* Center the form */
   background-color: white;
-  border-radius: 10px; /* Adjust as needed */
+  border-radius: 10px;
+  /* Adjust as needed */
   padding: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  z-index: 101; /* Ensure form is above other elements */
-  max-width: 500px; /* Optional: Set a maximum width */
+  z-index: 101;
+  /* Ensure form is above other elements */
+  max-width: 500px;
+  /* Optional: Set a maximum width */
 }
 
 /* -- End Admin Controls --*/
@@ -639,11 +723,13 @@ a[href^="tel:"]:hover {
 
 .content {
   position: relative;
-  z-index: 1; /* Ensures content is above the video */
+  z-index: 1;
+  /* Ensures content is above the video */
 }
 
 .semicircle {
-  color: #ECFADC;/* Additional styles for semicircle */
+  color: #ECFADC;
+  /* Additional styles for semicircle */
 }
 
 .typer {
@@ -657,5 +743,6 @@ a[href^="tel:"]:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(56, 66, 43, 0.349); /* Blue filter with 30% opacity */
+  background-color: rgba(56, 66, 43, 0.349);
+  /* Blue filter with 30% opacity */
 }

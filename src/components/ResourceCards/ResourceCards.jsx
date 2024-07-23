@@ -48,11 +48,11 @@ export default function CrisisHotlines(props) {
             </div>
 
             <div class="cardR card-back card">
-              <iframe class="card-img-top" style={{ border: "0", height: "70%" }} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2038.8869354068509!2d15.21545545625287!3d59.26803797168206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465c14e4a4c8e193%3A0xf18609c2d9ee261f!2sLa%20Santa%20Maria%20Tattoos%20%26%20Art!5e0!3m2!1ssv!2sse!4v1568297791174!5m2!1ssv!2sse" frameborder="0" allowfullscreen="">
+              <iframe class="card-img-top" style={{ border: "0", height: "70%" }} src={resource.locations.length > 0 && resource.locations[0]} frameborder="0" allowfullscreen="">
               </iframe>
               <div class="card-body" style={{ overflow: 'scroll' }}>
                 {/* Address */}
-                {resource.address !== '' && (
+                {resource.address !== undefined && (
                   <div className="card-info" style={{ display: 'flex' }}>
                     <i className="bi bi-geo-alt-fill" style={{ marginRight: '15px' }}></i>
                     <address>{resource.address}</address>
@@ -94,7 +94,7 @@ export default function CrisisHotlines(props) {
                 {resource.email.length !== 0 && (
                   <div className="card-info" style={{ display: 'flex' }}>
                     <i className="bi bi-envelope" style={{ marginRight: '15px' }}></i>
-                    <p>{resource.email} Email:  {Array.isArray(resource.email)
+                    <p>Email:  {Array.isArray(resource.email)
                       ? resource.email.map((name, index) => (<p>
                         {name}
                       </p>))
@@ -105,13 +105,13 @@ export default function CrisisHotlines(props) {
                   </div>
                 )}
                 {/* Mission (if exists) */}
-                {resource.mission !== '' && (
+                {resource.mission !== undefined && (
                   <div className="card-info" style={{ display: 'flex' }}>
                     <p>Mission: {resource.mission}</p>
                   </div>
                 )}
                 {/* Approach (if exists) */}
-                {resource.approach !== '' && (
+                {resource.approach !== undefined && (
                   <div className="card-info" style={{ display: 'flex' }}>
                     <p>Approach: {resource.approach}</p>
                   </div>
@@ -139,9 +139,13 @@ export default function CrisisHotlines(props) {
                   </div>
                 )}
                 {/* Location (if exists) */}
-                {resource.locations !== '' && (
+                {resource.locations.length !== 0 && (
                   <div className="card-info" style={{ display: 'flex' }}>
-                    <p>Location: {resource.locations}</p>
+                    <p>Locations:  {Array.isArray(resource.locations)
+                      ? resource.locations.map((name, index) => (<p>
+                        {name}
+                      </p>))
+                      : resource.locations}</p>
                   </div>
                 )}
                 {/* Social Media (if exists) */}
@@ -160,7 +164,7 @@ export default function CrisisHotlines(props) {
                   </div>
                 )}
                 {/* additionalInfo (if exists) */}
-                {resource.additionalInfo !== '' && (
+                {resource.additionalInfo !== undefined && (
                   <div className="card-info" style={{ display: 'flex' }}>
                     <p>Additional Info: {resource.additionalInfo}</p>
                   </div>
