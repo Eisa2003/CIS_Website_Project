@@ -23,9 +23,34 @@ export default function Navbar(props) {
 
     const fetchData = async () => {
       try {
-        const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/events/');
+        /* Original - http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/events/
+           Test - http://localhost:3000/api/resources */
+
+        const response = await fetch('http://localhost:5001/api/resources');
         const data = await response.json();
-        setResources(data);
+
+        // Function to filter resources with unique occurrences
+        function filterUniqueResources(resources) {
+          const seenResources = new Set(); // Use Set for efficient uniqueness tracking
+          const uniqueResources = [];
+
+          for (const resource of resources) {
+            if (resource && resource.resource) { // Check if resource exists and has a resource property
+              const resourceName = resource.resource.toLowerCase();
+              if (!seenResources.has(resourceName)) {
+                seenResources.add(resourceName);
+                uniqueResources.push(resource);
+              }
+            }
+          }
+          //console.log(seenResources);
+          return uniqueResources;
+        }
+
+        const uniqueData = filterUniqueResources(data);
+        setResources(uniqueData);
+
+        console.log(uniqueData)
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -36,7 +61,7 @@ export default function Navbar(props) {
   }, [])
 
   useEffect(() => {
-    const fiteredResults = resources.filter((resource) => resource.title.toLowerCase().includes(searchText.toLowerCase()))
+    const fiteredResults = resources.filter((resource) => resource.resource.toLowerCase().includes(searchText.toLowerCase()))
     setSearchResults(fiteredResults)
     //console.log(searchResults)
   }, [searchText, resources])
@@ -127,17 +152,17 @@ export default function Navbar(props) {
                 <input className={searchText === '' ? 'searchBox' : 'searchBox searchResultsActive'} type="search" placeholder="Search" aria-label="Search" value={searchText} onChange={handleChange} />
                 <button className={searchText === '' ? 'searchBtn' : 'searchBtn searchResultsActive'} type="submit" >Search</button>
               </div>
-              <div className= "searchResults" style={{ display: searchText === '' ? 'none' : '' }}>
+              <div className="searchResults" style={{ display: searchText === '' ? 'none' : '' }}>
                 {searchResults.length > 0 ? (
                   <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>
-                    {searchResults.map((event) => (
-                      <a key={event.id}>
-                        {event.title}
+                    {searchResults.map((resource) => (
+                      <a key={resource.id}>
+                        {resource.resource}
                       </a>
                     ))}
                   </ul>
                 ) : (
-                  <p style={{fontWeight: 'bold', display: 'block', textAlign: 'center', cursor: 'not-allowed'}}>No results found.</p>
+                  <p style={{ fontWeight: 'bold', display: 'block', textAlign: 'center', cursor: 'not-allowed' }}>No results found.</p>
                 )}
               </div>
 

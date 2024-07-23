@@ -199,7 +199,7 @@ function App() {
           <Navbar title="HC" />
           <HeroBanner title="Crisis Hotlines" />
           <br />
-          <CrisisHotlines />
+          <CrisisHotlines resourceTitle='CrisisHotlines'/>
           <br />
           
           <Footer />
