@@ -10,7 +10,7 @@ export default function CrisisHotlines(props) {
   // fetching the resources and storing it
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://localhost:5001/api/resources'); // Replace with your API endpoint
+      const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/resources/'); // Replace with your API endpoint
       const resourceData = await response.json();
       setData(resourceData);
     };
@@ -83,7 +83,7 @@ export default function CrisisHotlines(props) {
 
                     <p>Contact: {Array.isArray(resource.website)
                       ? resource.website.map((name, index) => (<a href={name} target="_blank" rel="noreferrer">
-                        Website-{index}
+                        Website-{index + 1}
                       </a>))
                       : resource.website}</p>
 
