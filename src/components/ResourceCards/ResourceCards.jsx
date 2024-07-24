@@ -48,8 +48,18 @@ export default function CrisisHotlines(props) {
             </div>
 
             <div class="cardR card-back card">
-              <iframe class="card-img-top" style={{ border: "0", height: "70%" }} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2038.8869354068509!2d15.21545545625287!3d59.26803797168206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465c14e4a4c8e193%3A0xf18609c2d9ee261f!2sLa%20Santa%20Maria%20Tattoos%20%26%20Art!5e0!3m2!1ssv!2sse!4v1568297791174!5m2!1ssv!2sse" frameborder="0" allowfullscreen="">
-              </iframe>
+            <iframe 
+                    class="card-img-top" 
+                    style={{ border: "0", height: "70%" }} 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d429330.50980319054!2d-81.45656346681191!3d32.788424765834066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f9588f5f23b565%3A0xa5821f742346b9dc!2sHampton%20County%2C%20SC!5e0!3m2!1sen!2sus!4v1721854534184!5m2!1sen!2sus" 
+                    width="600" 
+                    height="450" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade" 
+                    frameborder="0">
+                </iframe>
+
               <div class="card-body" style={{ overflow: 'scroll' }}>
                 {/* Address */}
                 {resource.address !== undefined && (
@@ -170,9 +180,10 @@ export default function CrisisHotlines(props) {
                   </div>
                 )}
               </div>
+              
             </div>
           </div>))}
-
+          
     </div>
 
   );
