@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, useLocation } from 'react-router-dom';
 import '../../src/style.css';
+import brand from './images/Hampton_County_Seal.jpg';
 
 export default function Navbar(props) {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
@@ -108,7 +109,11 @@ export default function Navbar(props) {
 
   return (
     <div>
+      <nav className="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="#" style={{position: 'relative', marginInline: 'auto'}}>HCR</a>
+      </nav>
       <nav className="navbar navbar-expand-lg navbar-dark" style={{}}>
+      
         <div className='container'>
 
           <button
@@ -120,8 +125,9 @@ export default function Navbar(props) {
             aria-expanded={!isNavCollapsed}
             aria-label="Toggle navigation"
             onClick={handleNavCollapse}
+            style={{position: 'relative', marginInline: 'auto'}}
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon" ></span>
           </button>
           <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul className="navbar-nav" style={{ marginRight: 'auto' }}>
