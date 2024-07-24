@@ -110,7 +110,7 @@ export default function Navbar(props) {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand" href="#" style={{position: 'relative', marginInline: 'auto'}}>HCR</a>
+      <a className={`navbar-brand ${animationKey}`} to="/" key={animationKey} href="#" style={{position: 'relative', marginInline: 'auto'}}>HCR</a>
       </nav>
       <nav className="navbar navbar-expand-lg navbar-dark" style={{}}>
       
