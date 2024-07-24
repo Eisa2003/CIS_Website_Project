@@ -89,7 +89,7 @@ export default function Footer({ companyName, companyDescription, companyAddress
                 <h6 className="text-uppercase fw-bold">Contact</h6>
                 <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{ width: '60px', backgroundColor: '#CAAD7E', height: '2px' }} />
                 <p><i className="bi bi-house-door-fill"></i> {companyAddress}</p>
-                <p style={{position:'relative'}}><i className="bi bi-envelope-fill"></i> {companyEmail}</p>
+                <p style={{position:'relative'}}><i className="bi bi-envelope-fill"></i> helpinhamptoncounty<br/>@cisofsc.org</p>
                 <p><i className="bi bi-telephone-fill"></i> {companyPhone}</p>
               </div>
               {/* Grid column */}

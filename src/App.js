@@ -77,6 +77,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
+          <WeatherWidget />
           <HeroBanner title="Our Story"/>
           <br/>
           <AboutUs />
@@ -91,6 +92,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
+          <WeatherWidget />
           <HeroBanner title="Contact Us"/>
           <br/>
           <ContactUs />
@@ -107,6 +109,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
+          <WeatherWidget />
           <HeroBanner title="Crisis Hotlines" />
           <br />
           <ResourceCards resourceTitle='EmpAndEdu'/>
@@ -122,6 +125,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
+          <WeatherWidget />
           <HeroBanner title="Crisis Hotlines" />
           <br />
           <ResourceCards resourceTitle='MentalHAndSubAbuse'/>
@@ -137,6 +141,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
+          <WeatherWidget />
           <HeroBanner title="Crisis Hotlines" />
           <br />
           <ResourceCards resourceTitle='Housing'/>
@@ -152,6 +157,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
+          <WeatherWidget />
           <HeroBanner title="Crisis Hotlines" />
           <br />
           <ResourceCards resourceTitle='FoodAsst'/>
@@ -167,6 +173,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
+          <WeatherWidget />
           <HeroBanner title="Crisis Hotlines" />
           <br />
           <ResourceCards resourceTitle='UtilAndBasicNeeds'/>
@@ -182,6 +189,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
+          <WeatherWidget />
           <HeroBanner title="Crisis Hotlines" />
           <br />
           <ResourceCards resourceTitle='Health'/>
@@ -197,6 +205,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
+          <WeatherWidget />
           <HeroBanner title="Crisis Hotlines" />
           <br />
           <ResourceCards resourceTitle='LegalAid'/>
@@ -212,6 +221,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
+          <WeatherWidget />
           <HeroBanner title="Crisis Hotlines" />
           <br />
           <ResourceCards resourceTitle='CrisisHotlines'/>
@@ -227,6 +237,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
+          <WeatherWidget />
           <HeroBanner title="Crisis Hotlines" />
           <br />
           <ResourceCards resourceTitle='Trafficking'/>
@@ -242,6 +253,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
+          <WeatherWidget />
           <HeroBanner title="Crisis Hotlines" />
           <br />
           <ResourceCards resourceTitle='SeniorAndDisab'/>
@@ -257,6 +269,7 @@ function App() {
       element: (
         <>
           <Navbar title="HC" />
+          <WeatherWidget />
           <HeroBanner title="Crisis Hotlines" />
           <br />
           <ResourceCards resourceTitle='Other'/>

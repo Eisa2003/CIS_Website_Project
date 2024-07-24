@@ -48,7 +48,7 @@ export default function CrisisHotlines(props) {
             </div>
 
             <div class="cardR card-back card">
-              <iframe class="card-img-top" style={{ border: "0", height: "70%" }} src={resource.locations.length > 0 && resource.locations[0]} frameborder="0" allowfullscreen="">
+              <iframe class="card-img-top" style={{ border: "0", height: "70%" }} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2038.8869354068509!2d15.21545545625287!3d59.26803797168206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465c14e4a4c8e193%3A0xf18609c2d9ee261f!2sLa%20Santa%20Maria%20Tattoos%20%26%20Art!5e0!3m2!1ssv!2sse!4v1568297791174!5m2!1ssv!2sse" frameborder="0" allowfullscreen="">
               </iframe>
               <div class="card-body" style={{ overflow: 'scroll' }}>
                 {/* Address */}
