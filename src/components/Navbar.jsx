@@ -61,7 +61,7 @@ export default function Navbar(props) {
   }, [])
 
   useEffect(() => {
-    const fiteredResults = resources.filter((resource) => resource.resource.toLowerCase().includes(searchText.toLowerCase()))
+    const fiteredResults = resources.filter((resource) => resource.resourceName.toLowerCase().includes(searchText.toLowerCase()))
     setSearchResults(fiteredResults)
     //console.log(searchResults)
   }, [searchText, resources])
@@ -156,9 +156,7 @@ export default function Navbar(props) {
                 {searchResults.length > 0 ? (
                   <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>
                     {searchResults.map((resource) => (
-                      <a key={resource.id}>
-                        {resource.resource}
-                      </a>
+                      <NavLink className="nav-link" style={{color: 'black'}} to={"Resources/" + resource.resource} key={resource.id}>{resource.resourceName}</NavLink>
                     ))}
                   </ul>
                 ) : (
