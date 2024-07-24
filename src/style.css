@@ -534,7 +534,7 @@ a[href^="tel:"]:hover {
 }
 
 .eventCardsContainer {
-  height: 82vh;
+  height: 82.7vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -557,6 +557,7 @@ a[href^="tel:"]:hover {
   flex-shrink: 1;
   box-sizing: border-box;
   border-radius: 20px;
+  margin-bottom: 30px;
   /* Ensure padding and border are included in the width */
 }
 
