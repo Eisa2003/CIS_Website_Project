@@ -81,9 +81,9 @@ export default function CrisisHotlines(props) {
                 {resource.website.length !== 0 && (
                   <div className="card-info" style={{ display: 'flex' }}>
 
-                    <p>Contact: {Array.isArray(resource.website)
+                    <p>Website: {Array.isArray(resource.website)
                       ? resource.website.map((name, index) => (<a href={name} target="_blank" rel="noreferrer">
-                        Website-{index + 1}
+                        Website-{index + 1 + " "}
                       </a>))
                       : resource.website}</p>
 

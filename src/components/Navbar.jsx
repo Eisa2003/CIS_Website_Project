@@ -9,6 +9,7 @@ export default function Navbar(props) {
   const [searchText, setSearchText] = useState('');
   const [resources, setResources] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
+  const [isDropDownActive, setIsDropDownActive] = useState(false);
   const location = useLocation();
 
   useEffect(() => { // <- A useEffect runs at the first render too. That's why the code makes sense
@@ -18,6 +19,19 @@ export default function Navbar(props) {
 
     return () => clearTimeout(timeout);
   }, [animationKey]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isDropDownActive && !event.target.closest('.dropdown')) {
+        setIsDropDownActive(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isDropDownActive]);
 
   useEffect(() => {
 
@@ -67,17 +81,17 @@ export default function Navbar(props) {
   }, [searchText, resources])
 
   const activeDropdownPaths = [
-    '/Resources/Emp&Edu',
-    '/Resources/MHealth&Abuse',
-    '/Resources/Housing',
-    '/Resources/FoodAsst',
-    '/Resources/Util&BasicNeeds',
-    '/Resources/Health',
-    '/Resources/LegalAid',
-    '/Resources/CrisisHotlines',
-    '/Resources/Trafficking',
-    '/Resources/Senior&Disab',
-    '/Resources/Other'
+    "/Resources/EmpAndEdu",
+    "/Resources/MentalHAndSubAbuse",
+    "/Resources/Housing",
+    "/Resources/FoodAsst",
+    "/Resources/UtilAndBasicNeeds",
+    "/Resources/Health",
+    "/Resources/LegalAid",
+    "/Resources/CrisisHotlines",
+    "/Resources/Trafficking",
+    "/Resources/SeniorAndDisab",
+    "/Resources/Other"
   ];
 
   const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
@@ -127,23 +141,24 @@ export default function Navbar(props) {
                   role="button"
                   data-toggle="dropdown"
                   aria-haspopup="true"
-                  aria-expanded="false"
+                  aria-expanded={isDropDownActive ? 'true' : 'false'}
+                  onClick={() => setIsDropDownActive(!isDropDownActive)}
                 >
                   {props.links}
                 </NavLink>
-                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <NavLink className="dropdown-item" to="/Resources/Emp&Edu">Employment & Education</NavLink>
-                  <NavLink className="dropdown-item" to="/Resources/MHealth&Abuse">Mental Health & Substance Abuse</NavLink>
-                  <NavLink className="dropdown-item" to="/Resources/Housing">Housing</NavLink>
-                  <NavLink className="dropdown-item" to="/Resources/FoodAsst">Food Assistance</NavLink>
-                  <NavLink className="dropdown-item" to="/Resources/Util&BasicNeeds">Utilities & Basic Needs</NavLink>
-                  <NavLink className="dropdown-item" to="/Resources/Health">Health</NavLink>
-                  <NavLink className="dropdown-item" to="/Resources/LegalAid">Legal Aid</NavLink>
-                  <NavLink className="dropdown-item" to="/Resources/CrisisHotlines">Crisis Hotlines</NavLink>
-                  <NavLink className="dropdown-item" to="/Resources/Trafficking">Trafficking, Abuse, & Violence Services</NavLink>
-                  <NavLink className="dropdown-item" to="/Resources/Senior&Disab">Senior & Disability Services</NavLink>
+                <div className={ isDropDownActive ? "dropdown-menu show" : "dropdown-menu" } aria-labelledby="navbarDropdown">
+                  <NavLink className="dropdown-item" to="/Resources/EmpAndEdu" onClick={() => setIsDropDownActive(!isDropDownActive)}>Employment & Education</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/MentalHAndSubAbuse" >Mental Health & Substance Abuse</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/Housing" >Housing</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/FoodAsst" >Food Assistance</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/UtilAndBasicNeeds" >Utilities & Basic Needs</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/Health" >Health</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/LegalAid" >Legal Aid</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/CrisisHotlines" >Crisis Hotlines</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/Trafficking" >Trafficking, Abuse, & Violence Services</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/SeniorAndDisab" >Senior & Disability Services</NavLink>
                   <div className="dropdown-divider"></div>
-                  <NavLink className="dropdown-item" to="/Resources/Other">Other</NavLink>
+                  <NavLink className="dropdown-item" to="/Resources/Other" >Other</NavLink>
                 </div>
               </li>
             </ul>
@@ -156,7 +171,7 @@ export default function Navbar(props) {
                 {searchResults.length > 0 ? (
                   <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>
                     {searchResults.map((resource) => (
-                      <NavLink className="nav-link" style={{color: 'black'}} to={"Resources/" + resource.resource} key={resource.id}>{resource.resourceName}</NavLink>
+                      <NavLink className="nav-link" style={{color: 'black'}} to={"/Resources/" + resource.resource} key={resource.id}>{resource.resourceName}</NavLink> // When you add / before a link it clear everything that was written before
                     ))}
                   </ul>
                 ) : (

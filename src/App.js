@@ -48,12 +48,13 @@ function App() {
       path: "/",
       element: (
         <>
-          <Alerts /> {/* I have noticed that because of this component, react is re-rendering the nav - Eisa */}
+          {/*/*} {/* I have noticed that because of this component, react is re-rendering the nav - Eisa */}
           
           <Navbar title="HC" />  
           <WeatherWidget />
+      
           <HeroBanner title="Welcome "/>   
-          
+          <Alerts />
 
           <div className="container">     
           <br/>
@@ -105,12 +106,12 @@ function App() {
     },
 
     {
-      path: "/Resources/Emp&Edu",
+      path: "/Resources/EmpAndEdu",
       element: (
         <>
           <Navbar title="HC" />
           <WeatherWidget />
-          <HeroBanner title="Crisis Hotlines" />
+          <HeroBanner title="Employment and Education" />
           <br />
           <ResourceCards resourceTitle='EmpAndEdu'/>
           <br />
@@ -121,12 +122,12 @@ function App() {
     },
 
     {
-      path: "/Resources/MHealth&Abuse",
+      path: "/Resources/MentalHAndSubAbuse",
       element: (
         <>
           <Navbar title="HC" />
           <WeatherWidget />
-          <HeroBanner title="Crisis Hotlines" />
+          <HeroBanner title="Mental Health & Substance Abuse" />
           <br />
           <ResourceCards resourceTitle='MentalHAndSubAbuse'/>
           <br />
@@ -142,7 +143,7 @@ function App() {
         <>
           <Navbar title="HC" />
           <WeatherWidget />
-          <HeroBanner title="Crisis Hotlines" />
+          <HeroBanner title="Housing" />
           <br />
           <ResourceCards resourceTitle='Housing'/>
           <br />
@@ -158,7 +159,7 @@ function App() {
         <>
           <Navbar title="HC" />
           <WeatherWidget />
-          <HeroBanner title="Crisis Hotlines" />
+          <HeroBanner title="Food Assistance" />
           <br />
           <ResourceCards resourceTitle='FoodAsst'/>
           <br />
@@ -169,12 +170,12 @@ function App() {
     },
 
     {
-      path: "/Resources/Util&BasicNeeds",
+      path: "/Resources/UtilAndBasicNeeds",
       element: (
         <>
           <Navbar title="HC" />
           <WeatherWidget />
-          <HeroBanner title="Crisis Hotlines" />
+          <HeroBanner title="Utilities And Basic Needs" />
           <br />
           <ResourceCards resourceTitle='UtilAndBasicNeeds'/>
           <br />
@@ -190,7 +191,7 @@ function App() {
         <>
           <Navbar title="HC" />
           <WeatherWidget />
-          <HeroBanner title="Crisis Hotlines" />
+          <HeroBanner title="Health" />
           <br />
           <ResourceCards resourceTitle='Health'/>
           <br />
@@ -206,7 +207,7 @@ function App() {
         <>
           <Navbar title="HC" />
           <WeatherWidget />
-          <HeroBanner title="Crisis Hotlines" />
+          <HeroBanner title="Legal Aid" />
           <br />
           <ResourceCards resourceTitle='LegalAid'/>
           <br />
@@ -238,7 +239,7 @@ function App() {
         <>
           <Navbar title="HC" />
           <WeatherWidget />
-          <HeroBanner title="Crisis Hotlines" />
+          <HeroBanner title="Trafficking" />
           <br />
           <ResourceCards resourceTitle='Trafficking'/>
           <br />
@@ -249,12 +250,12 @@ function App() {
     },
 
     {
-      path: "/Resources/Senior&Disab",
+      path: "/Resources/SeniorAndDisab",
       element: (
         <>
           <Navbar title="HC" />
           <WeatherWidget />
-          <HeroBanner title="Crisis Hotlines" />
+          <HeroBanner title="Senior & Diability" />
           <br />
           <ResourceCards resourceTitle='SeniorAndDisab'/>
           <br />
@@ -270,7 +271,7 @@ function App() {
         <>
           <Navbar title="HC" />
           <WeatherWidget />
-          <HeroBanner title="Crisis Hotlines" />
+          <HeroBanner title="Other" />
           <br />
           <ResourceCards resourceTitle='Other'/>
           <br />
