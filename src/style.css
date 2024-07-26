@@ -32,7 +32,7 @@ body {
   }
 
   100% {
-    margin-left: 60px;
+    margin-left: 430px;
     width: 0px;
   }
 }
@@ -56,7 +56,7 @@ body {
   height: 35px;
   /* Adjust height if necessary */
   background-color: #38422B;
-  animation: typing 1s steps(10) forwards;
+  animation: typing 2s steps(20) forwards;
   /* Adding delay after each iteration */
 }
 

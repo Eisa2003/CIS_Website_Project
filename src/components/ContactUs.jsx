@@ -4,19 +4,20 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 // install the following
 // npm i @emailjs/browser
-//log in to https://dashboard.emailjs.com/sign-in
+// log in to https://dashboard.emailjs.com/sign-in
 // username: helpinhamptoncounty@cisofsc.org
 // password: WsL2024!
 
 const ContactUs = () => {
   const form = useRef();
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isProvider, setIsProvider] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
-      .sendForm('service_zvvpere', 'template_1nxm419', form.current, "xkNP7oUx7IMWzN_v-")
+      .sendForm('service_zvvpere', 'template_1nxm419', form.current, 'xkNP7oUx7IMWzN_v-')
       .then(
         (result) => {
           console.log(result.text);
@@ -51,6 +52,10 @@ const ContactUs = () => {
     label: {
       marginBottom: '3px',
     },
+    labelbox: {
+      fontSize: '16px',
+    },
+
     input: {
       width: '100%',
       padding: '8px',
@@ -141,13 +146,29 @@ const ContactUs = () => {
             </label>
             <textarea id="message" name="message" placeholder="Write something.." style={styles.textarea}></textarea>
 
+            <div>
+              <label htmlFor="is_provider" style={styles.labelbox}>
+                <input
+                  type="checkbox"
+                  id="is_provider"
+                  name="is_provider"
+                  checked={isProvider}
+                  onChange={(e) => setIsProvider(e.target.checked)}
+                />
+                &nbsp;Are you a provider? 
+                <br></br>
+                &nbsp;If you have an upcoming event that you would like to promote on our website,
+                please send the event information to <a href={`mailto:${companyEmail}`} style={styles.emailText}>{companyEmail}</a>
+              </label>
+            </div>
+
             <input
               type="submit"
               value="Send"
               className="submitButton"
               style={styles.submitButton}
-              onMouseOver={(e) => e.currentTarget.style.backgroundColor = styles.submitButtonHover.backgroundColor}
-              onMouseOut={(e) => e.currentTarget.style.backgroundColor = styles.submitButton.backgroundColor}
+              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = styles.submitButtonHover.backgroundColor)}
+              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = styles.submitButton.backgroundColor)}
             />
           </form>
         )}

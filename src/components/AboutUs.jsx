@@ -13,7 +13,7 @@ export default function AboutUs() {
       <h2 style={{ fontFamily: 'Lucida Handwriting, cursive' }}>About Us</h2>
       <br />
       <p className="indented-paragraph"> 
-        Thanks to funding from the Coastal Carolina Foundation, this online resource center was created by 
+        Thanks to funding from the Coastal Community Foundation, this online resource center was created by 
         Communities In Schools of South Carolina (CISSC) in conjunction with the University of South Carolina Beaufort (USCB) 
         to help the citizens of Hampton County identify and access needed services and resources.  This project was started by 
         the Hampton County Coalition, 
@@ -32,7 +32,7 @@ export default function AboutUs() {
         year at what was then Wade Hampton High School and North District Middle School.  
         As of the 2023-2024 school year, CISSC expanded to Estill Elementary School and Estill Middle School, 
         and continued to serve both North District Middle School and the consolidated Hampton County High School.  
-        You can find out more about the CISSC program here:<a href='www.cisofsc.org'>  www.cisofsc.org.</a>   
+        You can find out more about the CISSC program here:<a href='https://cisofsc.org/'>  www.cisofsc.org.</a>   
       </p>
     </div>
   );
