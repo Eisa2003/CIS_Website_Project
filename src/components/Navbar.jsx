@@ -16,7 +16,7 @@ export default function Navbar(props) {
   useEffect(() => { // <- A useEffect runs at the first render too. That's why the code makes sense
     const timeout = setTimeout(() => {
       setAnimationKey((prev) => prev + 1);
-    }, 7000);
+    }, 14000);
 
     return () => clearTimeout(timeout);
   }, [animationKey]);

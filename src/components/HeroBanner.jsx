@@ -32,7 +32,7 @@ export default function HeroBanner(props) {
     }, [videoIndex, videos]);
 
     return (
-        <div>
+        <div className='bannerContainer'>
             <div
                 className="heroBanner"
                 style={{

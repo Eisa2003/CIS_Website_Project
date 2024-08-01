@@ -20,7 +20,7 @@ body {
 @keyframes typing {
   0% {
     margin-left: 0;
-    width: 100px;
+    width: 430px;
   }
 
   10% {
@@ -32,7 +32,7 @@ body {
   }
 
   100% {
-    margin-left: 430px;
+    margin-left: 430px; /* Same margin-left as width = perfect typing animation */
     width: 0px;
   }
 }
@@ -53,10 +53,10 @@ body {
   position: absolute;
   content: "";
   display: block;
-  height: 35px;
+  height: 40px;
   /* Adjust height if necessary */
   background-color: #38422B;
-  animation: typing 2s steps(20) forwards;
+  animation: typing 2s steps(40) forwards;
   /* Adding delay after each iteration */
 }
 
@@ -195,6 +195,10 @@ h1::after{
 
 @media only screen and (max-width: 768px) {
 
+  .bannerContainer{
+    display: none;
+  }
+
   .nav-item{
     margin: 15px 0px 15px 0px;
     border-bottom: #F6F6DB solid 1px;
@@ -202,6 +206,11 @@ h1::after{
 
   .navbar {
     padding: 10px 10px 10px 10px;
+  }
+
+  .navbar-brand {
+    font-size: 25px;
+    /* Apply the cursive font */
   }
 
   .searchWrapper {
