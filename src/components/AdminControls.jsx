@@ -6,13 +6,14 @@ import TokenContext from './TokenContext'; // Importing the created context
 export default function AdminControls() {
 
     const [errorMsg, setErrorMsg] = useState('');
-    const [adminControlPage, setAdminControlPage] = useState('eventPage');
+    const { adminControlPage } = useContext(TokenContext);
     const [resourceName, setResourceName] = useState('EmpAndEdu');
     const [eventsData, setEventsData] = useState([]);
     const [resourcesData, setResourcesData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [editFormOpen, setEditFormOpen] = useState({});
+    const [eventsEditFormOpen, setEventsEditFormOpen] = useState({});
+    const [resEditFormOpen, setResEditFormOpen] = useState({});
     const [isCreateFormOpen, setIsCreateFormOpen] = useState(false);
     const { token } = useContext(TokenContext);
     const [eventsFormData, setEventsFormData] = useState({
@@ -50,7 +51,7 @@ export default function AdminControls() {
         else {
             fetchResourceData();
         } // end if/else
-    }, [rerender, adminControlPage]) // end hook useEffect
+    }, [rerender, adminControlPage, resourceName]) // end hook useEffect
 
     // for mapping the event data into cards
     useEffect(() => {
@@ -70,7 +71,7 @@ export default function AdminControls() {
         let authToken = token;
         //console.log("This is from the AdminControls: " + authToken)
         try {
-            const response = await fetch('http://localhost:5001/api/events/admin',
+            const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/events/admin',
                 {
                     method: 'GET',
                     headers: {
@@ -98,7 +99,7 @@ export default function AdminControls() {
         let authToken = token;
         console.log("This is from the AdminControls: " + authToken)
         try {
-            const response = await fetch('http://localhost:5001/api/resources/admin',
+            const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/resources/admin',
                 {
                     method: 'GET',
                     headers: {
@@ -114,7 +115,7 @@ export default function AdminControls() {
             let data = await response.json();
             setResourcesData(data);
             setErrorMsg('');
-            
+
             const filtered = data.filter((resource) => resource.resource === resourceName);
             setFilteredData(filtered);
             console.log("These are the filtered data: " + filteredData[0].phone)
@@ -125,7 +126,7 @@ export default function AdminControls() {
         } // end try/catch block
     } // end function fetchResourceData
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => { // Submit for both have been dealt with. {events, and resources}
         e.preventDefault();
 
         if (adminControlPage === "eventsPage") {
@@ -259,48 +260,89 @@ export default function AdminControls() {
     } // end function handleSubmit
 
     const handleChange = (e) => {
-        const { id, value } = e.target;
-        setEventsFormData((prevData) => (
-            {
-                ...prevData,
-                [id]: [value]
-            }
-        ))
+        if (adminControlPage === 'eventsPage') {
+            const { id, value } = e.target;
+            setEventsFormData((prevData) => (
+                {
+                    ...prevData,
+                    [id]: [value]
+                }
+            ))
+        }
+        else {
+            const { id, value } = e.target;
+            setResourcesFormData((prevData) => (
+                {
+                    ...prevData,
+                    [id]: [value]
+                }
+            ))
+        }
+
     } // end fucntion handleChange
 
+    // Handles the array that stores the boolean values for the forms that are open/close. Then on call, Toggles the required one
     const handleToggle = (e) => {
         e.preventDefault();
-        const eventId = e.target.dataset.toggle; // Storing event ID from button's data-toggle attribute
-        setEditFormOpen((prevOpenState) => ({
-            ...prevOpenState,
-            [eventId]: !prevOpenState[eventId], // Toggling state for clicked event's form
-        }));
+        if (adminControlPage === 'eventsPage') {
+            const eventId = e.target.dataset.toggle; // Storing event ID from button's data-toggle attribute
+            setEventsEditFormOpen((prevOpenState) => ({
+                ...prevOpenState,
+                [eventId]: !prevOpenState[eventId], // Toggling state for clicked event's form
+            }));
+        }
+        else {
+            const resourceId = e.target.dataset.toggle; // Storing resource ID from button's data-toggle attribute
+            setResEditFormOpen((prevOpenState) => ({
+                ...prevOpenState,
+                [resourceId]: !prevOpenState[resourceId], // Toggling state for clicked resource's form
+            }));
+        } // end function toggle
+
+
     };// end function handleToggle
 
     const handleDelete = async (e) => {
-        const eventId = e.target.dataset.delete;
+        const deletionId = e.target.dataset.delete; // The ID of the element that's responsible for this function call
         try {
 
             let authToken = token;
-            const response = await fetch(`http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/events/${eventId}`,
-                {
-                    method: 'DELETE',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${authToken}`
+            if(adminControlPage === 'eventsPage'){
+                const response = await fetch(`http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/events/${deletionId}`,
+                    {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${authToken}`
+                        }
                     }
-                }
-            )
-            if (!response.ok) {
-                let error = await response.json();
-                throw new Error(error.message);
-            } // end if
+                )
+                if (!response.ok) {
+                    let error = await response.json();
+                    throw new Error(error.message);
+                } // end if
+            }
+            else{
+                const response = await fetch(`http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/resources/${deletionId}`,
+                    {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${authToken}`
+                        }
+                    }
+                )
+                if (!response.ok) {
+                    let error = await response.json();
+                    throw new Error(error.message);
+                } // end if
+            } // end outter if/else
+            
 
             //let data = await response.json();
             changeRender();
             setErrorMsg('');
             // console.log(eventId)
-
 
         }
         catch (err) {
@@ -311,45 +353,107 @@ export default function AdminControls() {
     const handleCreate = async (e) => {
         e.preventDefault();
 
-        const newEventData = {
-            title: eventsFormData.title.toString(),
-            desc: eventsFormData.desc.toString(),
-            date: eventsFormData.date.toString(),
-            address: eventsFormData.address.toString(),
-            imageUrl: eventsFormData.imageUrl.toString()
-        };
-        console.log(newEventData);
+        if (adminControlPage === 'eventsPage') {
+            const newEventData = {
+                title: eventsFormData.title.toString(),
+                desc: eventsFormData.desc.toString(),
+                date: eventsFormData.date.toString(),
+                address: eventsFormData.address.toString(),
+                imageUrl: eventsFormData.imageUrl.toString()
+            };
+            console.log(newEventData);
 
-        try {
-            const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/events', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`,
-                },
-                body: JSON.stringify(newEventData),
-            });
+            try {
+                const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/events', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}`,
+                    },
+                    body: JSON.stringify(newEventData),
+                });
 
-            if (!response.ok) {
-                throw new Error(await response.json().message);
+                if (!response.ok) {
+                    throw new Error(await response.json().message);
+                }
+
+                //const data = await response.json();
+                //setErrorMsg(data) // This actually is a success msg
+
+                setIsCreateFormOpen(false); // Close form after success
+                changeRender(); // Update event list
+                setEventsFormData({
+                    _id: '',
+                    title: '',
+                    desc: '',
+                    date: '',
+                    address: '',
+                    imageUrl: '',
+                }); // To clear the form data
+            } catch (err) {
+                setErrorMsg(err.message);
             }
-
-            //const data = await response.json();
-            //setErrorMsg(data) // This actually is a success msg
-
-            setIsCreateFormOpen(false); // Close form after success
-            changeRender(); // Update event list
-            setEventsFormData({
-                _id: '',
-                title: '',
-                desc: '',
-                date: '',
-                address: '',
-                imageUrl: '',
-            }); // To clear the form data
-        } catch (err) {
-            setErrorMsg(err.message);
         }
+        else{
+            const newResourceData = {
+                resource: resourcesFormData.resource.toString(),
+                title: resourcesFormData.title.toString(),
+                imageUrl: resourcesFormData.imageUrl.toString(),
+                address: resourcesFormData.address.toString(),
+                phone: resourcesFormData.phone.toString(),
+                contactName: resourcesFormData.contactName.toString(),
+                website: resourcesFormData.website.toString(),
+                email: resourcesFormData.email.toString(),
+                mission: resourcesFormData.mission.toString(),
+                approach: resourcesFormData.approach.toString(),
+                services: resourcesFormData.services.toString(),
+                locations: resourcesFormData.locations.toString(),
+                socialMedia: resourcesFormData.socialMedia.toString(),
+                additionalInfo: resourcesFormData.additionalInfo.toString(),
+            };
+            console.log(newResourceData);
+
+            try {
+                const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/resources', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}`,
+                    },
+                    body: JSON.stringify(newResourceData),
+                });
+
+                if (!response.ok) {
+                    throw new Error(await response.json().message);
+                }
+
+                //const data = await response.json();
+                //setErrorMsg(data) // This actually is a success msg
+
+                setIsCreateFormOpen(false); // Close form after success
+                changeRender(); // Update resources list
+                setResourcesFormData({
+                    _id: '',
+                    resource: '',
+                    title: '',
+                    imageUrl: '',
+                    address: '',
+                    phone: '',
+                    contactName: '',
+                    website: '',
+                    email: '',
+                    mission: '',
+                    approach: '',
+                    services: '',
+                    locations: '',
+                    socialMedia: '',
+                    additionalInfo: '',
+                }); // To clear the form data
+            } catch (err) {
+                setErrorMsg(err.message);
+            }
+        } // end outter if/else for data creation
+        
     } // end function handleCreate
 
     return (
@@ -376,10 +480,10 @@ export default function AdminControls() {
                                             <a href="/" class="btn btn-primary mr-2" data-toggle={event._id} onClick={handleToggle}>Edit</a>
                                             <a href="/" class="btn btn-primary" data-delete={event._id} onClick={handleDelete}>Delete</a>
 
-                                            <form onSubmit={handleSubmit} id={event._id} className={editFormOpen[event._id] ? 'd-block' : 'd-none'}>{/* check which ones are false */}
+                                            <form onSubmit={handleSubmit} id={event._id} className={eventsEditFormOpen[event._id] ? 'd-block' : 'd-none'}>{/* check which ones are false */}
 
 
-                                                <div class="form-group d-none"> {/* Really important in case of the whole update process */}
+                                                <div class="form-group d-none"> {/* Really important in case of the whole update process <- Once we submit */}
                                                     <label for="email">Title:</label>
                                                     <input type="text" class="form-control" id="title" name='id' value={event._id} />
                                                 </div>
@@ -421,27 +525,28 @@ export default function AdminControls() {
                                             </a>
 
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                <a class="dropdown-item" onClick={(e) => {e.preventDefault(); setResourceName('EmpAndEdu') } } href="#">Employment and Education</a>
-                                                <a class="dropdown-item" onClick={(e) => {e.preventDefault(); setResourceName('MentalHAndSubAbuse') } } href="#">Mental Health and Substance Abuse</a>
-                                                <a class="dropdown-item" onClick={(e) => {e.preventDefault(); setResourceName('Housing') } } href="#">Housing</a>
-                                                <a class="dropdown-item" onClick={(e) => {e.preventDefault(); setResourceName('FoodAsst') } } href="#">Food Assit</a>
-                                                <a class="dropdown-item" onClick={(e) => {e.preventDefault(); setResourceName('UtilAndBasicNeeds') } } href="#">Utilities and Basic Needs</a>
-                                                <a class="dropdown-item" onClick={(e) => {e.preventDefault(); setResourceName('Health') } } href="#">Health</a>
-                                                <a class="dropdown-item" onClick={(e) => {e.preventDefault(); setResourceName('LegalAid') } } href="#">Legal Aid</a>
-                                                <a class="dropdown-item" onClick={(e) => {e.preventDefault(); setResourceName('CrisisHotlines') } } href="#">Crisis Hotlines</a>
-                                                <a class="dropdown-item" onClick={(e) => {e.preventDefault(); setResourceName('Trafficking') } } href="#">Trafficking</a>
-                                                <a class="dropdown-item" onClick={(e) => {e.preventDefault(); setResourceName('SeniorAndDisab') } } href="#">Senior And Disability</a>
-                                                <a class="dropdown-item" onClick={(e) => {e.preventDefault(); setResourceName('Other') } } href="#">Other</a>
+                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('EmpAndEdu') }} href="#">Employment and Education</a>
+                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('MentalHAndSubAbuse') }} href="#">Mental Health and Substance Abuse</a>
+                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('Housing') }} href="#">Housing</a>
+                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('FoodAsst') }} href="#">Food Assit</a>
+                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('UtilAndBasicNeeds') }} href="#">Utilities and Basic Needs</a>
+                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('Health') }} href="#">Health</a>
+                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('LegalAid') }} href="#">Legal Aid</a>
+                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('CrisisHotlines') }} href="#">Crisis Hotlines</a>
+                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('Trafficking') }} href="#">Trafficking</a>
+                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('SeniorAndDisab') }} href="#">Senior And Disability</a>
+                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('Other') }} href="#">Other</a>
                                             </div>
                                         </div>
 
                                         <br />
 
-                                        <div style={{width: '80vw', overflow: 'scroll'}}> {filteredData.map((resource, index) => (
+                                        <div style={{ width: '80vw' }}> {filteredData.map((resource, index) => (
                                             <div class="card mb-3" key={index}>
+                                                <img class="card-img-top" style={{ width: "100%", height: "300px", objectFit: "contain", borderBottom: '2px solid' }} src={resource.imageUrl} alt={resource.title} />
                                                 <iframe
                                                     class="card-img-top"
-                                                    style={{ border: "0", height: "70%" }}
+                                                    style={{ border: "0", height: "300px", borderBottom: '2px solid' }}
                                                     src={resource.locations[0]}
                                                     width="600"
                                                     height="450"
@@ -450,27 +555,28 @@ export default function AdminControls() {
                                                     referrerpolicy="no-referrer-when-downgrade"
                                                     frameborder="0">
                                                 </iframe>
-                                                <div class="card-body">
+
+                                                <div class="card-body" style={{ overflow: 'scroll' }}>
                                                     <h5 class="card-title"><strong>{resource.title}</strong></h5>
                                                     <p class="card-text">{resource.desc}</p>
                                                     <p className="card-text">{resource.date}</p>
                                                     <p className="card-text">{resource.address}</p>
-                                                    <p className="card-text">Phone: 
-                                                    {resource.phone && resource.phone.map((number) => 
-                                                        number + ' '
-                                                    )}
+                                                    <p className="card-text">Phone:
+                                                        {resource.phone.length !== 0 && resource.phone.map((number) =>
+                                                            number + ' '
+                                                        )}
                                                     </p>
-                                                    <p className="card-text">Contact: 
-                                                    {resource.contactName && resource.contactName.map((contact) => 
-                                                        contact + ' '
-                                                    )}
+                                                    <p className="card-text">Contact:
+                                                        {resource.contactName && resource.contactName.map((contact) =>
+                                                            contact + ' '
+                                                        )}
                                                     </p>
-                                                    <p className="card-text">Website: 
-                                                    {resource.website && resource.website.map((web) => 
-                                                        web + ' '
-                                                    )}
+                                                    <p className="card-text">Website:
+                                                        {resource.website && resource.website.map((web) =>
+                                                            web + ' '
+                                                        )}
                                                     </p>
-                                                    <p className="card-text">Email: {resource.email && resource.email.map((mail) => mail + '-1 ')} </p>
+                                                    <p className="card-text">Email: {resource.email && resource.email.map((mail) => mail + ' ')} </p>
                                                     <p className="card-text">{resource.mission}</p>
                                                     <p className="card-text">{resource.approach}</p>
                                                     <p className="card-text">Services: {resource.services && resource.services.map((serv) => serv + ' ')} </p>
@@ -479,34 +585,71 @@ export default function AdminControls() {
                                                     <a href="/" class="btn btn-primary mr-2" data-toggle={resource._id} onClick={handleToggle}>Edit</a>
                                                     <a href="/" class="btn btn-primary" data-delete={resource._id} onClick={handleDelete}>Delete</a>
 
-                                                    <form onSubmit={handleSubmit} id={resource._id} className={editFormOpen[resource._id] ? 'd-block' : 'd-none'}>{/* check which ones are false */}
+                                                    <form onSubmit={handleSubmit} id={resource._id} className={resEditFormOpen[resource._id] ? 'd-block' : 'd-none'}>{/* check which ones are false */}
 
 
-                                                        <div class="form-group d-none"> {/* Really important in case of the whole update process */}
+                                                        <div class="form-group d-none"> {/* Really important in case of the whole update process <- Once we submit the form*/}
                                                             <label for="email">Title:</label>
                                                             <input type="text" class="form-control" id="title" name='id' value={resource._id} />
                                                         </div>
 
                                                         <br />
-                                                        <div class="form-group">
-                                                            <label for="email">Title:</label>
-                                                            <input type="text" class="form-control" id="title" value={eventsFormData.title} onChange={handleChange} />
+                                                        <div className="form-group">
+                                                            <label htmlFor="resource">Resource Type:</label> {/* Changed label for clarity */}
+                                                            <input type="text" className="form-control" id="resource" value={resourcesFormData.resource} onChange={handleChange} />
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label for="pwd">Description:</label>
-                                                            <input type="text" class="form-control" id="desc" value={eventsFormData.desc} onChange={handleChange} />
+                                                        <div className="form-group">
+                                                            <label htmlFor="title">Title:</label>
+                                                            <input type="text" className="form-control" id="title" value={resourcesFormData.title} onChange={handleChange} />
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label for="pwd">Date:</label>
-                                                            <input type="date" class="form-control" id="date" value={eventsFormData.date} onChange={handleChange} />
+                                                        <div className="form-group">
+                                                            <label htmlFor="imageUrl">Image URL:</label>
+                                                            <input type="url" className="form-control" id="imageUrl" value={resourcesFormData.imageUrl} onChange={handleChange} />
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label for="pwd">Address:</label>
-                                                            <input type="text" class="form-control" id="address" value={eventsFormData.address} onChange={handleChange} />
+                                                        <div className="form-group">
+                                                            <label htmlFor="address">Address:</label>
+                                                            <input type="text" className="form-control" id="address" value={resourcesFormData.address} onChange={handleChange} />
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label for="pwd">Image URL:</label>
-                                                            <input type="url" class="form-control" id="imageUrl" value={eventsFormData.imageUrl} onChange={handleChange} />
+                                                        <div className="form-group">
+                                                            <label htmlFor="phone">Phone Number:</label>
+                                                            <input type="tel" className="form-control" id="phone" value={resourcesFormData.phone} onChange={handleChange} /> {/* Changed input type to tel for phone number */}
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label htmlFor="contactName">Contact Name:</label>
+                                                            <input type="text" className="form-control" id="contactName" value={resourcesFormData.contactName} onChange={handleChange} />
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label htmlFor="website">Website:</label>
+                                                            <input type="url" className="form-control" id="website" value={resourcesFormData.website} onChange={handleChange} />
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label htmlFor="email">Email:</label>
+                                                            <input type="email" className="form-control" id="email" value={resourcesFormData.email} onChange={handleChange} />
+                                                        </div>
+                                                        {/* Additional fields can be added here following the same pattern */}
+                                                        <div className="form-group">
+                                                            <label htmlFor="mission">Mission Statement:</label>
+                                                            <textarea id="mission" className="form-control" value={resourcesFormData.mission} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label htmlFor="approach">Approach Description:</label>
+                                                            <textarea id="approach" className="form-control" value={resourcesFormData.approach} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label htmlFor="services">Services Offered:</label>
+                                                            <textarea id="services" className="form-control" value={resourcesFormData.services} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label htmlFor="locations">Locations embedding:</label>
+                                                            <textarea id="locations" className="form-control" value={resourcesFormData.locations} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label htmlFor="socialMedia">Social Media:</label>
+                                                            <textarea id="socialMedia" className="form-control" value={resourcesFormData.socialMedia} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label htmlFor="services">Additional Info:</label>
+                                                            <textarea id="additionalInfo" className="form-control" value={resourcesFormData.additionalInfo} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
                                                         </div>
                                                         <button type="submit" class="btn btn-primary">Submit</button>
                                                     </form>
@@ -527,7 +670,7 @@ export default function AdminControls() {
                             </button>
 
                             {/* Create Form (conditionally rendered) */}
-                            {isCreateFormOpen && (
+                            {isCreateFormOpen && adminControlPage === "eventsPage" && (
                                 <div className="create-form-container">
                                     <form onSubmit={handleCreate}>
                                         {/* Form fields (similar to existing form) */}
@@ -565,7 +708,81 @@ export default function AdminControls() {
                                         </div>
                                     </form>
                                 </div>
-                            )}
+                            )} {/* End creation form for events */}
+
+                            {isCreateFormOpen && adminControlPage === "resourcesPage" && (
+                                <div className="create-form-container">
+                                    <form onSubmit={handleCreate}>
+                                        {/* Form fields */}
+                                        <div className="form-group">
+                                            <label htmlFor="resource">Resource Type:</label> {/* Changed label for clarity */}
+                                            <input type="text" className="form-control" id="resource" value={resourcesFormData.resource} onChange={handleChange} />
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="title">Title:</label>
+                                            <input type="text" className="form-control" id="title" value={resourcesFormData.title} onChange={handleChange} />
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="imageUrl">Image URL:</label>
+                                            <input type="url" className="form-control" id="imageUrl" value={resourcesFormData.imageUrl} onChange={handleChange} />
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="address">Address:</label>
+                                            <input type="text" className="form-control" id="address" value={resourcesFormData.address} onChange={handleChange} />
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="phone">Phone Number:</label>
+                                            <input type="tel" className="form-control" id="phone" value={resourcesFormData.phone} onChange={handleChange} /> {/* Changed input type to tel for phone number */}
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="contactName">Contact Name:</label>
+                                            <input type="text" className="form-control" id="contactName" value={resourcesFormData.contactName} onChange={handleChange} />
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="website">Website:</label>
+                                            <input type="url" className="form-control" id="website" value={resourcesFormData.website} onChange={handleChange} />
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="email">Email:</label>
+                                            <input type="email" className="form-control" id="email" value={resourcesFormData.email} onChange={handleChange} />
+                                        </div>
+                                        {/* Additional fields can be added here following the same pattern */}
+                                        <div className="form-group">
+                                            <label htmlFor="mission">Mission Statement:</label>
+                                            <textarea id="mission" className="form-control" value={resourcesFormData.mission} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="approach">Approach Description:</label>
+                                            <textarea id="approach" className="form-control" value={resourcesFormData.approach} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="services">Services Offered:</label>
+                                            <textarea id="services" className="form-control" value={resourcesFormData.services} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="locations">Locations embedding:</label>
+                                            <textarea id="locations" className="form-control" value={resourcesFormData.locations} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="socialMedia">Social Media:</label>
+                                            <textarea id="socialMedia" className="form-control" value={resourcesFormData.socialMedia} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="services">Additional Info:</label>
+                                            <textarea id="additionalInfo" className="form-control" value={resourcesFormData.additionalInfo} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                        </div>
+                                        <div className="d-flex justify-content-end mt-3">
+                                            <button type="submit" className="btn btn-primary">
+                                                Create Resource
+                                            </button>
+                                            <button type="button" className="btn btn-secondary ml-2" onClick={() => setIsCreateFormOpen(false)}>
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            )} {/* End creation form for resources */}
 
                         </div>
 

@@ -59,7 +59,7 @@ export default function AdminLogin() {
         // Test link for the API - http://localhost:5001/api/admin/login
 
         try {
-          const response = await fetch('http://localhost:5001/api/admin/login',
+          const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/admin/login',
             {
               method: 'POST',
               headers: {
@@ -83,7 +83,7 @@ export default function AdminLogin() {
           setToken(data.accessToken);
           // storeToken(data.accessToken);
           console.log("This is from the AdminLogin : " + token);
-          navigate('/Admin/Access/Controls/Events'); // a function imported from the react-router module
+          navigate('/Admin/Access/Controls'); // a function imported from the react-router module
 
         } catch (err) {
           // Handle errors from both fetch and backend API
@@ -153,7 +153,7 @@ export default function AdminLogin() {
         <h1 className='text-center'>Sign-in to get <strong>Admin</strong> access</h1><hr /><br />
         <h4 className={validatorText === "Admin Registered Successfully!" ? "text-center text-success" : "text-center bg-danger text-white"}
           style={{ borderRadius: '5px', maxWidth: 'fit-content', marginInline: 'auto' }}>{validatorText}</h4>
-        <ul className="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+        <ul className="nav nav-pills nav-justified mb-3" id="ex1" role="tablist" >
           <li className="nav-item" id="loginnav" role="presentation">
             <a
               className={indicator === 0 ? 'nav-link lactive' : 'nav-link'}
@@ -161,6 +161,7 @@ export default function AdminLogin() {
               href='/'
               role="tab"
               aria-controls="pills-login"
+              style={{ color: 'black' }}
               onClick={(e) => handleClick(e, 0)} // We need to assign a function 
             // the attr because it runs imm when the
             // component
@@ -175,6 +176,7 @@ export default function AdminLogin() {
               href="/"
               role="tab"
               aria-controls="pills-register"
+              style={{ color: 'black' }}
               onClick={(e) => handleClick(e, 1)}
             >
               Register

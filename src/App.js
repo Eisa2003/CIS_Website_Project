@@ -17,10 +17,12 @@ import AdminControls from './components/AdminControls.jsx';
 import TokenContext from './components/TokenContext.js'; // establishing a reference to the context object
 import HeroBanner from './components/HeroBanner.jsx';
 import WeatherWidget from './components/WeatherWidget.jsx';
+import AdminLoginNavbar from './components/AdminLoginNavbar.jsx';
 
 function App() {
   const [isSurveyOpen, setIsSurveyOpen] = useState(false); // Using useState
   const [token, setToken] = useState(null); // Initial token state
+  const [adminControlPage, setAdminControlPage] = useState("eventsPage"); // For the admin nav switching
 
   /* Survey popup open and close functions 
   const openSurvey = () => {
@@ -40,7 +42,7 @@ function App() {
     }, 300000); // Show popup after 5 mins (5 * 60 * 1000 milliseconds)
     return () => clearTimeout(timer);
   }, []);
-  
+
 
 
   const router = createBrowserRouter([
@@ -49,24 +51,24 @@ function App() {
       element: (
         <>
           {/*/*} {/* I have noticed that because of this component, react is re-rendering the nav - Eisa */}
-          
-          <Navbar title="HC" />  
+
+          <Navbar title="HC" />
           <WeatherWidget />
-      
-          <HeroBanner title="Welcome "/>   
+
+          <HeroBanner title="Welcome " />
           <Alerts />
 
-          <div className="container">     
-          <br/>
-          
-          <h1 className='text-center impTitles'>Hampton County</h1><br />
-          <Carousel title="Hampton County Views"/>
-          <br/>
-          
-              <h1 className='text-center impTitles'>Upcoming Events</h1><br />
-              <NewEventsCr/>
-          
-          <hr/>
+          <div className="container">
+            <br />
+
+            <h1 className='text-center impTitles'>Hampton County</h1><br />
+            <Carousel title="Hampton County Views" />
+            <br />
+
+            <h1 className='text-center impTitles'>Upcoming Events</h1><br />
+            <NewEventsCr />
+
+            <hr />
           </div>
 
           <Footer />
@@ -79,10 +81,10 @@ function App() {
         <>
           <Navbar title="HC" />
           <WeatherWidget />
-          <HeroBanner title="Our Story"/>
-          <br/>
+          <HeroBanner title="Our Story" />
+          <br />
           <AboutUs />
-          <br/>
+          <br />
           <Footer />
         </>
       ),
@@ -94,12 +96,12 @@ function App() {
         <>
           <Navbar title="HC" />
           <WeatherWidget />
-          <HeroBanner title="Contact Us"/>
-          <br/>
+          <HeroBanner title="Contact Us" />
+          <br />
           <ContactUs />
-          <br/>
+          <br />
           <SurveyForm />
-          <br/>
+          <br />
           <Footer />
         </>
       ),
@@ -113,9 +115,9 @@ function App() {
           <WeatherWidget />
           <HeroBanner title="Employment and Education" />
           <br />
-          <ResourceCards resourceTitle='EmpAndEdu'/>
+          <ResourceCards resourceTitle='EmpAndEdu' />
           <br />
-          
+
           <Footer />
         </>
       )
@@ -129,9 +131,9 @@ function App() {
           <WeatherWidget />
           <HeroBanner title="Mental Health & Substance Abuse" />
           <br />
-          <ResourceCards resourceTitle='MentalHAndSubAbuse'/>
+          <ResourceCards resourceTitle='MentalHAndSubAbuse' />
           <br />
-          
+
           <Footer />
         </>
       )
@@ -145,9 +147,9 @@ function App() {
           <WeatherWidget />
           <HeroBanner title="Housing" />
           <br />
-          <ResourceCards resourceTitle='Housing'/>
+          <ResourceCards resourceTitle='Housing' />
           <br />
-          
+
           <Footer />
         </>
       )
@@ -161,9 +163,9 @@ function App() {
           <WeatherWidget />
           <HeroBanner title="Food Assistance" />
           <br />
-          <ResourceCards resourceTitle='FoodAsst'/>
+          <ResourceCards resourceTitle='FoodAsst' />
           <br />
-          
+
           <Footer />
         </>
       )
@@ -177,9 +179,9 @@ function App() {
           <WeatherWidget />
           <HeroBanner title="Utilities And Basic Needs" />
           <br />
-          <ResourceCards resourceTitle='UtilAndBasicNeeds'/>
+          <ResourceCards resourceTitle='UtilAndBasicNeeds' />
           <br />
-          
+
           <Footer />
         </>
       )
@@ -193,9 +195,9 @@ function App() {
           <WeatherWidget />
           <HeroBanner title="Health" />
           <br />
-          <ResourceCards resourceTitle='Health'/>
+          <ResourceCards resourceTitle='Health' />
           <br />
-          
+
           <Footer />
         </>
       )
@@ -209,9 +211,9 @@ function App() {
           <WeatherWidget />
           <HeroBanner title="Legal Aid" />
           <br />
-          <ResourceCards resourceTitle='LegalAid'/>
+          <ResourceCards resourceTitle='LegalAid' />
           <br />
-          
+
           <Footer />
         </>
       )
@@ -225,9 +227,9 @@ function App() {
           <WeatherWidget />
           <HeroBanner title="Crisis Hotlines" />
           <br />
-          <ResourceCards resourceTitle='CrisisHotlines'/>
+          <ResourceCards resourceTitle='CrisisHotlines' />
           <br />
-          
+
           <Footer />
         </>
       )
@@ -241,9 +243,9 @@ function App() {
           <WeatherWidget />
           <HeroBanner title="Trafficking" />
           <br />
-          <ResourceCards resourceTitle='Trafficking'/>
+          <ResourceCards resourceTitle='Trafficking' />
           <br />
-          
+
           <Footer />
         </>
       )
@@ -257,9 +259,9 @@ function App() {
           <WeatherWidget />
           <HeroBanner title="Senior & Diability" />
           <br />
-          <ResourceCards resourceTitle='SeniorAndDisab'/>
+          <ResourceCards resourceTitle='SeniorAndDisab' />
           <br />
-          
+
           <Footer />
         </>
       )
@@ -273,9 +275,9 @@ function App() {
           <WeatherWidget />
           <HeroBanner title="Other" />
           <br />
-          <ResourceCards resourceTitle='Other'/>
+          <ResourceCards resourceTitle='Other' />
           <br />
-          
+
           <Footer />
         </>
       )
@@ -285,7 +287,7 @@ function App() {
       path: "/Admin/Access",
       element: (
         <>
-          <AdminNavbar title="Admin Controls Login"/>
+          <AdminLoginNavbar title="Admin Controls Login" />
           <AdminLogin />
           <Footer />
         </>
@@ -293,10 +295,10 @@ function App() {
     },
 
     {
-      path: "/Admin/Access/Controls/Events",
+      path: "/Admin/Access/Controls",
       element: (
         <>
-          <AdminNavbar title="Admin Controls Page"/>
+          <AdminNavbar title="Admin Controls Page" />
           <AdminControls />
           <Footer />
         </>
@@ -306,7 +308,7 @@ function App() {
   ]);
 
   return (
-    <TokenContext.Provider value={{ token, setToken }}> {/* The provider comp is what that
+    <TokenContext.Provider value={{ token, adminControlPage, setToken, setAdminControlPage }}> {/* The provider comp is what that
                                                             establishes the context tree and helps provide the value */}
       <RouterProvider router={router} />
       {/* Render SurveyPopup component */}

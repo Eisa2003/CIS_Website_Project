@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import TokenContext from './TokenContext'; // The reference to the created context
 
 export default function AdminNavbar(props) {
+  const [activeLinkNumber, setActiveLinkNumber] = useState(1);// We can also use react's useLocation hook but I wanted to someting easy and diff
+  const { setAdminControlPage } = useContext(TokenContext);
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark" style={{ padding: '25px 15px 25px 15px', backgroundColor: '#38422B' }}>
@@ -15,11 +19,11 @@ export default function AdminNavbar(props) {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <NavLink className="nav-link active" aria-current="page" to="/Admin/Access/Controls/Events">Events</NavLink>
+              <li className= { `nav-item ${activeLinkNumber === 1 ? 'isActive' : '' }` }>
+                <a className="nav-link active" href='#' aria-current="page" onClick={(e) => {e.preventDefault(); setAdminControlPage('eventsPage'); setActiveLinkNumber(1);}}>Events</a>
               </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/Admin/Access/Controls/Events">Resource Cards</NavLink>
+              <li className={ `nav-item ${activeLinkNumber === 2 ? 'isActive' : '' }` }>
+                <a className="nav-link" href='#' onClick={(e) => {e.preventDefault(); setAdminControlPage('resourcesPage'); setActiveLinkNumber(2);}}>Resource Cards</a>
               </li>
             </ul>
           </div>

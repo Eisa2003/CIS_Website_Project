@@ -219,7 +219,7 @@ h1::after{
 }
 
 /* These are the nav-link's style */
-li {
+li:not(#loginnav) {
   position: relative;
   padding: 5px 12px 5px 12px;
   /* 10px 15px 10px 15px;  0.5vh 2vh 0.5vh 2vh;*/
@@ -731,7 +731,9 @@ a[href^="tel:"]:hover {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   z-index: 101;
   /* Ensure form is above other elements */
-  max-width: 500px;
+  max-height: 80vh;
+  width: 80vw;
+  overflow: scroll;
   /* Optional: Set a maximum width */
 }
 
