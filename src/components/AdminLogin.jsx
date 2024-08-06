@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import TokenContext from './TokenContext'; // The reference to the created context
 
@@ -11,11 +11,12 @@ export default function AdminLogin() {
     password: '',
     confirmPassword: ''
   })
-  const {token, setToken} = useContext(TokenContext); // Access token from context
+  const [adminToken, setAdminToken] = useState('');
+  const { token, setToken } = useContext(TokenContext); // Access token from context hook
 
   const navigate = useNavigate(); // Calling a React hook that returns a 
-                                  // function object called navigate(That's what I think)
-                                  // But we are storing the reference in the variable called navigate so it doesn't even matter
+  // function object called navigate(That's what I think)
+  // But we are storing the reference in the variable called navigate so it doesn't even matter
 
   /*
   const storeToken = (token) => {
@@ -25,7 +26,8 @@ export default function AdminLogin() {
   const retrieveToken = () => Cookies.get('authToken'); // Will be using this in a diff file
   */
 
-  const handleClick = (indicator) => {
+  const handleClick = (e, indicator) => {
+    e.preventDefault();
     setValidatorText('');
     setIndicator(indicator);
   }
@@ -57,7 +59,7 @@ export default function AdminLogin() {
         // Test link for the API - http://localhost:5001/api/admin/login
 
         try {
-          const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/admin/login',
+          const response = await fetch('http://localhost:5001/api/admin/login',
             {
               method: 'POST',
               headers: {
@@ -69,10 +71,10 @@ export default function AdminLogin() {
 
           if (!response.ok) {
             let data = await response.json() // we are still receiving a response msg from the API
-                                             // So we are converting and storing that response for us to 
-                                             // throw/attach it to the message prop of the Error object
-            throw new Error( data.message ) // We access the actual message rec from the API
-                                                                          // and then concatenate it with the Error's msg
+            // So we are converting and storing that response for us to 
+            // throw/attach it to the message prop of the Error object
+            throw new Error(data.message) // We access the actual message rec from the API
+            // and then concatenate it with the Error's msg
           }
           const data = await response.json(); // Parse JSON for the successful response
 
@@ -89,7 +91,7 @@ export default function AdminLogin() {
           setValidatorText(err.message); // and error object always has the prop called message (NO OTHER NAME!)
         }
       }
-    } // end if/else for login for login
+    } // end if/else for login
 
     else // This else is for the indicator so don't get confused <- The registration part
     {
@@ -97,9 +99,11 @@ export default function AdminLogin() {
       {
         setValidatorText('Cannot leave the fields empty')
       }
-      else if(formData.password !== formData.confirmPassword)
-      {
+      else if (formData.password !== formData.confirmPassword) {
         setValidatorText("The passwords doesn't match")
+      }
+      else if (adminToken !== "cisofscadmin") {
+        setValidatorText('Please provide a valid admin token')
       }
       else {
         const RegisterFormData = {
@@ -123,8 +127,8 @@ export default function AdminLogin() {
           )
 
           if (!response.ok) {
-            let data = await response.json() 
-            throw new Error( data.message ) // Any kind of error message for the registration part
+            let data = await response.json()
+            throw new Error(data.message) // Any kind of error message for the registration part
           }
           const data = await response.json(); // Parse JSON for the successful response
 
@@ -144,11 +148,11 @@ export default function AdminLogin() {
   return (
 
     <>
-    <div className='container'>
+      <div className='container'>
         <br /><hr />
         <h1 className='text-center'>Sign-in to get <strong>Admin</strong> access</h1><hr /><br />
-        <h4 className={validatorText === "Admin Registered Successfully!"? "text-center text-success" : "text-center bg-danger text-white"}
-            style={{borderRadius: '5px', maxWidth: 'fit-content', marginInline: 'auto'}}>{validatorText}</h4>
+        <h4 className={validatorText === "Admin Registered Successfully!" ? "text-center text-success" : "text-center bg-danger text-white"}
+          style={{ borderRadius: '5px', maxWidth: 'fit-content', marginInline: 'auto' }}>{validatorText}</h4>
         <ul className="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
           <li className="nav-item" id="loginnav" role="presentation">
             <a
@@ -157,7 +161,7 @@ export default function AdminLogin() {
               href='/'
               role="tab"
               aria-controls="pills-login"
-              onClick={() => handleClick(0)} // We need to assign a function 
+              onClick={(e) => handleClick(e, 0)} // We need to assign a function 
             // the attr because it runs imm when the
             // component
             >
@@ -171,7 +175,7 @@ export default function AdminLogin() {
               href="/"
               role="tab"
               aria-controls="pills-register"
-              onClick={() => handleClick(1)}
+              onClick={(e) => handleClick(e, 1)}
             >
               Register
             </a>
@@ -192,7 +196,7 @@ export default function AdminLogin() {
               {/* Email input */}
               {/* The values are the initial ones that the reactive var sets */}
               <div data-mdb-input-init className="form-outline mb-4">
-                <input type="email" id="email" className="form-control" value={formData.email} onChange={handleChange} /> 
+                <input type="email" id="email" className="form-control" value={formData.email} onChange={handleChange} />
                 <label className="form-label" htmlFor="loginName">
                   Email or Admin Username
                 </label>
@@ -207,9 +211,12 @@ export default function AdminLogin() {
               </div>
 
               {/* 2 column grid layout */}
+              {/*
               <div className="row mb-4">
+                
                 <div className="col-md-6 d-flex justify-content-center">
-                  {/* Checkbox */}
+                  {/* Checkbox 
+                  
                   <div className="form-check mb-3 mb-md-0">
                     <input
                       className="form-check-input"
@@ -218,17 +225,18 @@ export default function AdminLogin() {
                       id="loginCheck"
                       defaultChecked
                     />
+                    
                     <label className="form-check-label" htmlFor="loginCheck">
                       Remember me
                     </label>
                   </div>
                 </div>
 
-                <div className="col-md-6 d-flex justify-content-center">
-                  {/* Simple link */}
+                <div className="col-md-6 d-flex justify-content-center" >
+                  {/* Simple link 
                   <a href="#!">Forgot password?</a>
                 </div>
-              </div>
+              </div>*/}
 
               {/* Submit button */}
               <button
@@ -244,7 +252,7 @@ export default function AdminLogin() {
               {/* Register buttons */}
               <div className="text-center">
                 <p>
-                  Not a member? <a href="/" onClick={() => handleClick(1)}>Register</a>
+                  Not a member? <a href="#" onClick={(e) => handleClick(e, 1)}>Register</a>
                 </p>
               </div>
             </form>
@@ -262,7 +270,7 @@ export default function AdminLogin() {
 
               {/* Username input */}
               <div data-mdb-input-init className="form-outline mb-4">
-                <input type="text" id="name" className="form-control" value={formData.name} onChange={handleChange}/>
+                <input type="text" id="name" className="form-control" value={formData.name} onChange={handleChange} />
                 <label className="form-label" htmlFor="registerUsername">
                   Admin Username
                 </label>
@@ -270,7 +278,7 @@ export default function AdminLogin() {
 
               {/* Email input */}
               <div data-mdb-input-init className="form-outline mb-4">
-                <input type="email" id="email" className="form-control" value={formData.email} onChange={handleChange}/>
+                <input type="email" id="email" className="form-control" value={formData.email} onChange={handleChange} />
                 <label className="form-label" htmlFor="registerEmail">
                   Email
                 </label>
@@ -278,7 +286,7 @@ export default function AdminLogin() {
 
               {/* Password input */}
               <div data-mdb-input-init className="form-outline mb-4">
-                <input type="password" id="password" className="form-control" value={formData.password} onChange={handleChange}/>
+                <input type="password" id="password" className="form-control" value={formData.password} onChange={handleChange} />
                 <label className="form-label" htmlFor="registerPassword">
                   Password
                 </label>
@@ -298,6 +306,14 @@ export default function AdminLogin() {
                 </label>
               </div>
 
+              {/* Admin token input */}
+              <div data-mdb-input-init className="form-outline mb-4">
+                <input type="password" id="token" className="form-control" value={adminToken} onChange={(e) => setAdminToken((prevAdminToken) => e.target.value)} />
+                <label className="form-label" htmlFor="adminToken">
+                  adminToken
+                </label>
+              </div>
+
               {/* Submit button */}
               <button
                 type="submit"
@@ -313,9 +329,9 @@ export default function AdminLogin() {
           </div>
         </div>
         {/* Pills content */}
-      
 
-    </div>
+
+      </div>
     </>
   )
 }

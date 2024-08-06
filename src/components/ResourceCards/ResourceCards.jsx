@@ -10,7 +10,7 @@ export default function CrisisHotlines(props) {
   // fetching the resources and storing it
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/resources/'); // Replace with your API endpoint
+      const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/resources/');
       const resourceData = await response.json();
       setData(resourceData);
     };
@@ -48,6 +48,21 @@ export default function CrisisHotlines(props) {
             </div>
 
             <div class="cardR card-back card">
+            {resource.locations.length !== 0 && (
+
+                <iframe 
+                    class="card-img-top" 
+                    style={{ border: "0", height: "70%" }} 
+                    src={resource.locations[0]}
+                    width="600" 
+                    height="450" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade" 
+                    frameborder="0">
+                </iframe>
+                )}
+            {/* This was for testing purpose.
             <iframe 
                     class="card-img-top" 
                     style={{ border: "0", height: "70%" }} 
@@ -58,7 +73,7 @@ export default function CrisisHotlines(props) {
                     loading="lazy" 
                     referrerpolicy="no-referrer-when-downgrade" 
                     frameborder="0">
-                </iframe>
+                </iframe>*/}
 
               <div class="card-body" style={{ overflow: 'scroll' }}>
                 {/* Address */}
