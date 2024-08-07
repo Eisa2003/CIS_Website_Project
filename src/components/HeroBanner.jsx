@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import '../../src/style.css'; // Correcting the import path
 import slownature from './images/slownature.mp4';
 import fastnature from './images/fastnature.mp4';
-import thirdnature from './images/thirdnature.mp4'; // Importing the third video
+import thirdnature from './images/thirdnature.mp4'; 
 
 export default function HeroBanner(props) {
     const video1Ref = useRef(null);

@@ -786,3 +786,15 @@ a[href^="tel:"]:hover {
   background-color: rgba(56, 66, 43, 0.349);
   /* Blue filter with 30% opacity */
 }
+
+/* Hide video on mobile devices */
+@media only screen and (max-width: 768px) {
+  .heroBanner video {
+      display: none;
+  }
+  .bannerContainer {
+      height: auto; /* Adjust height if needed */
+  }
+}
+
+/* -- heroBanner END -- */
