@@ -37,14 +37,17 @@ export default function AdminControls() {
         mission: '',
         approach: '',
         services: '',
+        hoursOfOperation: '',
         locations: '',
         socialMedia: '',
         additionalInfo: '',
+        resourceName: '',
     });
     const [rerender, setRerender] = useState(0);
 
     // for fetching the data depending on the page
     useEffect(() => {
+        console.log("Token fromm admin controls " + token)
         if (adminControlPage === "eventsPage") {
             fetchEventsData();
         }
@@ -87,7 +90,7 @@ export default function AdminControls() {
             let data = await response.json();
             setEventsData(data);
             setErrorMsg('');
-            console.log(data);
+            // console.log(data);
         }
         catch (err) {
             setEventsData([]);
@@ -97,7 +100,7 @@ export default function AdminControls() {
 
     const fetchResourceData = async () => {
         let authToken = token;
-        console.log("This is from the AdminControls: " + authToken)
+        // console.log("This is from the AdminControls: " + authToken)
         try {
             const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/resources/admin',
                 {
@@ -114,11 +117,12 @@ export default function AdminControls() {
 
             let data = await response.json();
             setResourcesData(data);
+            console.log(data)
             setErrorMsg('');
 
             const filtered = data.filter((resource) => resource.resource === resourceName);
             setFilteredData(filtered);
-            console.log("These are the filtered data: " + filteredData[0].phone)
+            // console.log("These are the filtered data: " + filteredData[0].phone)
         }
         catch (err) {
             setResourcesData([]);
@@ -241,6 +245,7 @@ export default function AdminControls() {
                     mission: '',
                     approach: '',
                     services: '',
+                    hoursOfOperation: '',
                     locations: '',
                     socialMedia: '',
                     additionalInfo: '',
@@ -307,7 +312,7 @@ export default function AdminControls() {
         try {
 
             let authToken = token;
-            if(adminControlPage === 'eventsPage'){
+            if (adminControlPage === 'eventsPage') {
                 const response = await fetch(`http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/events/${deletionId}`,
                     {
                         method: 'DELETE',
@@ -322,7 +327,7 @@ export default function AdminControls() {
                     throw new Error(error.message);
                 } // end if
             }
-            else{
+            else {
                 const response = await fetch(`http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/resources/${deletionId}`,
                     {
                         method: 'DELETE',
@@ -337,7 +342,7 @@ export default function AdminControls() {
                     throw new Error(error.message);
                 } // end if
             } // end outter if/else
-            
+
 
             //let data = await response.json();
             changeRender();
@@ -394,22 +399,24 @@ export default function AdminControls() {
                 setErrorMsg(err.message);
             }
         }
-        else{
+        else {
             const newResourceData = {
                 resource: resourcesFormData.resource.toString(),
                 title: resourcesFormData.title.toString(),
                 imageUrl: resourcesFormData.imageUrl.toString(),
                 address: resourcesFormData.address.toString(),
-                phone: resourcesFormData.phone.toString(),
-                contactName: resourcesFormData.contactName.toString(),
-                website: resourcesFormData.website.toString(),
-                email: resourcesFormData.email.toString(),
+                phone: resourcesFormData.phone.toString().split(","),
+                contactName: resourcesFormData.contactName.toString().split(","),
+                website: resourcesFormData.website.toString().split(","),
+                email: resourcesFormData.email.toString().split(","),
                 mission: resourcesFormData.mission.toString(),
                 approach: resourcesFormData.approach.toString(),
-                services: resourcesFormData.services.toString(),
-                locations: resourcesFormData.locations.toString(),
-                socialMedia: resourcesFormData.socialMedia.toString(),
+                services: resourcesFormData.services.toString().split(","),
+                hoursOfOperation: resourcesFormData.hoursOfOperation.toString().split(","),
+                locations: resourcesFormData.locations.toString().split(","),
+                // socialMedia: resourcesFormData.socialMedia.toString(),
                 additionalInfo: resourcesFormData.additionalInfo.toString(),
+                resourceName: resourcesFormData.resourceName.toString()
             };
             console.log(newResourceData);
 
@@ -430,6 +437,8 @@ export default function AdminControls() {
                 //const data = await response.json();
                 //setErrorMsg(data) // This actually is a success msg
 
+                console.log("The data is created");
+
                 setIsCreateFormOpen(false); // Close form after success
                 changeRender(); // Update resources list
                 setResourcesFormData({
@@ -445,15 +454,20 @@ export default function AdminControls() {
                     mission: '',
                     approach: '',
                     services: '',
+                    hoursOfOperation: '',
                     locations: '',
                     socialMedia: '',
                     additionalInfo: '',
+                    resourceName: '',
                 }); // To clear the form data
             } catch (err) {
-                setErrorMsg(err.message);
+                if (err) {
+                    setErrorMsg(err.message);
+                    console.log("This is from the catch statement error");
+                } // end if
             }
         } // end outter if/else for data creation
-        
+
     } // end function handleCreate
 
     return (
@@ -484,14 +498,14 @@ export default function AdminControls() {
 
 
                                                 <div class="form-group d-none"> {/* Really important in case of the whole update process <- Once we submit */}
-                                                    <label for="email">Title:</label>
-                                                    <input type="text" class="form-control" id="title" name='id' value={event._id} />
+                                                    <label for="_id">ID:</label>
+                                                    <input type="text" class="form-control" id="_id" name='id' value={event._id} />
                                                 </div>
 
                                                 <br />
                                                 <div class="form-group">
-                                                    <label for="email">Title:</label>
-                                                    <input type="text" class="form-control" id="title" value={eventsFormData.title} onChange={handleChange} />
+                                                    <label for="title">Title:</label>
+                                                    <input type="text" class="form-control" id="title" value={eventsFormData.title} onChange={handleChange} required/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="pwd">Description:</label>
@@ -515,6 +529,7 @@ export default function AdminControls() {
                                         </div>
                                     </div>
                                 ))} </div>) // End of the ternary mapping of event cards
+
                                 :
 
                                 (
@@ -558,9 +573,9 @@ export default function AdminControls() {
 
                                                 <div class="card-body" style={{ overflow: 'scroll' }}>
                                                     <h5 class="card-title"><strong>{resource.title}</strong></h5>
-                                                    <p class="card-text">{resource.desc}</p>
-                                                    <p className="card-text">{resource.date}</p>
-                                                    <p className="card-text">{resource.address}</p>
+                                                    <p class="card-text">Resource Name: {resource.resourceName}</p>
+                                                    <p className="card-text">Hours Of Operation: {resource.hoursOfOperation}</p>
+                                                    <p className="card-text">Address: {resource.address}</p>
                                                     <p className="card-text">Phone:
                                                         {resource.phone.length !== 0 && resource.phone.map((number) =>
                                                             number + ' '
@@ -577,8 +592,8 @@ export default function AdminControls() {
                                                         )}
                                                     </p>
                                                     <p className="card-text">Email: {resource.email && resource.email.map((mail) => mail + ' ')} </p>
-                                                    <p className="card-text">{resource.mission}</p>
-                                                    <p className="card-text">{resource.approach}</p>
+                                                    <p className="card-text">Mission: {resource.mission}</p>
+                                                    <p className="card-text">Approach: {resource.approach}</p>
                                                     <p className="card-text">Services: {resource.services && resource.services.map((serv) => serv + ' ')} </p>
                                                     <p className="card-text">Social Media: {resource.socialMedia && resource.socialMedia.map((media) => media + ' ')}</p>
                                                     <p className="card-text">{resource.additionalInfo}</p>
@@ -589,18 +604,22 @@ export default function AdminControls() {
 
 
                                                         <div class="form-group d-none"> {/* Really important in case of the whole update process <- Once we submit the form*/}
-                                                            <label for="email">Title:</label>
-                                                            <input type="text" class="form-control" id="title" name='id' value={resource._id} />
+                                                            <label for="_id">ID:</label>
+                                                            <input type="text" class="form-control" id="_id" name='id' value={resource._id} />
                                                         </div>
 
                                                         <br />
                                                         <div className="form-group">
                                                             <label htmlFor="resource">Resource Type:</label> {/* Changed label for clarity */}
-                                                            <input type="text" className="form-control" id="resource" value={resourcesFormData.resource} onChange={handleChange} />
+                                                            <input type="text" className="form-control" id="resource" value={resourcesFormData.resource} onChange={handleChange} required/>
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label htmlFor="resourceName">Resource Name:</label> {/* Changed label for clarity */}
+                                                            <input type="text" className="form-control" id="resourceName" value={resourcesFormData.resourceName} onChange={handleChange} required/>
                                                         </div>
                                                         <div className="form-group">
                                                             <label htmlFor="title">Title:</label>
-                                                            <input type="text" className="form-control" id="title" value={resourcesFormData.title} onChange={handleChange} />
+                                                            <input type="text" className="form-control" id="title" value={resourcesFormData.title} onChange={handleChange} required/>
                                                         </div>
                                                         <div className="form-group">
                                                             <label htmlFor="imageUrl">Image URL:</label>
@@ -640,6 +659,10 @@ export default function AdminControls() {
                                                             <textarea id="services" className="form-control" value={resourcesFormData.services} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
                                                         </div>
                                                         <div className="form-group">
+                                                            <label htmlFor="hoursOfOperation">Hours Of Operation:</label>
+                                                            <textarea id="hoursOfOperation" className="form-control" value={resourcesFormData.hoursOfOperation} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                                        </div>
+                                                        <div className="form-group">
                                                             <label htmlFor="locations">Locations embedding:</label>
                                                             <textarea id="locations" className="form-control" value={resourcesFormData.locations} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
                                                         </div>
@@ -648,7 +671,7 @@ export default function AdminControls() {
                                                             <textarea id="socialMedia" className="form-control" value={resourcesFormData.socialMedia} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
                                                         </div>
                                                         <div className="form-group">
-                                                            <label htmlFor="services">Additional Info:</label>
+                                                            <label htmlFor="additionalInfo">Additional Info:</label>
                                                             <textarea id="additionalInfo" className="form-control" value={resourcesFormData.additionalInfo} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
                                                         </div>
                                                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -719,6 +742,10 @@ export default function AdminControls() {
                                             <input type="text" className="form-control" id="resource" value={resourcesFormData.resource} onChange={handleChange} />
                                         </div>
                                         <div className="form-group">
+                                            <label htmlFor="resourceName">Resource Name:</label> {/* Changed label for clarity */}
+                                            <input type="text" className="form-control" id="resourceName" value={resourcesFormData.resourceName} onChange={handleChange} />
+                                        </div>
+                                        <div className="form-group">
                                             <label htmlFor="title">Title:</label>
                                             <input type="text" className="form-control" id="title" value={resourcesFormData.title} onChange={handleChange} />
                                         </div>
@@ -760,6 +787,10 @@ export default function AdminControls() {
                                             <textarea id="services" className="form-control" value={resourcesFormData.services} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
                                         </div>
                                         <div className="form-group">
+                                            <label htmlFor="hoursOfOperation">Hours Of Operation:</label>
+                                            <textarea id="hoursOfOperation" className="form-control" value={resourcesFormData.hoursOfOperation} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                        </div>
+                                        <div className="form-group">
                                             <label htmlFor="locations">Locations embedding:</label>
                                             <textarea id="locations" className="form-control" value={resourcesFormData.locations} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
                                         </div>
@@ -768,7 +799,7 @@ export default function AdminControls() {
                                             <textarea id="socialMedia" className="form-control" value={resourcesFormData.socialMedia} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="services">Additional Info:</label>
+                                            <label htmlFor="additionalInfo">Additional Info:</label>
                                             <textarea id="additionalInfo" className="form-control" value={resourcesFormData.additionalInfo} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
                                         </div>
                                         <div className="d-flex justify-content-end mt-3">

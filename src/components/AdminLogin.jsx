@@ -11,7 +11,7 @@ export default function AdminLogin() {
     password: '',
     confirmPassword: ''
   })
-  const [adminToken, setAdminToken] = useState('');
+  const [adminToken, setAdminToken] = useState(''); // This token is different than the JWT. It's used for authorizing an admin to create an account
   const { token, setToken } = useContext(TokenContext); // Access token from context hook
 
   const navigate = useNavigate(); // Calling a React hook that returns a 

@@ -195,6 +195,27 @@ h1::after{
 
 @media only screen and (max-width: 768px) {
 
+  /* Navbar Logo Animations */
+@keyframes typing {
+  0% {
+    margin-left: 0;
+    width: 350px;
+  }
+
+  10% {
+    border-left: 2px solid chartreuse;
+  }
+
+  98% {
+    border-left: 2px solid chartreuse;
+  }
+
+  100% {
+    margin-left: 350px; /* Same margin-left as width = perfect typing animation */
+    width: 0px;
+  }
+}
+
   .bannerContainer{
     display: none;
   }
@@ -583,17 +604,19 @@ a[href^="tel:"]:hover {
 
 .indCardsbtn {
   margin: 10px;
-  background-color: #6E7753;
+  background-color:#38422B;
   border-color: #697157;
   color: white;
   width: 200px;
-  border-radius: 10px;
+  font-weight: bold;
+  border-radius: 5px;
   cursor: pointer;
   transition: 0.5s;
+  box-shadow: 4px 4px 4px 4px  #4b503e;
 }
 
 .indCardsbtn:hover {
-  background-color: #38422B;
+  background-color: #5e6b4c;
 }
 
 ::-webkit-scrollbar {

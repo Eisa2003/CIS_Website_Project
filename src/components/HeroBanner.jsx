@@ -49,6 +49,7 @@ export default function HeroBanner(props) {
                     ref={video1Ref}
                     muted
                     onEnded={handleVideoEnd}
+                    playsinline
                 >
                     <source src={fastnature} type="video/mp4" />
                     Your browser does not support the video tag.
@@ -57,6 +58,7 @@ export default function HeroBanner(props) {
                     ref={video2Ref}
                     muted
                     onEnded={handleVideoEnd}
+                    playsinline
                 >
                     <source src={thirdnature} type="video/mp4" />
                     Your browser does not support the video tag.
@@ -65,6 +67,7 @@ export default function HeroBanner(props) {
                     ref={video3Ref}
                     muted
                     onEnded={handleVideoEnd}
+                    playsinline
                 >
                     <source src={slownature} type="video/mp4" />
                     Your browser does not support the video tag.
