@@ -414,7 +414,7 @@ export default function AdminControls() {
                 services: resourcesFormData.services.toString().split(","),
                 hoursOfOperation: resourcesFormData.hoursOfOperation.toString().split(","),
                 locations: resourcesFormData.locations.toString().split(","),
-                // socialMedia: resourcesFormData.socialMedia.toString(),
+                socialMedia: resourcesFormData.socialMedia.toString(),
                 additionalInfo: resourcesFormData.additionalInfo.toString(),
                 resourceName: resourcesFormData.resourceName.toString()
             };
