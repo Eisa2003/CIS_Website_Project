@@ -811,9 +811,9 @@ a[href^="tel:"]:hover {
 }
 
 /* Hide video on mobile devices */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 500px) {
   .heroBanner video {
-      display: none;
+    display: none !important;
   }
   .bannerContainer {
       height: auto; /* Adjust height if needed */
