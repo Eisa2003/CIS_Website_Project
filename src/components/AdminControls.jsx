@@ -44,6 +44,16 @@ export default function AdminControls() {
         resourceName: '',
     });
     const [rerender, setRerender] = useState(0);
+    const [alertData, setAlertData] = useState({});
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch('http://localhost:5001/api/alert');
+            const alertData = await response.json();
+            setAlertData(alertData);
+        };
+        fetchData();
+    })
 
     // for fetching the data depending on the page
     useEffect(() => {
@@ -482,205 +492,302 @@ export default function AdminControls() {
                         <div className="row mb-3">
                             {isLoading ? (
                                 <div>Loading events...</div>
+
                             ) : adminControlPage === "eventsPage" ? // if the admin wants to edit the events
-                                (<div style={{ marginInline: 'auto', width: '100%' }}> {eventsData.map((event, index) => (
-                                    <div class="card mb-3" key={index}>
-                                        <img class="card-img-top" style={{ width: "100%", height: "18em", objectFit: "cover" }} src={event.imageUrl} alt={event.title} />
-                                        <div class="card-body">
-                                            <h5 class="card-title"><strong>{event.title}</strong></h5>
-                                            <p class="card-text">{event.desc}</p>
-                                            <p className="card-text">{event.date}</p>
-                                            <p className="card-text">{event.address}</p>
-                                            <a href="/" class="btn btn-primary mr-2" data-toggle={event._id} onClick={handleToggle}>Edit</a>
-                                            <a href="/" class="btn btn-primary" data-delete={event._id} onClick={handleDelete}>Delete</a>
-
-                                            <form onSubmit={handleSubmit} id={event._id} className={eventsEditFormOpen[event._id] ? 'd-block' : 'd-none'}>{/* check which ones are false */}
-
-
-                                                <div class="form-group d-none"> {/* Really important in case of the whole update process <- Once we submit */}
-                                                    <label for="_id">ID:</label>
-                                                    <input type="text" class="form-control" id="_id" name='id' value={event._id} />
-                                                </div>
-
-                                                <br />
-                                                <div class="form-group">
-                                                    <label for="title">Title:</label>
-                                                    <input type="text" class="form-control" id="title" value={eventsFormData.title} onChange={handleChange} required/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="pwd">Description:</label>
-                                                    <input type="text" class="form-control" id="desc" value={eventsFormData.desc} onChange={handleChange} />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="pwd">Date:</label>
-                                                    <input type="date" class="form-control" id="date" value={eventsFormData.date} onChange={handleChange} />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="pwd">Address:</label>
-                                                    <input type="text" class="form-control" id="address" value={eventsFormData.address} onChange={handleChange} />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="pwd">Image URL:</label>
-                                                    <input type="url" class="form-control" id="imageUrl" value={eventsFormData.imageUrl} onChange={handleChange} />
-                                                </div>
-                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                            </form>
-
-                                        </div>
-                                    </div>
-                                ))} </div>) // End of the ternary mapping of event cards
-
-                                :
-
                                 (
-                                    <div style={{ maxWidth: 'fit-content', marginInline: 'auto' }}>
-                                        <div class="dropdown show" >
-                                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Select a Resource
-                                            </a>
-
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('EmpAndEdu') }} href="#">Employment and Education</a>
-                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('MentalHAndSubAbuse') }} href="#">Mental Health and Substance Abuse</a>
-                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('Housing') }} href="#">Housing</a>
-                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('FoodAsst') }} href="#">Food Assit</a>
-                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('UtilAndBasicNeeds') }} href="#">Utilities and Basic Needs</a>
-                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('Health') }} href="#">Health</a>
-                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('LegalAid') }} href="#">Legal Aid</a>
-                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('CrisisHotlines') }} href="#">Crisis Hotlines</a>
-                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('Trafficking') }} href="#">Trafficking</a>
-                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('SeniorAndDisab') }} href="#">Senior And Disability</a>
-                                                <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('Other') }} href="#">Other</a>
+                                    /* Starting with the alert on top */
+                                    <div>
+                                        <form onSubmit={async () => {
+                                            try {
+                                                const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert', {
+                                                    method: 'PUT',
+                                                    headers: {
+                                                        'Content-Type': 'application/json',
+                                                        Authorization: `Bearer ${token}`,
+                                                    },
+                                                    body: JSON.stringify(alertData),
+                                                });
+                                            }
+                                            catch (err) {
+                                                // setEventsData([]);
+                                                setErrorMsg(err.message); // As we know that the err object always has property called message attached to it
+                                            } // end try/catch block
+                                        }}>
+                                            <p class="card-text">Alert Message: Title - {alertData.title} | Message - {alertData.message} </p>
+                                            <div class="form-group">
+                                                <label for="title">Title:</label>
+                                                <input type="text" class="form-control" id='title' value={alertData.title} onChange={(e) => {
+                                                    const { id, value } = e.target;
+                                                    setAlertData((prevData) => (
+                                                        {
+                                                            ...prevData,
+                                                            [id]: [value]
+                                                        }
+                                                    ))
+                                                }} required />
                                             </div>
-                                        </div>
+                                            <div class="form-group">
+                                                <label for="pwd">Message:</label>
+                                                <input type="text" class="form-control" id='message' value={alertData.message} onChange={(e) => {
+                                                    const { id, value } = e.target;
+                                                    setAlertData((prevData) => (
+                                                        {
+                                                            ...prevData,
+                                                            [id]: [value]
+                                                        }
+                                                    ))
+                                                }} />
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </form>
 
-                                        <br />
 
-                                        <div style={{ width: '80vw' }}> {filteredData.map((resource, index) => (
+                                        <div style={{ marginInline: 'auto', width: '100%' }}> {eventsData.map((event, index) => (
                                             <div class="card mb-3" key={index}>
-                                                <img class="card-img-top" style={{ width: "100%", height: "300px", objectFit: "contain", borderBottom: '2px solid' }} src={resource.imageUrl} alt={resource.title} />
-                                                <iframe
-                                                    class="card-img-top"
-                                                    style={{ border: "0", height: "300px", borderBottom: '2px solid' }}
-                                                    src={resource.locations[0]}
-                                                    width="600"
-                                                    height="450"
-                                                    allowfullscreen=""
-                                                    loading="lazy"
-                                                    referrerpolicy="no-referrer-when-downgrade"
-                                                    frameborder="0">
-                                                </iframe>
+                                                <img class="card-img-top" style={{ width: "100%", height: "18em", objectFit: "cover" }} src={event.imageUrl} alt={event.title} />
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><strong>{event.title}</strong></h5>
+                                                    <p class="card-text">{event.desc}</p>
+                                                    <p className="card-text">{event.date}</p>
+                                                    <p className="card-text">{event.address}</p>
+                                                    <a href="/" class="btn btn-primary mr-2" data-toggle={event._id} onClick={handleToggle}>Edit</a>
+                                                    <a href="/" class="btn btn-primary" data-delete={event._id} onClick={handleDelete}>Delete</a>
 
-                                                <div class="card-body" style={{ overflow: 'scroll' }}>
-                                                    <h5 class="card-title"><strong>{resource.title}</strong></h5>
-                                                    <p class="card-text">Resource Name: {resource.resourceName}</p>
-                                                    <p className="card-text">Hours Of Operation: {resource.hoursOfOperation}</p>
-                                                    <p className="card-text">Address: {resource.address}</p>
-                                                    <p className="card-text">Phone:
-                                                        {resource.phone.length !== 0 && resource.phone.map((number) =>
-                                                            number + ' '
-                                                        )}
-                                                    </p>
-                                                    <p className="card-text">Contact:
-                                                        {resource.contactName && resource.contactName.map((contact) =>
-                                                            contact + ' '
-                                                        )}
-                                                    </p>
-                                                    <p className="card-text">Website:
-                                                        {resource.website && resource.website.map((web) =>
-                                                            web + ' '
-                                                        )}
-                                                    </p>
-                                                    <p className="card-text">Email: {resource.email && resource.email.map((mail) => mail + ' ')} </p>
-                                                    <p className="card-text">Mission: {resource.mission}</p>
-                                                    <p className="card-text">Approach: {resource.approach}</p>
-                                                    <p className="card-text">Services: {resource.services && resource.services.map((serv) => serv + ' ')} </p>
-                                                    <p className="card-text">Social Media: {resource.socialMedia && resource.socialMedia.map((media) => media + ' ')}</p>
-                                                    <p className="card-text">{resource.additionalInfo}</p>
-                                                    <a href="/" class="btn btn-primary mr-2" data-toggle={resource._id} onClick={handleToggle}>Edit</a>
-                                                    <a href="/" class="btn btn-primary" data-delete={resource._id} onClick={handleDelete}>Delete</a>
-
-                                                    <form onSubmit={handleSubmit} id={resource._id} className={resEditFormOpen[resource._id] ? 'd-block' : 'd-none'}>{/* check which ones are false */}
+                                                    <form onSubmit={handleSubmit} id={event._id} className={eventsEditFormOpen[event._id] ? 'd-block' : 'd-none'}>{/* check which ones are false */}
 
 
-                                                        <div class="form-group d-none"> {/* Really important in case of the whole update process <- Once we submit the form*/}
+                                                        <div class="form-group d-none"> {/* Really important in case of the whole update process <- Once we submit */}
                                                             <label for="_id">ID:</label>
-                                                            <input type="text" class="form-control" id="_id" name='id' value={resource._id} />
+                                                            <input type="text" class="form-control" id="_id" name='id' value={event._id} />
                                                         </div>
 
                                                         <br />
-                                                        <div className="form-group">
-                                                            <label htmlFor="resource">Resource Type:</label> {/* Changed label for clarity */}
-                                                            <input type="text" className="form-control" id="resource" value={resourcesFormData.resource} onChange={handleChange} required/>
+                                                        <div class="form-group">
+                                                            <label for="title">Title:</label>
+                                                            <input type="text" class="form-control" id="title" value={eventsFormData.title} onChange={handleChange} required />
                                                         </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="resourceName">Resource Name:</label> {/* Changed label for clarity */}
-                                                            <input type="text" className="form-control" id="resourceName" value={resourcesFormData.resourceName} onChange={handleChange} required/>
+                                                        <div class="form-group">
+                                                            <label for="pwd">Description:</label>
+                                                            <input type="text" class="form-control" id="desc" value={eventsFormData.desc} onChange={handleChange} />
                                                         </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="title">Title:</label>
-                                                            <input type="text" className="form-control" id="title" value={resourcesFormData.title} onChange={handleChange} required/>
+                                                        <div class="form-group">
+                                                            <label for="pwd">Date:</label>
+                                                            <input type="date" class="form-control" id="date" value={eventsFormData.date} onChange={handleChange} />
                                                         </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="imageUrl">Image URL:</label>
-                                                            <input type="url" className="form-control" id="imageUrl" value={resourcesFormData.imageUrl} onChange={handleChange} />
+                                                        <div class="form-group">
+                                                            <label for="pwd">Address:</label>
+                                                            <input type="text" class="form-control" id="address" value={eventsFormData.address} onChange={handleChange} />
                                                         </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="address">Address:</label>
-                                                            <input type="text" className="form-control" id="address" value={resourcesFormData.address} onChange={handleChange} />
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="phone">Phone Number:</label>
-                                                            <input type="tel" className="form-control" id="phone" value={resourcesFormData.phone} onChange={handleChange} /> {/* Changed input type to tel for phone number */}
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="contactName">Contact Name:</label>
-                                                            <input type="text" className="form-control" id="contactName" value={resourcesFormData.contactName} onChange={handleChange} />
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="website">Website:</label>
-                                                            <input type="url" className="form-control" id="website" value={resourcesFormData.website} onChange={handleChange} />
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="email">Email:</label>
-                                                            <input type="email" className="form-control" id="email" value={resourcesFormData.email} onChange={handleChange} />
-                                                        </div>
-                                                        {/* Additional fields can be added here following the same pattern */}
-                                                        <div className="form-group">
-                                                            <label htmlFor="mission">Mission Statement:</label>
-                                                            <textarea id="mission" className="form-control" value={resourcesFormData.mission} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="approach">Approach Description:</label>
-                                                            <textarea id="approach" className="form-control" value={resourcesFormData.approach} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="services">Services Offered:</label>
-                                                            <textarea id="services" className="form-control" value={resourcesFormData.services} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="hoursOfOperation">Hours Of Operation:</label>
-                                                            <textarea id="hoursOfOperation" className="form-control" value={resourcesFormData.hoursOfOperation} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="locations">Locations embedding:</label>
-                                                            <textarea id="locations" className="form-control" value={resourcesFormData.locations} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="socialMedia">Social Media:</label>
-                                                            <textarea id="socialMedia" className="form-control" value={resourcesFormData.socialMedia} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="additionalInfo">Additional Info:</label>
-                                                            <textarea id="additionalInfo" className="form-control" value={resourcesFormData.additionalInfo} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                                        <div class="form-group">
+                                                            <label for="pwd">Image URL:</label>
+                                                            <input type="url" class="form-control" id="imageUrl" value={eventsFormData.imageUrl} onChange={handleChange} />
                                                         </div>
                                                         <button type="submit" class="btn btn-primary">Submit</button>
                                                     </form>
 
                                                 </div>
                                             </div>
-                                        ))} </div>
-                                    </div>
+                                        ))} </div></div>) // End of the ternary mapping of event cards
+
+                                :
+
+                                (
+
+                                    /* Starting with the alert on top */
+                                    <div>
+                                        <form onSubmit={async () => {
+                                            try {
+                                                const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert', {
+                                                    method: 'PUT',
+                                                    headers: {
+                                                        'Content-Type': 'application/json',
+                                                        Authorization: `Bearer ${token}`,
+                                                    },
+                                                    body: JSON.stringify(alertData),
+                                                });
+                                            }
+                                            catch (err) {
+                                                // setEventsData([]);
+                                                setErrorMsg(err.message); // As we know that the err object always has property called message attached to it
+                                            } // end try/catch block
+                                        }}>
+                                            <p class="card-text">Alert Message: Title - {alertData.title} | Message - {alertData.message} </p>
+                                            <div class="form-group">
+                                                <label for="title">Title:</label>
+                                                <input type="text" class="form-control" id='title' value={alertData.title} onChange={(e) => {
+                                                    const { id, value } = e.target;
+                                                    setAlertData((prevData) => (
+                                                        {
+                                                            ...prevData,
+                                                            [id]: [value]
+                                                        }
+                                                    ))
+                                                }} required />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pwd">Message:</label>
+                                                <input type="text" class="form-control" id='message' value={alertData.message} onChange={(e) => {
+                                                    const { id, value } = e.target;
+                                                    setAlertData((prevData) => (
+                                                        {
+                                                            ...prevData,
+                                                            [id]: [value]
+                                                        }
+                                                    ))
+                                                }} />
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </form>
+
+
+                                        <div style={{ maxWidth: 'fit-content', marginInline: 'auto' }}>
+                                            <div class="dropdown show" >
+                                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Select a Resource
+                                                </a>
+
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('EmpAndEdu') }} href="#">Employment and Education</a>
+                                                    <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('MentalHAndSubAbuse') }} href="#">Mental Health and Substance Abuse</a>
+                                                    <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('Housing') }} href="#">Housing</a>
+                                                    <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('FoodAsst') }} href="#">Food Assit</a>
+                                                    <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('UtilAndBasicNeeds') }} href="#">Utilities and Basic Needs</a>
+                                                    <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('Health') }} href="#">Health</a>
+                                                    <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('LegalAid') }} href="#">Legal Aid</a>
+                                                    <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('CrisisHotlines') }} href="#">Crisis Hotlines</a>
+                                                    <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('Trafficking') }} href="#">Trafficking</a>
+                                                    <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('SeniorAndDisab') }} href="#">Senior And Disability</a>
+                                                    <a class="dropdown-item" onClick={(e) => { e.preventDefault(); setResourceName('Other') }} href="#">Other</a>
+                                                </div>
+                                            </div>
+
+                                            <br />
+
+                                            <div style={{ width: '80vw' }}> {filteredData.map((resource, index) => (
+                                                <div class="card mb-3" key={index}>
+                                                    <img class="card-img-top" style={{ width: "100%", height: "300px", objectFit: "contain", borderBottom: '2px solid' }} src={resource.imageUrl} alt={resource.title} />
+                                                    <iframe
+                                                        class="card-img-top"
+                                                        style={{ border: "0", height: "300px", borderBottom: '2px solid' }}
+                                                        src={resource.locations[0]}
+                                                        width="600"
+                                                        height="450"
+                                                        allowfullscreen=""
+                                                        loading="lazy"
+                                                        referrerpolicy="no-referrer-when-downgrade"
+                                                        frameborder="0">
+                                                    </iframe>
+
+                                                    <div class="card-body" style={{ overflow: 'scroll' }}>
+                                                        <h5 class="card-title"><strong>{resource.title}</strong></h5>
+                                                        <p class="card-text">Resource Name: {resource.resourceName}</p>
+                                                        <p className="card-text">Hours Of Operation: {resource.hoursOfOperation}</p>
+                                                        <p className="card-text">Address: {resource.address}</p>
+                                                        <p className="card-text">Phone:
+                                                            {resource.phone.length !== 0 && resource.phone.map((number) =>
+                                                                number + ' '
+                                                            )}
+                                                        </p>
+                                                        <p className="card-text">Contact:
+                                                            {resource.contactName && resource.contactName.map((contact) =>
+                                                                contact + ' '
+                                                            )}
+                                                        </p>
+                                                        <p className="card-text">Website:
+                                                            {resource.website && resource.website.map((web) =>
+                                                                web + ' '
+                                                            )}
+                                                        </p>
+                                                        <p className="card-text">Email: {resource.email && resource.email.map((mail) => mail + ' ')} </p>
+                                                        <p className="card-text">Mission: {resource.mission}</p>
+                                                        <p className="card-text">Approach: {resource.approach}</p>
+                                                        <p className="card-text">Services: {resource.services && resource.services.map((serv) => serv + ' ')} </p>
+                                                        <p className="card-text">Social Media: {resource.socialMedia && resource.socialMedia.map((media) => media + ' ')}</p>
+                                                        <p className="card-text">{resource.additionalInfo}</p>
+                                                        <a href="/" class="btn btn-primary mr-2" data-toggle={resource._id} onClick={handleToggle}>Edit</a>
+                                                        <a href="/" class="btn btn-primary" data-delete={resource._id} onClick={handleDelete}>Delete</a>
+
+                                                        <form onSubmit={handleSubmit} id={resource._id} className={resEditFormOpen[resource._id] ? 'd-block' : 'd-none'}>{/* check which ones are false */}
+
+
+                                                            <div class="form-group d-none"> {/* Really important in case of the whole update process <- Once we submit the form*/}
+                                                                <label for="_id">ID:</label>
+                                                                <input type="text" class="form-control" id="_id" name='id' value={resource._id} />
+                                                            </div>
+
+                                                            <br />
+                                                            <div className="form-group">
+                                                                <label htmlFor="resource">Resource Type:</label> {/* Changed label for clarity */}
+                                                                <input type="text" className="form-control" id="resource" value={resourcesFormData.resource} onChange={handleChange} required />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label htmlFor="resourceName">Resource Name:</label> {/* Changed label for clarity */}
+                                                                <input type="text" className="form-control" id="resourceName" value={resourcesFormData.resourceName} onChange={handleChange} required />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label htmlFor="title">Title:</label>
+                                                                <input type="text" className="form-control" id="title" value={resourcesFormData.title} onChange={handleChange} required />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label htmlFor="imageUrl">Image URL:</label>
+                                                                <input type="url" className="form-control" id="imageUrl" value={resourcesFormData.imageUrl} onChange={handleChange} />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label htmlFor="address">Address:</label>
+                                                                <input type="text" className="form-control" id="address" value={resourcesFormData.address} onChange={handleChange} />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label htmlFor="phone">Phone Number:</label>
+                                                                <input type="tel" className="form-control" id="phone" value={resourcesFormData.phone} onChange={handleChange} /> {/* Changed input type to tel for phone number */}
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label htmlFor="contactName">Contact Name:</label>
+                                                                <input type="text" className="form-control" id="contactName" value={resourcesFormData.contactName} onChange={handleChange} />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label htmlFor="website">Website:</label>
+                                                                <input type="url" className="form-control" id="website" value={resourcesFormData.website} onChange={handleChange} />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label htmlFor="email">Email:</label>
+                                                                <input type="email" className="form-control" id="email" value={resourcesFormData.email} onChange={handleChange} />
+                                                            </div>
+                                                            {/* Additional fields can be added here following the same pattern */}
+                                                            <div className="form-group">
+                                                                <label htmlFor="mission">Mission Statement:</label>
+                                                                <textarea id="mission" className="form-control" value={resourcesFormData.mission} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label htmlFor="approach">Approach Description:</label>
+                                                                <textarea id="approach" className="form-control" value={resourcesFormData.approach} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label htmlFor="services">Services Offered:</label>
+                                                                <textarea id="services" className="form-control" value={resourcesFormData.services} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label htmlFor="hoursOfOperation">Hours Of Operation:</label>
+                                                                <textarea id="hoursOfOperation" className="form-control" value={resourcesFormData.hoursOfOperation} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label htmlFor="locations">Locations embedding:</label>
+                                                                <textarea id="locations" className="form-control" value={resourcesFormData.locations} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label htmlFor="socialMedia">Social Media:</label>
+                                                                <textarea id="socialMedia" className="form-control" value={resourcesFormData.socialMedia} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label htmlFor="additionalInfo">Additional Info:</label>
+                                                                <textarea id="additionalInfo" className="form-control" value={resourcesFormData.additionalInfo} onChange={handleChange} /> {/* Changed input to textarea for longer text */}
+                                                            </div>
+                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </form>
+
+                                                    </div>
+                                                </div>
+                                            ))} </div>
+                                        </div></div>
                                 )
 
                             } {/* End of the ternary mapping of resource cards */}
