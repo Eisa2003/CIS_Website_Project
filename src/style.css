@@ -199,7 +199,7 @@ h1::after{
 @keyframes typing {
   0% {
     margin-left: 0;
-    width: 350px;
+    width: 300px;
   }
 
   10% {
@@ -211,7 +211,7 @@ h1::after{
   }
 
   100% {
-    margin-left: 350px; /* Same margin-left as width = perfect typing animation */
+    margin-left: 290px; /* Same margin-left as width = perfect typing animation */
     width: 0px;
   }
 }
@@ -230,8 +230,11 @@ h1::after{
   }
 
   .navbar-brand {
-    font-size: 25px;
-    /* Apply the cursive font */
+    font-size: 20px;
+  }
+
+  .navbar-brand::before {
+    height: 30px;
   }
 
   .searchWrapper {
