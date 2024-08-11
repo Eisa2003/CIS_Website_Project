@@ -48,7 +48,7 @@ export default function AdminControls() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('http://localhost:5001/api/alert');
+            const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert');
             const alertData = await response.json();
             setAlertData(alertData);
         };
