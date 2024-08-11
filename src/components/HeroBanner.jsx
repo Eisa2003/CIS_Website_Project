@@ -1,36 +1,8 @@
-import React, { useRef, useState, useEffect } from 'react';
-import '../../src/style.css'; // Correcting the import path
-import slownature from './images/slownature.mp4';
-import fastnature from './images/fastnature.mp4';
-import thirdnature from './images/thirdnature.mp4'; 
+import React from 'react';
+import '../../src/style.css';
+import newWheat from './images/newWheat.jpg';
 
 export default function HeroBanner(props) {
-    const video1Ref = useRef(null);
-    const video2Ref = useRef(null);
-    const video3Ref = useRef(null);
-    const [videoIndex, setVideoIndex] = useState(0); // Managing video sequence
-
-    const videos = [video1Ref, video2Ref, video3Ref];
-
-    const handleVideoEnd = () => {
-        setVideoIndex((prevIndex) => (prevIndex + 1) % videos.length); // Loop through videos
-    };
-
-    useEffect(() => {
-        videos.forEach((videoRef, index) => {
-            if (videoRef.current) {
-                if (index === videoIndex) {
-                    videoRef.current.classList.add('active');
-                    videoRef.current.play();
-                } else {
-                    videoRef.current.classList.remove('active');
-                    videoRef.current.pause();
-                    videoRef.current.currentTime = 0; // Reset video to the beginning
-                }
-            }
-        });
-    }, [videoIndex, videos]);
-
     return (
         <div className='bannerContainer'>
             <div
@@ -42,39 +14,23 @@ export default function HeroBanner(props) {
                     justifyContent: 'center',
                     alignItems: 'center',
                     position: 'relative',
-                    zIndex: '-1'
                 }}
             >
-                <video
-                    ref={video1Ref}
-                    muted
-                    onEnded={handleVideoEnd}
-                    playsinline
-                    webkit-playsinline={true}
-                >
-                    <source src={fastnature} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-                <video
-                    ref={video2Ref}
-                    muted
-                    onEnded={handleVideoEnd}
-                    playsinline
-                    webkit-playsinline={true}
-                >
-                    <source src={thirdnature} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-                <video
-                    ref={video3Ref}
-                    muted
-                    onEnded={handleVideoEnd}
-                    playsinline
-                    webkit-playsinline={true} /* This is for ios specific devices */
-                >
-                    <source src={slownature} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
+                <img
+                    src={newWheat}
+                    alt="Flowers"
+                    style={{
+                        maxWidth: '100%',
+                        maxHeight: '100%',
+                        position: 'absolute',
+                        top: '0',
+                        left: '0',
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        zIndex: '-1', // ensures the image is behind the content
+                    }}
+                />
                 <div className="semicircle">
                     <h1 className="typer">{props.title}</h1>
                 </div>

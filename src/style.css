@@ -216,10 +216,6 @@ h1::after{
   }
 }
 
-  .bannerContainer{
-    display: none;
-  }
-
   .nav-item{
     margin: 15px 0px 15px 0px;
     border-bottom: #F6F6DB solid 1px;
@@ -547,28 +543,9 @@ a[href^="tel:"]:hover {
 
 /* Carousel stylings */
 
-.heroBanner video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  z-index: -1;
-  /* Ensures the video is behind the content */
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  /* Transition effect */
-}
-
-.heroBanner video.active {
-  opacity: 1;
-  /* Make the active video visible */
-}
-
 .eventCardsContainer {
   height: 82.7vh;
-  max-height: 600px;
+  max-height: 650px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -596,7 +573,8 @@ a[href^="tel:"]:hover {
 }
 
 .indCardBody {
-  height: 30vh;
+  height: 39.5vh;
+  max-height: 345px;
   color: black;
   overflow: scroll;
   margin-bottom: '5px';
@@ -777,51 +755,42 @@ a[href^="tel:"]:hover {
   align-items: center;
   overflow: hidden;
 }
-
+ 
 .content {
   position: relative;
   z-index: 1;
-  /* Ensures content is above the video */
+  /* Ensures content is above the image */
 }
-
+ 
 .semicircle {
   text-align: center;
   color: #ECFADC;
   overflow: hidden;
+  z-index: 1;
   /* Additional styles for semicircle */
 }
-
+ 
 .typer {
   position: relative;
-  color: #ECFADC;
+  color: #ceddbf;
   transition: 0.5s;
   animation: typer 1s forwards;
+  z-index: 1;
 }
-
+ 
 @keyframes typer {
   0%{ left: -50%; }
   100%{ left: 0%; }
 }
-
+ 
 .heroBanner:before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(56, 66, 43, 0.349);
-  /* Blue filter with 30% opacity */
-}
-
-/* Hide video on mobile devices */
-@media only screen and (max-width: 500px) {
-  .heroBanner video {
-    display: none !important;
-  }
-  .bannerContainer {
-      height: auto; /* Adjust height if needed */
-  }
+  z-index: 0;
+  /* Ensures the overlay is between the image and the text */
 }
 
 /* -- heroBanner END -- */
