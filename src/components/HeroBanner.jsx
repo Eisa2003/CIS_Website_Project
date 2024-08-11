@@ -70,7 +70,7 @@ export default function HeroBanner(props) {
                     muted
                     onEnded={handleVideoEnd}
                     playsinline
-                    webkit-playsinline={true}
+                    webkit-playsinline={true} /* This is for ios specific devices */
                 >
                     <source src={slownature} type="video/mp4" />
                     Your browser does not support the video tag.
