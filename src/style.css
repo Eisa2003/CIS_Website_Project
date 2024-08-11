@@ -568,6 +568,7 @@ a[href^="tel:"]:hover {
 
 .eventCardsContainer {
   height: 82.7vh;
+  max-height: 600px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
