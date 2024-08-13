@@ -512,6 +512,11 @@ export default function AdminControls() {
                                                     },
                                                     body: JSON.stringify(alertData),
                                                 });
+
+                                                if (!response.ok) {
+                                                    let error = await response.json();
+                                                    throw new Error(error.message);
+                                                } // end if
                                             }
                                             catch (err) {
                                                 // setEventsData([]);
@@ -614,6 +619,11 @@ export default function AdminControls() {
                                                     },
                                                     body: JSON.stringify(alertData),
                                                 });
+
+                                                if (!response.ok) {
+                                                    let error = await response.json();
+                                                    throw new Error(error.message);
+                                                } // end if
                                             }
                                             catch (err) {
                                                 // setEventsData([]);
