@@ -500,7 +500,8 @@ export default function AdminControls() {
                                 (
                                     /* Starting with the alert on top */
                                     <div>
-                                        <form onSubmit={async () => {
+                                        <form onSubmit={async (e) => {
+                                            e.preventDefault();
                                             let authToken = token;
                                             try {
                                                 const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert/66b9102792d7f3bb396d886c', {
@@ -601,7 +602,8 @@ export default function AdminControls() {
 
                                     /* Starting with the alert on top */
                                     <div>
-                                        <form onSubmit={async () => {
+                                        <form onSubmit={async (e) => {
+                                            e.preventDefault();
                                             let authToken = token;
                                             try {
                                                 const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert/66b9102792d7f3bb396d886c', {
