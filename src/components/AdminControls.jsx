@@ -502,7 +502,7 @@ export default function AdminControls() {
                                     <div>
                                         <form onSubmit={async () => {
                                             try {
-                                                const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert', {
+                                                const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert/66b9102792d7f3bb396d886c', {
                                                     method: 'PUT',
                                                     headers: {
                                                         'Content-Type': 'application/json',
@@ -602,7 +602,7 @@ export default function AdminControls() {
                                     <div>
                                         <form onSubmit={async () => {
                                             try {
-                                                const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert', {
+                                                const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert/66b9102792d7f3bb396d886c', {
                                                     method: 'PUT',
                                                     headers: {
                                                         'Content-Type': 'application/json',
