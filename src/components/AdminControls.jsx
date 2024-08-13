@@ -56,7 +56,7 @@ export default function AdminControls() {
             setAlertData(alertData);
         };
         fetchData();
-    })
+    },[])
 
     // for fetching the data depending on the page
     useEffect(() => {
@@ -544,6 +544,8 @@ export default function AdminControls() {
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </form>
 
+                                        <br />
+
 
                                         <div style={{ marginInline: 'auto', width: '100%' }}> {eventsData.map((event, index) => (
                                             <div class="card mb-3" key={index}>
@@ -642,6 +644,7 @@ export default function AdminControls() {
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </form>
 
+                                        <br />
 
                                         <div style={{ maxWidth: 'fit-content', marginInline: 'auto' }}>
                                             <div class="dropdown show" >
