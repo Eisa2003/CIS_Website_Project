@@ -501,12 +501,13 @@ export default function AdminControls() {
                                     /* Starting with the alert on top */
                                     <div>
                                         <form onSubmit={async () => {
+                                            let authToken = token;
                                             try {
                                                 const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert/66b9102792d7f3bb396d886c', {
                                                     method: 'PUT',
                                                     headers: {
                                                         'Content-Type': 'application/json',
-                                                        Authorization: `Bearer ${token}`,
+                                                        Authorization: `Bearer ${authToken}`,
                                                     },
                                                     body: JSON.stringify(alertData),
                                                 });
@@ -601,12 +602,13 @@ export default function AdminControls() {
                                     /* Starting with the alert on top */
                                     <div>
                                         <form onSubmit={async () => {
+                                            let authToken = token;
                                             try {
                                                 const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert/66b9102792d7f3bb396d886c', {
                                                     method: 'PUT',
                                                     headers: {
                                                         'Content-Type': 'application/json',
-                                                        Authorization: `Bearer ${token}`,
+                                                        Authorization: `Bearer ${authToken}`,
                                                     },
                                                     body: JSON.stringify(alertData),
                                                 });
