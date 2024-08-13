@@ -14,7 +14,7 @@ const NewEventsCr = () => {
         const fetchData = async () => {
             setIsLoading(true);
             try {
-                const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/events/');
+                const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/events');
                 const data = await response.json();
                 setEvents(data);
             } catch (error) {
@@ -102,7 +102,7 @@ const NewEventsCr = () => {
             {isLoading ? (
                 <div>Loading events...</div>
             ) : (
-                <div className="eventCardsContainer">
+                <div className="eventCardsContainer" style={{ padding: '10px' }}>
                     {currentEvents.length > 0 ? (
                         currentEvents.map((event) => (
                             <div className="indCards" key={event.id}> {/* Add a unique key for each event */}

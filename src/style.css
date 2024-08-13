@@ -211,7 +211,7 @@ h1::after{
   }
 
   100% {
-    margin-left: 290px; /* Same margin-left as width = perfect typing animation */
+    margin-left: 300px; /* Same margin-left as width = perfect typing animation */
     width: 0px;
   }
 }
@@ -573,8 +573,8 @@ a[href^="tel:"]:hover {
 }
 
 .indCardBody {
-  height: 39.5vh;
-  max-height: 345px;
+  height: 38.5vh;
+  max-height: 340px;
   color: black;
   overflow: scroll;
   margin-bottom: '5px';
@@ -602,7 +602,11 @@ a[href^="tel:"]:hover {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
+}
+
+.indCardBody::-webkit-scrollbar {
+  width: 0px;
 }
 
 /* Track */
@@ -749,6 +753,7 @@ a[href^="tel:"]:hover {
 .heroBanner {
   position: relative;
   height: 70vh;
+  max-height: 450px;
   width: 100%;
   display: flex;
   justify-content: center;

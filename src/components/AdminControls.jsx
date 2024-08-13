@@ -44,7 +44,10 @@ export default function AdminControls() {
         resourceName: '',
     });
     const [rerender, setRerender] = useState(0);
-    const [alertData, setAlertData] = useState({});
+    const [alertData, setAlertData] = useState({
+        title: '',
+        message: ''
+    });
 
     useEffect(() => {
         const fetchData = async () => {
@@ -57,7 +60,7 @@ export default function AdminControls() {
 
     // for fetching the data depending on the page
     useEffect(() => {
-        console.log("Token fromm admin controls " + token)
+        //console.log("Token fromm admin controls " + token)
         if (adminControlPage === "eventsPage") {
             fetchEventsData();
         }
