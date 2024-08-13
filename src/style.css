@@ -195,11 +195,15 @@ h1::after{
 
 @media only screen and (max-width: 768px) {
 
+  .eventCardsContainer{
+    padding-bottom: 15px;
+  }
+
   /* Navbar Logo Animations */
 @keyframes typing {
   0% {
     margin-left: 0;
-    width: 300px;
+    width: 320px;
   }
 
   10% {
@@ -211,7 +215,7 @@ h1::after{
   }
 
   100% {
-    margin-left: 300px; /* Same margin-left as width = perfect typing animation */
+    margin-left: 320px; /* Same margin-left as width = perfect typing animation */
     width: 0px;
   }
 }
@@ -551,7 +555,7 @@ a[href^="tel:"]:hover {
   justify-content: center;
   background-color: #38422B;
   /* background-color: grey; */
-  padding: 5px;
+  padding: 10px;
   flex-direction: row;
   margin-inline: auto;
   overflow: hidden;

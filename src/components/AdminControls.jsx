@@ -321,6 +321,7 @@ export default function AdminControls() {
     };// end function handleToggle
 
     const handleDelete = async (e) => {
+        e.preventDefault();
         const deletionId = e.target.dataset.delete; // The ID of the element that's responsible for this function call
         try {
 
@@ -503,8 +504,9 @@ export default function AdminControls() {
                                         <form onSubmit={async (e) => {
                                             e.preventDefault();
                                             let authToken = token;
+                                            let alertId = '66b9102792d7f3bb396d886c'
                                             try {
-                                                const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert/66b9102792d7f3bb396d886c', {
+                                                const response = await fetch(`http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert/${alertId}`, {
                                                     method: 'PUT',
                                                     headers: {
                                                         'Content-Type': 'application/json',
@@ -610,8 +612,9 @@ export default function AdminControls() {
                                         <form onSubmit={async (e) => {
                                             e.preventDefault();
                                             let authToken = token;
+                                            let alertId = '66b9102792d7f3bb396d886c'
                                             try {
-                                                const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert/66b9102792d7f3bb396d886c', {
+                                                const response = await fetch(`http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert/${alertId}`, {
                                                     method: 'PUT',
                                                     headers: {
                                                         'Content-Type': 'application/json',
