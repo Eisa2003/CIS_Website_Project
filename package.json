@@ -19,6 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "sync": "aws s3 --profile 'eisas-laptop' --region 'us-east-1' sync ./build s3://hcr-website/", 
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
