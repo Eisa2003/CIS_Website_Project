@@ -8,26 +8,19 @@ import Five from './images/five.jpg';
 import Six from './images/six.jpg';
 import Seven from './images/seven.jpg';
 
-export default function Carousel(props) {
+export default function Carousel() {
+  const captions = [
+    "Downtown Estill, SC",
+    "Palmetto Theater, Lee Avenue, Hampton",
+    "Yamasse Amtrak Station",
+    "Main Street, Varnville, SC - Building used as the Barbershop in Forrest Gump",
+    "Lake Warren State Park",
+    "Fountain at the Hampton County Courthouse",
+    "The Clock, Lee Avenue, Hampton, SC"
+  ];
+
   return (
     <div style={{ position: 'relative' }} className='container'>
-      <h1 style={{ 
-        display: 'none',
-        textAlign: 'center', 
-        color: 'ghostwhite', 
-        fontSize: '55px',
-        fontFamily: 'Arial, sans-serif',
-        position: 'absolute', 
-        top: '70%', 
-        left: '50%', 
-        transform: 'translate(-50%, -50%)',
-        zIndex: 1, // 
-        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Background color with some transparency
-        padding: '10px', // Padding for better appearance
-        borderRadius: '10px'
-      }}>
-        {props.title}
-      </h1>
       <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
         <ol className="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
@@ -38,28 +31,25 @@ export default function Carousel(props) {
           <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
         </ol>
-        <div className="carousel-inner" style={{  height: '70vh', maxHeight: '600px', borderRadius: '20px' }}>
-          <div className="carousel-item active">
-            <img className="d-block w-100" src={One} alt="First slide" style={{ objectFit: 'cover', height: '70vh', width: '100%' }} />
-          </div>
-          <div className="carousel-item">
-            <img className="d-block w-100" src={Two} style={{ objectFit: 'cover', height: '70vh', width: '100%' }} alt="Second slide" />
-          </div>
-          <div className="carousel-item">
-            <img className="d-block w-100" src={Three} style={{ objectFit: 'cover', height: '70vh', width: '100%' }} alt="Third slide" />
-          </div>
-          <div className="carousel-item">
-            <img className="d-block w-100" src={Four} style={{ objectFit: 'cover', height: '70vh', width: '100%' }} alt="Fourth slide" />
-          </div>
-          <div className="carousel-item">
-            <img className="d-block w-100" src={Five} style={{ objectFit: 'cover', height: '70vh', width: '100%' }} alt="Fourth slide" />
-          </div>
-          <div className="carousel-item">
-            <img className="d-block w-100" src={Six} style={{ objectFit: 'cover', height: '70vh', width: '100%' }} alt="Fourth slide" />
-          </div>
-          <div className="carousel-item">
-            <img className="d-block w-100" src={Seven} style={{ objectFit: 'cover', height: '70vh', width: '100%' }} alt="Fourth slide" />
-          </div>
+        <div className="carousel-inner" style={{ height: '70vh', maxHeight: '600px', borderRadius: '20px' }}>
+          {[One, Two, Three, Four, Five, Six, Seven].map((image, index) => (
+            <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
+              <img className="d-block w-100" src={image} alt={`Slide ${index + 1}`} style={{ objectFit: 'cover', height: '70vh', width: '100%' }} />
+              <div className="carousel-caption d-md-block" style={{
+                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                padding: '10px 20px',
+                borderRadius: '10px',
+                fontSize: '1.2rem',
+                fontFamily: 'Georgia, serif',
+                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+                maxWidth: '80%',
+                margin: '0 auto',
+                bottom: '10%', // Position the caption towards the bottom
+              }}>
+                <h5 style={{ color: 'white', fontSize: '1rem', textAlign: 'center' }}>{captions[index]}</h5>
+              </div>
+            </div>
+          ))}
         </div>
         <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
