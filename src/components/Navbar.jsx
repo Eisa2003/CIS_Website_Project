@@ -38,10 +38,10 @@ export default function Navbar(props) {
 
     const fetchData = async () => {
       try {
-        /* Original - http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/resources/
+        /* Original - https://api.hamptoncountyresourcecenter.org/api/resources/
            Test - http://localhost:3000/api/resources */
 
-        const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/resources/');
+        const response = await fetch('https://api.hamptoncountyresourcecenter.org/api/resources/');
         const data = await response.json();
 
         // Function to filter resources with unique occurrences

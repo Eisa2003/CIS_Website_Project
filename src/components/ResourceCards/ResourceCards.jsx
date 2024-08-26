@@ -10,7 +10,7 @@ export default function CrisisHotlines(props) {
   // fetching the resources and storing it
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/resources/');
+      const response = await fetch('https://api.hamptoncountyresourcecenter.org/api/resources/');
       const resourceData = await response.json();
       setData(resourceData);
     };

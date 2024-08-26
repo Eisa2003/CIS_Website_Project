@@ -55,11 +55,11 @@ export default function AdminLogin() {
           password: formData.password
         }
 
-        // Original link for the API - http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/admin/login
+        // Original link for the API - https://api.hamptoncountyresourcecenter.org/api/admin/login
         // Test link for the API - http://localhost:5001/api/admin/login
 
         try {
-          const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/admin/login',
+          const response = await fetch('https://api.hamptoncountyresourcecenter.org/api/admin/login',
             {
               method: 'POST',
               headers: {
@@ -112,11 +112,11 @@ export default function AdminLogin() {
           password: formData.password
         }
 
-        // Original link for the API - http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/admin/register
+        // Original link for the API - https://api.hamptoncountyresourcecenter.org/api/admin/register
         // Test link for the API - http://localhost:5001/api/admin/register
 
         try {
-          const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/admin/register',
+          const response = await fetch('https://api.hamptoncountyresourcecenter.org/api/admin/register',
             {
               method: 'POST',
               headers: {

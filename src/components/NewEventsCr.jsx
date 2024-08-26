@@ -14,7 +14,7 @@ const NewEventsCr = () => {
         const fetchData = async () => {
             setIsLoading(true);
             try {
-                const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/events');
+                const response = await fetch('https://api.hamptoncountyresourcecenter.org/api/events');
                 const data = await response.json();
                 setEvents(data);
             } catch (error) {

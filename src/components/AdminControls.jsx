@@ -51,7 +51,7 @@ export default function AdminControls() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert');
+            const response = await fetch('https://api.hamptoncountyresourcecenter.org/api/alert');
             const alertData = await response.json();
             setAlertData(alertData);
         };
@@ -87,7 +87,7 @@ export default function AdminControls() {
         let authToken = token;
         //console.log("This is from the AdminControls: " + authToken)
         try {
-            const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/events/admin',
+            const response = await fetch('https://api.hamptoncountyresourcecenter.org/api/events/admin',
                 {
                     method: 'GET',
                     headers: {
@@ -115,7 +115,7 @@ export default function AdminControls() {
         let authToken = token;
         // console.log("This is from the AdminControls: " + authToken)
         try {
-            const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/resources/admin',
+            const response = await fetch('https://api.hamptoncountyresourcecenter.org/api/resources/admin',
                 {
                     method: 'GET',
                     headers: {
@@ -168,7 +168,7 @@ export default function AdminControls() {
 
             try {
                 let authToken = token;
-                const response = await fetch(`http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/events/${selectedFormData._id}`,
+                const response = await fetch(`https://api.hamptoncountyresourcecenter.org/api/events/${selectedFormData._id}`,
                     {
                         method: 'PUT',
                         headers: {
@@ -227,7 +227,7 @@ export default function AdminControls() {
 
             try {
                 let authToken = token;
-                const response = await fetch(`http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/resources/${selectedFormData._id}`,
+                const response = await fetch(`https://api.hamptoncountyresourcecenter.org/api/resources/${selectedFormData._id}`,
                     {
                         method: 'PUT',
                         headers: {
@@ -327,7 +327,7 @@ export default function AdminControls() {
 
             let authToken = token;
             if (adminControlPage === 'eventsPage') {
-                const response = await fetch(`http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/events/${deletionId}`,
+                const response = await fetch(`https://api.hamptoncountyresourcecenter.org/api/events/${deletionId}`,
                     {
                         method: 'DELETE',
                         headers: {
@@ -342,7 +342,7 @@ export default function AdminControls() {
                 } // end if
             }
             else {
-                const response = await fetch(`http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/resources/${deletionId}`,
+                const response = await fetch(`https://api.hamptoncountyresourcecenter.org/api/resources/${deletionId}`,
                     {
                         method: 'DELETE',
                         headers: {
@@ -383,7 +383,7 @@ export default function AdminControls() {
             console.log(newEventData);
 
             try {
-                const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/events', {
+                const response = await fetch('https://api.hamptoncountyresourcecenter.org/api/events', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -435,7 +435,7 @@ export default function AdminControls() {
             console.log(newResourceData);
 
             try {
-                const response = await fetch('http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/resources', {
+                const response = await fetch('https://api.hamptoncountyresourcecenter.org/api/resources', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -506,7 +506,7 @@ export default function AdminControls() {
                                             let authToken = token;
                                             let alertId = '66b9102792d7f3bb396d886c'
                                             try {
-                                                const response = await fetch(`http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert/${alertId}`, {
+                                                const response = await fetch(`https://api.hamptoncountyresourcecenter.org/api/alert/${alertId}`, {
                                                     method: 'PUT',
                                                     headers: {
                                                         'Content-Type': 'application/json',
@@ -614,7 +614,7 @@ export default function AdminControls() {
                                             let authToken = token;
                                             let alertId = '66b9102792d7f3bb396d886c'
                                             try {
-                                                const response = await fetch(`http://emanagerapp-env.eba-eqcsmp9h.ap-south-1.elasticbeanstalk.com/api/alert/${alertId}`, {
+                                                const response = await fetch(`https://api.hamptoncountyresourcecenter.org/api/alert/${alertId}`, {
                                                     method: 'PUT',
                                                     headers: {
                                                         'Content-Type': 'application/json',
