@@ -108,7 +108,7 @@ const NewEventsCr = () => {
                             <div className="indCards" key={event.id}> {/* Add a unique key for each event */}
                                 <img
                                     className="card-img-top"
-                                    style={{ objectFit: "cover", height: '40vh', maxHeight: '350px', borderTopLeftRadius: '20px', borderTopRightRadius: '20px' }}
+                                    style={{ objectFit: "cover", height: '42vh', maxHeight: '350px', borderTopLeftRadius: '20px', borderTopRightRadius: '20px' }}
                                     src={event.imageUrl}
                                     alt={event.title}
                                 />

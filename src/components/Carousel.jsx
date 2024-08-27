@@ -31,10 +31,10 @@ export default function Carousel() {
           <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
         </ol>
-        <div className="carousel-inner" style={{ height: '70vh', maxHeight: '600px', borderRadius: '20px' }}>
+        <div className="carousel-inner" style={{ height: '75vh', maxHeight: '600px', borderRadius: '20px' }}>
           {[One, Two, Three, Four, Five, Six, Seven].map((image, index) => (
             <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
-              <img className="d-block w-100" src={image} alt={`Slide ${index + 1}`} style={{ objectFit: 'cover', height: '70vh', width: '100%' }} />
+              <img className="d-block w-100" src={image} alt={`Slide ${index + 1}`} style={{ objectFit: 'cover', height: '75vh', width: '100%' }} />
               <div className="carousel-caption d-md-block" style={{
                 backgroundColor: 'rgba(0, 0, 0, 0.7)',
                 padding: '10px 20px',
@@ -44,9 +44,9 @@ export default function Carousel() {
                 textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
                 maxWidth: '80%',
                 margin: '0 auto',
-                bottom: '10%', // Position the caption towards the bottom
+                bottom: '80px', // Position the caption towards the bottom
               }}>
-                <h5 style={{ color: 'white', fontSize: '1rem', textAlign: 'center' }}>{captions[index]}</h5>
+                <h5 style={{ color: 'white', fontSize: '1rem', textAlign: 'center'}}>{captions[index]}</h5>
               </div>
             </div>
           ))}

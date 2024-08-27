@@ -14,6 +14,7 @@ export default function HeroBanner(props) {
                     justifyContent: 'center',
                     alignItems: 'center',
                     position: 'relative',
+                    zIndex: '-1',
                 }}
             >
                 <img
@@ -31,7 +32,7 @@ export default function HeroBanner(props) {
                         zIndex: '-1', // ensures the image is behind the content
                     }}
                 />
-                <div className="semicircle">
+                <div className="semicircle" style={{ zIndex: '-1' }}>
                     <h1 className="typer">{props.title}</h1>
                 </div>
             </div>

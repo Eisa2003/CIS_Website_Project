@@ -548,7 +548,7 @@ a[href^="tel:"]:hover {
 /* Carousel stylings */
 
 .eventCardsContainer {
-  height: 82.7vh;
+  height: 85vh;
   max-height: 650px;
   display: flex;
   flex-wrap: wrap;
