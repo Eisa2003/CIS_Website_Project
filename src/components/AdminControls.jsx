@@ -56,7 +56,7 @@ export default function AdminControls() {
             setAlertData(alertData);
         };
         fetchData();
-    },[])
+    }, [])
 
     // for fetching the data depending on the page
     useEffect(() => {
@@ -505,6 +505,13 @@ export default function AdminControls() {
                                             e.preventDefault();
                                             let authToken = token;
                                             let alertId = '66b9102792d7f3bb396d886c'
+
+                                            const newAlertData = {
+                                                title: alertData.title.toString(),
+                                                message: alertData.message.toString()
+                                            };
+
+                                            // console.log(JSON.stringify(newAlertData))
                                             try {
                                                 const response = await fetch(`https://api.hamptoncountyresourcecenter.org/api/alert/${alertId}`, {
                                                     method: 'PUT',
@@ -512,7 +519,7 @@ export default function AdminControls() {
                                                         'Content-Type': 'application/json',
                                                         Authorization: `Bearer ${authToken}`,
                                                     },
-                                                    body: JSON.stringify(alertData),
+                                                    body: JSON.stringify(newAlertData),
                                                 });
 
                                                 if (!response.ok) {
@@ -613,6 +620,14 @@ export default function AdminControls() {
                                             e.preventDefault();
                                             let authToken = token;
                                             let alertId = '66b9102792d7f3bb396d886c'
+
+
+                                            const newAlertData = {
+                                                title: alertData.title.toString(),
+                                                message: alertData.message.toString()
+                                            };
+
+                                            // console.log(JSON.stringify(newAlertData))
                                             try {
                                                 const response = await fetch(`https://api.hamptoncountyresourcecenter.org/api/alert/${alertId}`, {
                                                     method: 'PUT',
@@ -620,7 +635,7 @@ export default function AdminControls() {
                                                         'Content-Type': 'application/json',
                                                         Authorization: `Bearer ${authToken}`,
                                                     },
-                                                    body: JSON.stringify(alertData),
+                                                    body: JSON.stringify(newAlertData),
                                                 });
 
                                                 if (!response.ok) {
