@@ -130,7 +130,7 @@ export default function Navbar(props) {
             <span className="navbar-toggler-icon" ></span>
           </button>
           <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-            <ul className="navbar-nav" style={{ marginRight: 'auto' }}>
+            <ul className="navbar-nav" style={{ marginInline: 'auto' }}>
               <li className={`nav-item ${location.pathname === '/' ? 'isActive' : ''}`}>
                 <NavLink className="nav-link" to="/">{props.home}</NavLink>
               </li>
@@ -168,7 +168,7 @@ export default function Navbar(props) {
                 </div>
               </li>
             </ul>
-            <div className="searchWrapper">
+            <div className="searchWrapper d-none">
               <div className='searchComponent'>
                 <input className={searchText === '' ? 'searchBox' : 'searchBox searchResultsActive'} type="search" placeholder="Search" aria-label="Search" value={searchText} onChange={handleChange} />
                 <button className={searchText === '' ? 'searchBtn' : 'searchBtn searchResultsActive'} type="submit" >Search</button>
