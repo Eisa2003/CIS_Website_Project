@@ -93,7 +93,7 @@ const NewEventsCr = () => {
     };
 
     const handlePrevious = () => {
-        const maxPageCount = Math.ceil(events.length / cardsPerPage);
+        // const maxPageCount = Math.ceil(events.length / cardsPerPage);
         setCurrentPage((currentPage) => Math.max(currentPage - 1, 1));
     };
 
@@ -108,15 +108,15 @@ const NewEventsCr = () => {
                             <div className="indCards" key={event.id}> {/* Add a unique key for each event */}
                                 <img
                                     className="card-img-top"
-                                    style={{ objectFit: "cover", height: '42vh', maxHeight: '350px', borderTopLeftRadius: '20px', borderTopRightRadius: '20px' }}
+                                    style={{ border: 'solid', objectFit: "cover", height: '42vh', maxHeight: '350px', borderTopLeftRadius: '20px', borderTopRightRadius: '20px' }}
                                     src={event.imageUrl}
                                     alt={event.title}
                                 />
-                                <div className="card-body indCardBody">
-                                    <h5 className="card-title"><strong>{event.title}</strong></h5>
-                                    <p className="card-text">{event.desc}</p>
-                                    <p className="card-text">{event.date}</p>
-                                    <p className="card-text">{event.address}</p>
+                                <div className="card-body indCardBody" style={{ }}>
+                                    <h5 className="card-title"><strong>{event.title}</strong></h5><hr />
+                                    <p className="card-text"><strong>Desc: </strong> {event.desc}</p><br />
+                                    <p className="card-text"><strong>Date: </strong> {event.date} </p><br />
+                                    <p className="card-text"><strong>Address: </strong> {event.address}</p>
                                 </div>
                             </div>
                         ))

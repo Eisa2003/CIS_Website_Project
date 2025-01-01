@@ -548,8 +548,8 @@ a[href^="tel:"]:hover {
 /* Carousel stylings */
 
 .eventCardsContainer {
-  height: 85vh;
-  max-height: 650px;
+  height: 87vh;
+  max-height: 750px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -557,7 +557,6 @@ a[href^="tel:"]:hover {
   /* background-color: grey; */
   padding: 10px;
   flex-direction: row;
-  margin-inline: auto;
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 10px 10px 10px 10px #6E7753;
@@ -577,15 +576,23 @@ a[href^="tel:"]:hover {
 }
 
 .indCardBody {
-  height: 38.5vh;
-  max-height: 340px;
-  color: black;
+  height: 41vh; 
+  max-height: 375px; /* Basically modified to have the vh perfectly fit and also the max-height for bigger screens */
   overflow: scroll;
+  border: solid;
   margin-bottom: '5px';
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   background-color: #F6F6DB; /* F6F6DB 38422B */
   overflow-x: hidden;
+}
+
+.card-title{
+  text-align: center;
+}
+
+.card-text{
+  color: 38422B;
 }
 
 .indCardsbtn {
