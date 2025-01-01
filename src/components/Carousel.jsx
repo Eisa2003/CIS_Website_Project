@@ -10,19 +10,19 @@ import Seven from './images/seven.jpg';
 
 export default function Carousel() {
   const captions = [
-    "Downtown Estill, SC",
-    "Palmetto Theater, Lee Avenue, Hampton",
+    "Downtown Estill",
+    "Palmetto Theater, Lee Avenue",
     "Yamasse Amtrak Station",
     "Main Street, Varnville, SC - Building used as the Barbershop in Forrest Gump",
     "Lake Warren State Park",
     "Fountain at the Hampton County Courthouse",
-    "The Clock, Lee Avenue, Hampton, SC"
+    "The Clock, Lee Avenue"
   ];
 
   return (
-    <div style={{ position: 'relative' }} className='container'>
-      <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-        <ol className="carousel-indicators">
+    <div style={{ position: 'relative', height: '80vh', border: 'solid', maxHeight: '800px', borderRadius: '20px',  padding:'0', overflow: 'hidden' }} className='container'> {/* The parent div for all the containing styles */}
+      <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel" style={{ height: '80vh',  maxHeight: '800px'}}> {/* this div is div of it's own and it contains literally every important div. Kind of stupid but if it works then it works boi */}
+        <ol className="carousel-indicators" style={{ bottom: '5%'}}>
           <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
@@ -31,23 +31,23 @@ export default function Carousel() {
           <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
         </ol>
-        <div className="carousel-inner" style={{ height: '75vh', maxHeight: '600px', borderRadius: '20px' }}>
+        {/*style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}*/}
+        <div className="carousel-inner">
           {[One, Two, Three, Four, Five, Six, Seven].map((image, index) => (
-            <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
-              <img className="d-block w-100" src={image} alt={`Slide ${index + 1}`} style={{ objectFit: 'cover', height: '75vh', width: '100%' }} />
-              <div className="carousel-caption d-md-block" style={{
-                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}> {/* Moved this div above so as to have a relative positioning*/}
+               <div className="" style={{
+                marginInline: 'auto',
+                backgroundColor: 'rgba(0, 0, 0, 1)',
                 padding: '10px 20px',
-                borderRadius: '10px',
                 fontSize: '1.2rem',
                 fontFamily: 'Georgia, serif',
                 textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
-                maxWidth: '80%',
-                margin: '0 auto',
-                bottom: '80px', // Position the caption towards the bottom
+                width: '100%',
+                zIndex: '1'
               }}>
-                <h5 style={{ color: 'white', fontSize: '1rem', textAlign: 'center'}}>{captions[index]}</h5>
+                <h5 style={{ color: 'white', fontSize: '1.5rem', textAlign: 'center'}}>{captions[index]}</h5>
               </div>
+              <img className="d-block w-100" src={image} alt={`Slide ${index + 1}`} style={{ objectFit: 'cover', height: '80vh', width: '100%' }} /> {/* Fixed the height the same as the two parent/grandparent's height */}
             </div>
           ))}
         </div>
